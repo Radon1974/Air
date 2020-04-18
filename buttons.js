@@ -28,10 +28,14 @@ function Texte1Click() {  //
 }
 
 //Стереть кнопка
-function Efface(Sender) {  //
+function Efface1Click() {  //
   //Cacommence();
   Fichiermodifie = true;
-  Effacer();
+  PetitMenu('#808000', '<Очистить> Правая кнопка = Назад');
+  Pointe_Objet(Objet, '#0000FF'); //Выбор компонента
+
+  
+  //Effacer();
   //Cestfini();
 }
 

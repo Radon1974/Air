@@ -59,7 +59,7 @@ Button3.addEventListener('click', function (e) {
   Texte1Click()
 });
 Button4.addEventListener('click', function (e) {
-  alert('Удалить');
+  Efface1Click()
 });
 Button5.addEventListener('click', function (e) {
   Dplacer1Click();
@@ -195,8 +195,12 @@ canvas.addEventListener('mousedown', function (f) {
 
       //++++++++++++++++++++++++++++++++++++++
       case 'Remove':
-        alert('Удалить');
-        funcCursor("default");
+        Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+        Effacer()  //
+
+        //Ajoute_Objet2(Objet2, Celui_La2); //
+        //Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
+        ActionMouse = '';
         break;
       case 'Move':
         alert('Переместить');
