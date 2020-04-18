@@ -721,7 +721,7 @@ function Pointe_Objet(Objet, Co) {  //
         Di = Math.sqrt(Math.pow((1.0 * X_s - Les_points[PourPt] [1]), 2) + Math.pow((1.0 * Y_s - Les_points[PourPt] [2]), 2));
         //console.log("Расстояние", Di, "x=", Les_points[PourPt] [1], "y=", Les_points[PourPt] [2] );
         
-        if ((Di < 5) && (Di > 1)) {
+        if ((Di < 20) && (Di > 1)) { //было от 5 до 1
           
           Acote = true;
           X_s = Math.round(Les_points[PourPt] [1]);
@@ -905,4 +905,4 @@ function Pointe_Objet(Objet, Co) {  //
           }
         }
       }
-  }    
+  }       
