@@ -30,7 +30,7 @@ function Effacer() {  //
 
     PetitMenu(clolive, '<Очистить> Правая кнопка = Назад');
     Pointe_Quoi = 'Tout';
-    Pointe_Objet(Pointe_Quoi, Celui_La, clolive);
+    //Pointe_Objet(Pointe_Quoi, Celui_La, clolive);
 
     if (Pointe_Quoi == 'Rien') { return false }
     if (['Une_Alim', 'Un_Carrefour', 'Un_D', 'Un_V'].includes(Pointe_Quoi)) {
