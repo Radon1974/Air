@@ -195,6 +195,7 @@ canvas.addEventListener('mousedown', function (f) {
 
       //++++++++++++++++++++++++++++++++++++++
       case 'Remove':
+        Celui_La2 = 1;
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
         Effacer()  //
 
@@ -202,6 +203,8 @@ canvas.addEventListener('mousedown', function (f) {
         //Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
         ActionMouse = '';
         break;
+        
+      //++++++++++++++++++++++++++++++++++++++  
       case 'Move':
         alert('Переместить');
         funcCursor("default");
@@ -360,6 +363,7 @@ var Compteursouris = 0;
 var Facteur = 1.1, Vieux_Facteur = 0, XG = 0, YG = 0;
 var Textenter = '', Heure = false, Prox2 = 0, Objet2 = '', Celui_La2 = 0, Quoi_Donc2 = '', Lax2 = 0, Lay2 = 0;
 var Puissance = true, Ext = true, Debut = true, XL = 0, YL = 0, Old_XL = 0, Old_YL = 0, XFin = 0, YFin = 0;
+var Pointe_Quoi = '';
 
 for (let i = 1; i <= Max_Distributeur; i++) {
   Distributeur[i] = {

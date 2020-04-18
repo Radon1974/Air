@@ -32,8 +32,10 @@ function Efface1Click() {  //
   //Cacommence();
   Fichiermodifie = true;
   PetitMenu('#808000', '<Очистить> Правая кнопка = Назад');
-  Pointe_Objet(Objet, '#0000FF'); //Выбор компонента
-
+  Pointe_Quoi = 'Tout';
+  
+  Pointe_Objet(Pointe_Quoi, '#0000FF'); //Выбор компонента
+  ActionMouse = 'Remove'; 
   
   //Effacer();
   //Cestfini();

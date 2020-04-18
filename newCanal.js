@@ -917,7 +917,7 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
     PourPt = 1;
     while (PourPt <= Nb_Point) {  //Ввести координаты точки линии (силовой или управления)
         Di = Math.sqrt(Math.pow(1.0 * X_s - Les_points[PourPt][1], 2) + Math.pow(1.0 * Y_s - Les_points[PourPt][2], 2));
-        if ((Di < 20) && (Di > 1)) { //было от 4 до 1
+        if ((Di < 4) && (Di > 1)) { //было от 4 до 1
             X_s = Math.round(Les_points[PourPt][1]);
             Y_s = Math.round(Les_points[PourPt][2]);
             PourPt = Nb_Point + 1;
