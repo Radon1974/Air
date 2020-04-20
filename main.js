@@ -206,10 +206,17 @@ canvas.addEventListener('mousedown', function (f) {
         
       //++++++++++++++++++++++++++++++++++++++  
       case 'Move':
-        alert('Переместить');
-        funcCursor("default");
+        Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+        Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
+        ActionMouse = 'Move2';
         break;
-
+        
+    case 'Move2':
+    Deplace_Objet()
+    funcCursor("default");
+    ActionMouse = '';
+    Fichiermodifie = false;
+    break;
       //++++++++++++++++++++++++++++++++++++++
       case 'DRA':
         

@@ -173,11 +173,18 @@ function Sortir1Click(Sender) {  //
 
 //Движение  кнопка
 function Dplacer1Click() {  //
+Fichiermodifie = true;
+PetitMenu('#A6CAF0', '<Переместить>  Выбор компонента ?');
 
+ Objet2 = 'Toutsaufcanal';
+
+
+Pointe_Objet(Objet2, '#0000FF'); //Выбор компонента
+ActionMouse = 'Deplace';
   //Cacommence();
-  Droite = false;
-  while (!Droite) { Deplace_Objet() }
-  Cestfini();
+  //Droite = false;
+  //while (!Droite) { Deplace_Objet() }
+  //Cestfini();
 }
 
 //Время
