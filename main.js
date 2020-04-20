@@ -174,7 +174,7 @@ canvas.addEventListener('mousedown', function (f) {
       case 'Pointe_Objet2':
         Pointe_Objet2(Objet2, Prox2);                             //Выбор компонента
         Ajoute_Objet2(Objet2, Celui_La2);                         //
-        Ou_Que(Lax2, Lay2, false, Quoi_Donc2);                    //Выбор места установки компонента
+        Ou_Que();                    //Выбор места установки компонента
         ActionMouse = 'Ajoute_Objet3';
         break;
       case 'Ajoute_Objet3':
@@ -203,23 +203,23 @@ canvas.addEventListener('mousedown', function (f) {
         //Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
         ActionMouse = '';
         break;
-        
+
       //++++++++++++++++++++++++++++++++++++++  
       case 'Move':
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
-        Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
+        Ou_Que(); //Выбор места установки компонента
         ActionMouse = 'Move2';
         break;
-        
-    case 'Move2':
-    Deplace_Objet()
-    funcCursor("default");
-    ActionMouse = '';
-    Fichiermodifie = false;
-    break;
+
+      case 'Move2':
+        Deplace_Objet()
+        funcCursor("default");
+        ActionMouse = '';
+        Fichiermodifie = false;
+        break;
       //++++++++++++++++++++++++++++++++++++++
       case 'DRA':
-        
+
         DRA(mouse.x, mouse.y);              //Ввод точки канала
         Entre_Canal();                      //Ввод канала
         if (Ext) {
@@ -367,7 +367,7 @@ var Actionencours = true, Fichiermodifie = true, Pasapas = true;
 var Dialogvaleur = 0;
 var Compteursouris = 0;
 //var      MetaFile:TMetaFile;
-var Facteur = 1.1, Vieux_Facteur = 0, XG = 0, YG = 0;
+var Facteur = 1, Vieux_Facteur = 0, XG = 0, YG = 0;
 var Textenter = '', Heure = false, Prox2 = 0, Objet2 = '', Celui_La2 = 0, Quoi_Donc2 = '', Lax2 = 0, Lay2 = 0;
 var Puissance = true, Ext = true, Debut = true, XL = 0, YL = 0, Old_XL = 0, Old_YL = 0, XFin = 0, YFin = 0;
 var Pointe_Quoi = '';

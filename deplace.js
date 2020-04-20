@@ -1,4 +1,5 @@
 //Перемещение компонента
+//TODO: Не перемещаются вместе с компонентами каналы
 function Deplace_Objet() {
   var Objet = '';
   var Pour = 0,
@@ -25,10 +26,10 @@ function Deplace_Objet() {
 
   //Lax = 150;
   //Lay = 150;
-  Lax = Lax2;
-  Lay = Lay2;
+  Lax = X_s;
+  Lay = Y_s;
 
-  if (Objet == 'Un_Cap') { if ([Et, Ou, Inhibition].includes(Capteur[Pour].Modele)) { Objet = 'Une_Cellule' } }
+  if (Objet == 'Un_Cap') { if (['Et', 'Ou', 'Inhibition'].includes(Capteur[Pour].Modele)) { Objet = 'Une_Cellule' } }
 
   PetitMenu('#A6CAF0', '<Переместить>  Укажите новую позицию ?');
   //GetCursorPos(MyPoint);
@@ -96,7 +97,7 @@ function Deplace_Objet() {
       Commande[Distributeur[Pour].Com[2].Laquelle].Y = Commande[Distributeur[Pour].Com[2].Laquelle].Y + dy;
       break;
 
-    case 'Un_texte':
+    case 'Un_Texte':
       dx = Lax - Math.round(Texte[Pour].X);
       dy = Lay - Math.round(Texte[Pour].Y);
       Texte[Pour].X = Texte[Pour].X + dx;
@@ -110,7 +111,7 @@ function Deplace_Objet() {
       AliMentation[Pour].Y = AliMentation[Pour].Y + dy;
       break;
 
-    case 'Une_Alim_pilote':
+    case 'Une_Alim_Pilote':
       dx = Lax - Math.round(Alim_Pilote[Pour].X);
       dy = Lay - Math.round(Alim_Pilote[Pour].Y);
       Alim_Pilote[Pour].X = Alim_Pilote[Pour].X + dx;
@@ -124,7 +125,7 @@ function Deplace_Objet() {
       Carrefour[Pour].Y = Carrefour[Pour].Y + dy;
       break;
 
-    case 'Un_Carrefour_pilote':
+    case 'Un_Carrefour_Pilote':
       dx = Lax - Math.round(Carrefour_Pilote[Pour].X);
       dy = Lay - Math.round(Carrefour_Pilote[Pour].Y);
       Carrefour_Pilote[Pour].X = Carrefour_Pilote[Pour].X + dx;
@@ -136,7 +137,7 @@ function Deplace_Objet() {
       dy = Lay - Memoire[Pour].Y;
       Memoire[Pour].X = Memoire[Pour].X + dx;
       Memoire[Pour].Y = Memoire[Pour].Y + dy;
-      for (let Pour2 = 1; Pour <= 4; Pour2++) {
+      for (let Pour2 = 1; Pour2 <= 4; Pour2++) {
         Memoire[Pour].ExtX[Pour2] = Memoire[Pour].ExtX[Pour2] + dx;
         Memoire[Pour].ExtY[Pour2] = Memoire[Pour].ExtY[Pour2] + dy;
       }

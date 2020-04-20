@@ -1,4 +1,6 @@
 //Создание силового канала
+//TODO: Виснет на распределителе, когда он на экране (при добавлении канала)
+//TODO: Не привязывается канал к источнику канала
 function Entre_Canal() {  //Присвоение точек каналу
     //    var XL = 0;
     //    var YL = 0;
@@ -1069,7 +1071,7 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
             if (!Puissance) {
                 for (let Pour = 1; Pour <= Nb_Memoire; Pour++) {
                     
-                    for (let Pour2 = 1; Pour2 <= 4; Pour2++) Do
+                    for (let Pour2 = 1; Pour2 <= 4; Pour2++)
                     {
                         
                         D = Dista(Memoire[Pour].ExtX[Pour2], Memoire[Pour].ExtY[Pour2]);

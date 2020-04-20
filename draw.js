@@ -1195,7 +1195,7 @@ function Cree_Carrefour_Pilote(Xe, Ye) {  //
 }
 
 //Отображение 
-function Ou_Que(Old_X, Old_Y, Panoramique, Objet) {  //Old_X, Old_Y - координаты   Objet - выводимый объект
+function Ou_Que() {  //Old_X, Old_Y - координаты   Objet - выводимый объект
   var X = 0;
   var Y = 0;
 
@@ -1287,6 +1287,7 @@ function Ou_Que(Old_X, Old_Y, Panoramique, Objet) {  //Old_X, Old_Y - коорд
   Old_Y = Y;
   Lax2 = X;   //Для совместимости
   Lay2 = Y;
+  console.log("Lax2",Lax2,"Lay2", Lay2)
   /*while (true) {
     //Croix(X, Y);
     Gauche = false;   //Показать курсор пока не будет true (нажата левая клавиша мыши)
