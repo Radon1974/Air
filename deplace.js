@@ -23,8 +23,10 @@ function Deplace_Objet() {
     return false;
   }
 
-  Lax = 150;
-  Lay = 150;
+  //Lax = 150;
+  //Lay = 150;
+  Lax = Lax2;
+  Lay = Lay2;
 
   if (Objet == 'Un_Cap') { if ([Et, Ou, Inhibition].includes(Capteur[Pour].Modele)) { Objet = 'Une_Cellule' } }
 
@@ -34,8 +36,8 @@ function Deplace_Objet() {
   Immonde_rustine_double_v = false;
   Immonde_rustine_galet_v = false;
 
-  if (Objet == 'Un_V') { if (Verin[Pour].Modele = 'Double_V') { Immonde_rustine_double_v = true } }
-  if (Objet == 'Un_Cap') { if (Capteur[Pour].Modele = 'A_Galet_V') { Immonde_rustine_galet_v = true } }
+  if (Objet == 'Un_V') { if (Verin[Pour].Modele == 'Double_V') { Immonde_rustine_double_v = true } }
+  if (Objet == 'Un_Cap') { if (Capteur[Pour].Modele == 'A_Galet_V') { Immonde_rustine_galet_v = true } }
   //Ou_Que(Lax, Lay, false, Objet);
   Immonde_rustine_double_v = false;
   Immonde_rustine_galet_v = false;
@@ -146,67 +148,67 @@ function Deplace_Objet() {
       if (Canal[Pour2].Bout[Pour3].Quoi == Objet) {
         if (Canal[Pour2].Bout[Pour3].Lequel == Pour) {
           if (Pour3 == 2) {
-            if (Canal[Pour2].nbpoint == 2) {
+            if (Canal[Pour2].NbPoint == 2) {
               Canal[Pour2].NbPoint = 3;
-              Canal[Pour2].parcoursx[3] = Canal[Pour2].parcoursx[2];
-              Canal[Pour2].Parcoursy[3] = Canal[Pour2].Parcoursy[2];
-              Canal[Pour2].parcoursx[2] = (Canal[Pour2].parcoursx[1] + Canal[Pour2].parcoursx[3]) / 2;
-              Canal[Pour2].parcoursy[2] = (Canal[Pour2].parcoursy[1] + Canal[Pour2].parcoursy[3]) / 2;
+              Canal[Pour2].ParcoursX[3] = Canal[Pour2].ParcoursX[2];
+              Canal[Pour2].ParcoursY[3] = Canal[Pour2].ParcoursY[2];
+              Canal[Pour2].ParcoursX[2] = (Canal[Pour2].ParcoursX[1] + Canal[Pour2].ParcoursX[3]) / 2;
+              Canal[Pour2].ParcoursY[2] = (Canal[Pour2].ParcoursY[1] + Canal[Pour2].ParcoursY[3]) / 2;
             }
 
-            if ((Math.round(Canal[Pour2].parcoursy[Canal[Pour2].nbPoint]) == Math.round(Canal[Pour2].Parcoursy[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].parcoursx[Canal[Pour2].nbPoint - 1]) == Math.round(Canal[Pour2].Parcoursx[Canal[Pour2].NbPoint - 2]))) {
-              Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] = Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] + dx;
-              Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] = Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] + dy;
-              Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint - 1] = Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint];
+            if ((Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint]) == Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 1]) == Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 2]))) {
+              Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] + dx;
+              Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] + dy;
+              Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 1] = Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint];
             } else {
-              if ((Math.round(Canal[Pour2].parcoursx[Canal[Pour2].nbPoint]) == Math.round(Canal[Pour2].Parcoursx[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].parcoursx[Canal[Pour2].nbPoint - 1]) == Math.round(Canal[Pour2].Parcoursx[Canal[Pour2].NbPoint - 2]))) {
-                Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] = Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] + dx;
-                Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] = Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] + dy;
-                Canal[Pour2].Parcoursx[Canal[Pour2].Nbpoint - 1] = Canal[Pour2].Parcoursx[Canal[Pour2].Nbpoint];
-                Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint - 1] = Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint - 2];
+              if ((Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint]) == Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 1]) == Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 2]))) {
+                Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] + dx;
+                Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] + dy;
+                Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 1] = Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint];
+                Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 1] = Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 2];
               } else {
-                if ((Math.round(Canal[Pour2].parcoursx[Canal[Pour2].nbPoint]) == Math.round(Canal[Pour2].Parcoursx[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].parcoursy[Canal[Pour2].nbPoint - 1]) == Math.round(Canal[Pour2].Parcoursy[Canal[Pour2].NbPoint - 2]))) {
-                  Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] = Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] + dx;
-                  Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] = Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] + dy;
-                  Canal[Pour2].Parcoursx[Canal[Pour2].Nbpoint - 1] = Canal[Pour2].Parcoursx[Canal[Pour2].Nbpoint];
+                if ((Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint]) == Math.round(Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 1]) == Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 2]))) {
+                  Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] + dx;
+                  Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] + dy;
+                  Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 1] = Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint];
                 } else {
-                  if ((Math.round(Canal[Pour2].parcoursy[Canal[Pour2].nbPoint]) == Math.round(Canal[Pour2].Parcoursy[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].parcoursy[Canal[Pour2].nbPoint - 1]) == Math.round(Canal[Pour2].Parcoursy[Canal[Pour2].NbPoint - 2]))) {
-                    Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] = Canal[Pour2].parcoursx[Canal[Pour2].Nbpoint] + dx;
-                    Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] = Canal[Pour2].Parcoursy[Canal[Pour2].Nbpoint] + dy;
-                    Canal[Pour2].Parcoursx[Canal[Pour2].Nbpoint - 1] = Canal[Pour2].Parcoursx[Canal[Pour2].Nbpoint];
+                  if ((Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint]) == Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 1])) && (Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 1]) == Math.round(Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint - 2]))) {
+                    Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint] + dx;
+                    Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] = Canal[Pour2].ParcoursY[Canal[Pour2].NbPoint] + dy;
+                    Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint - 1] = Canal[Pour2].ParcoursX[Canal[Pour2].NbPoint];
                   }
                 }
               }
             }
           } else if (Pour3 == 1) {
-            if (Canal[Pour2].nbpoint == 2) {
+            if (Canal[Pour2].NbPoint == 2) {
               Canal[Pour2].NbPoint = 3;
-              Canal[Pour2].parcoursx[3] = Canal[Pour2].parcoursx[2];
-              Canal[Pour2].Parcoursy[3] = Canal[Pour2].Parcoursy[2];
-              Canal[Pour2].parcoursx[2] = (Canal[Pour2].parcoursx[1] + Canal[Pour2].parcoursx[3]) / 2;
-              parcoursy[2] = (parcoursy[1] + parcoursy[3]) / 2;
+              Canal[Pour2].ParcoursX[3] = Canal[Pour2].ParcoursX[2];
+              Canal[Pour2].ParcoursY[3] = Canal[Pour2].ParcoursY[2];
+              Canal[Pour2].ParcoursX[2] = (Canal[Pour2].ParcoursX[1] + Canal[Pour2].ParcoursX[3]) / 2;
+              ParcoursY[2] = (ParcoursY[1] + ParcoursY[3]) / 2;
             }
 
-            if ((Math.round(Canal[Pour2].parcoursy[1]) == Math.round(Canal[Pour2].Parcoursy[2])) && (Math.round(Canal[Pour2].parcoursx[2]) == Math.round(Canal[Pour2].Parcoursx[3]))) {
-              Canal[Pour2].parcoursx[1] = Canal[Pour2].parcoursx[1] + dx;
-              Canal[Pour2].Parcoursy[1] = Canal[Pour2].Parcoursy[1] + dy;
-              Canal[Pour2].Parcoursy[2] = Canal[Pour2].Parcoursy[1];
+            if ((Math.round(Canal[Pour2].ParcoursY[1]) == Math.round(Canal[Pour2].ParcoursY[2])) && (Math.round(Canal[Pour2].ParcoursX[2]) == Math.round(Canal[Pour2].ParcoursX[3]))) {
+              Canal[Pour2].ParcoursX[1] = Canal[Pour2].ParcoursX[1] + dx;
+              Canal[Pour2].ParcoursY[1] = Canal[Pour2].ParcoursY[1] + dy;
+              Canal[Pour2].ParcoursY[2] = Canal[Pour2].ParcoursY[1];
             } else {
-              if ((Math.round(Canal[Pour2].parcoursx[1]) == Math.round(Canal[Pour2].Parcoursx[2])) && (Math.round(Canal[Pour2].parcoursx[2]) == Math.round(Canal[Pour2].Parcoursx[3]))) {
-                Canal[Pour2].parcoursx[1] = Canal[Pour2].parcoursx[1] + dx;
-                Canal[Pour2].Parcoursy[1] = Canal[Pour2].Parcoursy[1] + dy;
-                Canal[Pour2].Parcoursy[2] = Canal[Pour2].Parcoursy[3];
-                Canal[Pour2].Parcoursx[2] = Canal[Pour2].Parcoursx[1];
+              if ((Math.round(Canal[Pour2].ParcoursX[1]) == Math.round(Canal[Pour2].ParcoursX[2])) && (Math.round(Canal[Pour2].ParcoursX[2]) == Math.round(Canal[Pour2].ParcoursX[3]))) {
+                Canal[Pour2].ParcoursX[1] = Canal[Pour2].ParcoursX[1] + dx;
+                Canal[Pour2].ParcoursY[1] = Canal[Pour2].ParcoursY[1] + dy;
+                Canal[Pour2].ParcoursY[2] = Canal[Pour2].ParcoursY[3];
+                Canal[Pour2].ParcoursX[2] = Canal[Pour2].ParcoursX[1];
               } else {
-                if ((Math.round(Canal[Pour2].parcoursx[1]) == Math.round(Canal[Pour2].Parcoursx[2])) && (Math.round(Canal[Pour2].parcoursy[2]) == Math.round(Canal[Pour2].Parcoursy[3]))) {
-                  Canal[Pour2].parcoursx[1] = Canal[Pour2].parcoursx[1] + dx;
-                  Canal[Pour2].Parcoursy[1] = Canal[Pour2].Parcoursy[1] + dy;
-                  Canal[Pour2].Parcoursx[2] = Canal[Pour2].Parcoursx[1];
+                if ((Math.round(Canal[Pour2].ParcoursX[1]) == Math.round(Canal[Pour2].ParcoursX[2])) && (Math.round(Canal[Pour2].ParcoursY[2]) == Math.round(Canal[Pour2].ParcoursY[3]))) {
+                  Canal[Pour2].ParcoursX[1] = Canal[Pour2].ParcoursX[1] + dx;
+                  Canal[Pour2].ParcoursY[1] = Canal[Pour2].ParcoursY[1] + dy;
+                  Canal[Pour2].ParcoursX[2] = Canal[Pour2].ParcoursX[1];
                 } else {
-                  if ((Math.round(Canal[Pour2].parcoursy[1]) == Math.round(Canal[Pour2].Parcoursy[2])) && (Math.round(Canal[Pour2].parcoursy[2]) == Math.round(Canal[Pour2].Parcoursy[3]))) {
-                    Canal[Pour2].parcoursx[1] = Canal[Pour2].parcoursx[1] + dx;
-                    Canal[Pour2].Parcoursy[1] = Canal[Pour2].Parcoursy[1] + dy;
-                    Canal[Pour2].Parcoursx[2] = Canal[Pour2].Parcoursx[1];
+                  if ((Math.round(Canal[Pour2].ParcoursY[1]) == Math.round(Canal[Pour2].ParcoursY[2])) && (Math.round(Canal[Pour2].ParcoursY[2]) == Math.round(Canal[Pour2].ParcoursY[3]))) {
+                    Canal[Pour2].ParcoursX[1] = Canal[Pour2].ParcoursX[1] + dx;
+                    Canal[Pour2].ParcoursY[1] = Canal[Pour2].ParcoursY[1] + dy;
+                    Canal[Pour2].ParcoursX[2] = Canal[Pour2].ParcoursX[1];
                   }
                 }
               }
@@ -226,68 +228,68 @@ function Deplace_Objet() {
       if (Canal_Pilote[Pour2].Bout[Pour3].Quoi == Objet) {
         if (Canal_Pilote[Pour2].Bout[Pour3].Lequel == Pour) {
           if (Pour3 == 2) {
-            if (Canal_Pilote[Pour2].nbpoint == 2) {
+            if (Canal_Pilote[Pour2].NbPoint == 2) {
               Canal_Pilote[Pour2].NbPoint = 3;
-              Canal_Pilote[Pour2].parcoursx[3] = Canal_Pilote[Pour2].parcoursx[2];
-              Canal_Pilote[Pour2].Parcoursy[3] = Canal_Pilote[Pour2].Parcoursy[2];
-              Canal_Pilote[Pour2].parcoursx[2] = (Canal_Pilote[Pour2].parcoursx[1] + Canal_Pilote[Pour2].parcoursx[3]) / 2;
-              Canal_Pilote[Pour2].parcoursy[2] = (Canal_Pilote[Pour2].parcoursy[1] + Canal_Pilote[Pour2].parcoursy[3]) / 2;
+              Canal_Pilote[Pour2].ParcoursX[3] = Canal_Pilote[Pour2].ParcoursX[2];
+              Canal_Pilote[Pour2].ParcoursY[3] = Canal_Pilote[Pour2].ParcoursY[2];
+              Canal_Pilote[Pour2].ParcoursX[2] = (Canal_Pilote[Pour2].ParcoursX[1] + Canal_Pilote[Pour2].ParcoursX[3]) / 2;
+              Canal_Pilote[Pour2].ParcoursY[2] = (Canal_Pilote[Pour2].ParcoursY[1] + Canal_Pilote[Pour2].ParcoursY[3]) / 2;
             }
 
-            if ((Math.round(Canal_Pilote[Pour2].parcoursy[Canal_Pilote[Pour2].nbPoint]) == Math.round(Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].nbPoint - 1]) == Math.round(Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].NbPoint - 2]))) {
-              Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] + dx;
-              Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] + dy;
-              Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint - 1] = Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint];
+            if ((Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint]) == Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 1]) == Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 2]))) {
+              Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] + dx;
+              Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] + dy;
+              Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 1] = Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint];
             } else {
-              if ((Math.round(Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].nbPoint]) == Math.round(Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].nbPoint - 1]) == Math.round(Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].NbPoint - 2]))) {
-                Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] + dx;
-                Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] + dy;
-                Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].Nbpoint - 1] = Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].Nbpoint];
-                Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint - 1] = Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint - 2];
+              if ((Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint]) == Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 1]) == Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 2]))) {
+                Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] + dx;
+                Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] + dy;
+                Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 1] = Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint];
+                Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 1] = Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 2];
               } else {
-                if ((Math.round(Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].nbPoint]) == Math.round(Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].parcoursy[Canal_Pilote[Pour2].nbPoint - 1]) == Math.round(Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].NbPoint - 2]))) {
-                  Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] + dx;
-                  Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] + dy;
-                  Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].Nbpoint - 1] = Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].Nbpoint];
+                if ((Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint]) == Math.round(Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 1]) == Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 2]))) {
+                  Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] + dx;
+                  Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] + dy;
+                  Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 1] = Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint];
                 } else {
-                  if ((Math.round(Canal_Pilote[Pour2].parcoursy[Canal_Pilote[Pour2].nbPoint]) == Math.round(Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].parcoursy[Canal_Pilote[Pour2].nbPoint - 1]) == Math.round(Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].NbPoint - 2]))) {
-                    Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].parcoursx[Canal_Pilote[Pour2].Nbpoint] + dx;
-                    Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] = Canal_Pilote[Pour2].Parcoursy[Canal_Pilote[Pour2].Nbpoint] + dy;
-                    Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].Nbpoint - 1] = Canal_Pilote[Pour2].Parcoursx[Canal_Pilote[Pour2].Nbpoint];
+                  if ((Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint]) == Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 1])) && (Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 1]) == Math.round(Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint - 2]))) {
+                    Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint] + dx;
+                    Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] = Canal_Pilote[Pour2].ParcoursY[Canal_Pilote[Pour2].NbPoint] + dy;
+                    Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint - 1] = Canal_Pilote[Pour2].ParcoursX[Canal_Pilote[Pour2].NbPoint];
                   }
                 }
               }
             }
           } else {
             if (Pour3 == 1) {
-              if (Canal_Pilote[Pour2].nbpoint == 2) {
+              if (Canal_Pilote[Pour2].NbPoint == 2) {
                 Canal_Pilote[Pour2].NbPoint = 3;
-                Canal_Pilote[Pour2].parcoursx[3] = Canal_Pilote[Pour2].parcoursx[2];
-                Canal_Pilote[Pour2].Parcoursy[3] = Canal_Pilote[Pour2].Parcoursy[2];
-                Canal_Pilote[Pour2].parcoursx[2] = (Canal_Pilote[Pour2].parcoursx[1] + Canal_Pilote[Pour2].parcoursx[3]) / 2;
-                Canal_Pilote[Pour2].parcoursy[2] = (Canal_Pilote[Pour2].parcoursy[1] + Canal_Pilote[Pour2].parcoursy[3]) / 2;
+                Canal_Pilote[Pour2].ParcoursX[3] = Canal_Pilote[Pour2].ParcoursX[2];
+                Canal_Pilote[Pour2].ParcoursY[3] = Canal_Pilote[Pour2].ParcoursY[2];
+                Canal_Pilote[Pour2].ParcoursX[2] = (Canal_Pilote[Pour2].ParcoursX[1] + Canal_Pilote[Pour2].ParcoursX[3]) / 2;
+                Canal_Pilote[Pour2].ParcoursY[2] = (Canal_Pilote[Pour2].ParcoursY[1] + Canal_Pilote[Pour2].ParcoursY[3]) / 2;
               }
 
-              if ((Math.round(Canal_Pilote[Pour2].parcoursy[1]) == Math.round(Canal_Pilote[Pour2].Parcoursy[2])) && (Math.round(Canal_Pilote[Pour2].parcoursx[2]) == Math.round(Canal_Pilote[Pour2].Parcoursx[3]))) {
-                Canal_Pilote[Pour2].parcoursx[1] = Canal_Pilote[Pour2].parcoursx[1] + dx;
-                Canal_Pilote[Pour2].Parcoursy[1] = Canal_Pilote[Pour2].Parcoursy[1] + dy;
-                Canal_Pilote[Pour2].Parcoursy[2] = Canal_Pilote[Pour2].Parcoursy[1];
+              if ((Math.round(Canal_Pilote[Pour2].ParcoursY[1]) == Math.round(Canal_Pilote[Pour2].ParcoursY[2])) && (Math.round(Canal_Pilote[Pour2].ParcoursX[2]) == Math.round(Canal_Pilote[Pour2].ParcoursX[3]))) {
+                Canal_Pilote[Pour2].ParcoursX[1] = Canal_Pilote[Pour2].ParcoursX[1] + dx;
+                Canal_Pilote[Pour2].ParcoursY[1] = Canal_Pilote[Pour2].ParcoursY[1] + dy;
+                Canal_Pilote[Pour2].ParcoursY[2] = Canal_Pilote[Pour2].ParcoursY[1];
               } else {
-                if ((Math.round(Canal_Pilote[Pour2].parcoursx[1]) == Math.round(Canal_Pilote[Pour2].Parcoursx[2])) && (Math.round(Canal_Pilote[Pour2].parcoursx[2]) == Math.round(Canal_Pilote[Pour2].Parcoursx[3]))) {
-                  Canal_Pilote[Pour2].parcoursx[1] = Canal_Pilote[Pour2].parcoursx[1] + dx;
-                  Canal_Pilote[Pour2].Parcoursy[1] = Canal_Pilote[Pour2].Parcoursy[1] + dy;
-                  Canal_Pilote[Pour2].Parcoursy[2] = Canal_Pilote[Pour2].Parcoursy[3];
-                  Canal_Pilote[Pour2].Parcoursx[2] = Canal_Pilote[Pour2].Parcoursx[1];
+                if ((Math.round(Canal_Pilote[Pour2].ParcoursX[1]) == Math.round(Canal_Pilote[Pour2].ParcoursX[2])) && (Math.round(Canal_Pilote[Pour2].ParcoursX[2]) == Math.round(Canal_Pilote[Pour2].ParcoursX[3]))) {
+                  Canal_Pilote[Pour2].ParcoursX[1] = Canal_Pilote[Pour2].ParcoursX[1] + dx;
+                  Canal_Pilote[Pour2].ParcoursY[1] = Canal_Pilote[Pour2].ParcoursY[1] + dy;
+                  Canal_Pilote[Pour2].ParcoursY[2] = Canal_Pilote[Pour2].ParcoursY[3];
+                  Canal_Pilote[Pour2].ParcoursX[2] = Canal_Pilote[Pour2].ParcoursX[1];
                 } else {
-                  if ((Math.round(Canal_Pilote[Pour2].parcoursx[1]) == Math.round(Canal_Pilote[Pour2].Parcoursx[2])) && (Math.round(Canal_Pilote[Pour2].parcoursy[2]) == Math.round(Canal_Pilote[Pour2].Parcoursy[3]))) {
-                    Canal_Pilote[Pour2].parcoursx[1] = Canal_Pilote[Pour2].parcoursx[1] + dx;
-                    Canal_Pilote[Pour2].Parcoursy[1] = Canal_Pilote[Pour2].Parcoursy[1] + dy;
-                    Canal_Pilote[Pour2].Parcoursx[2] = Canal_Pilote[Pour2].Parcoursx[1];
+                  if ((Math.round(Canal_Pilote[Pour2].ParcoursX[1]) == Math.round(Canal_Pilote[Pour2].ParcoursX[2])) && (Math.round(Canal_Pilote[Pour2].ParcoursY[2]) == Math.round(Canal_Pilote[Pour2].ParcoursY[3]))) {
+                    Canal_Pilote[Pour2].ParcoursX[1] = Canal_Pilote[Pour2].ParcoursX[1] + dx;
+                    Canal_Pilote[Pour2].ParcoursY[1] = Canal_Pilote[Pour2].ParcoursY[1] + dy;
+                    Canal_Pilote[Pour2].ParcoursX[2] = Canal_Pilote[Pour2].ParcoursX[1];
                   } else {
-                    if ((Math.round(Canal_Pilote[Pour2].parcoursy[1]) == Math.round(Canal_Pilote[Pour2].Parcoursy[2])) && (Math.round(Canal_Pilote[Pour2].parcoursy[2]) == Math.round(Canal_Pilote[Pour2].Parcoursy[3]))) {
-                      Canal_Pilote[Pour2].parcoursx[1] = Canal_Pilote[Pour2].parcoursx[1] + dx;
-                      Canal_Pilote[Pour2].Parcoursy[1] = Canal_Pilote[Pour2].Parcoursy[1] + dy;
-                      Canal_Pilote[Pour2].Parcoursx[2] = Canal_Pilote[Pour2].Parcoursx[1];
+                    if ((Math.round(Canal_Pilote[Pour2].ParcoursY[1]) == Math.round(Canal_Pilote[Pour2].ParcoursY[2])) && (Math.round(Canal_Pilote[Pour2].ParcoursY[2]) == Math.round(Canal_Pilote[Pour2].ParcoursY[3]))) {
+                      Canal_Pilote[Pour2].ParcoursX[1] = Canal_Pilote[Pour2].ParcoursX[1] + dx;
+                      Canal_Pilote[Pour2].ParcoursY[1] = Canal_Pilote[Pour2].ParcoursY[1] + dy;
+                      Canal_Pilote[Pour2].ParcoursX[2] = Canal_Pilote[Pour2].ParcoursX[1];
                     }
                   }
                 }

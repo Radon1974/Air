@@ -180,7 +180,7 @@ PetitMenu('#A6CAF0', '<Переместить>  Выбор компонента 
 
 
 Pointe_Objet(Objet2, '#0000FF'); //Выбор компонента
-ActionMouse = 'Deplace';
+ActionMouse = 'Move';
   //Cacommence();
   //Droite = false;
   //while (!Droite) { Deplace_Objet() }

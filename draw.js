@@ -1285,6 +1285,8 @@ function Ou_Que(Old_X, Old_Y, Panoramique, Objet) {  //Old_X, Old_Y - коорд
   Y = Y_s;
   Old_X = X;   //Для совместимости
   Old_Y = Y;
+  Lax2 = X;   //Для совместимости
+  Lay2 = Y;
   /*while (true) {
     //Croix(X, Y);
     Gauche = false;   //Показать курсор пока не будет true (нажата левая клавиша мыши)
@@ -2058,8 +2060,8 @@ function Minimumv() {
 function Decah(Combien) {  //
   var Pour = 0, Pour2 = 0;
 
-  for (let Pour = 1; Pour <= Nb_Canal; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal[Pour].parcoursx[Pour2] = Canal[Pour].parcoursx[Pour2] + Combien } }
-  for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal_Pilote[Pour].parcoursx[Pour2] = Canal_Pilote[Pour].parcoursx[Pour2] + Combien } }
+  for (let Pour = 1; Pour <= Nb_Canal; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal[Pour].ParcoursX[Pour2] = Canal[Pour].ParcoursX[Pour2] + Combien } }
+  for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal_Pilote[Pour].ParcoursX[Pour2] = Canal_Pilote[Pour].ParcoursX[Pour2] + Combien } }
 
   for (let Pour = 1; Pour <= Nb_Capteur; Pour++) {
     Capteur[Pour].X = Capteur[Pour].X + Combien;
@@ -2099,8 +2101,8 @@ function Decah(Combien) {  //
 function Decav(Combien) {  //
   var Pour = 0, Pour2 = 0;
   begin
-  for (let Pour = 1; Pour <= Nb_Canal; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal[Pour].parcoursy[Pour2] = Canal[Pour].parcoursy[Pour2] + Combien } }
-  for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal_Pilote[Pour].parcoursy[Pour2] = Canal_Pilote[Pour].parcoursy[Pour2] + Combien } }
+  for (let Pour = 1; Pour <= Nb_Canal; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal[Pour].ParcoursY[Pour2] = Canal[Pour].ParcoursY[Pour2] + Combien } }
+  for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { for (let Pour2 = 1; Pour2 <= 11; Pour2++) { Canal_Pilote[Pour].ParcoursY[Pour2] = Canal_Pilote[Pour].ParcoursY[Pour2] + Combien } }
 
   for (let Pour = 1; Pour <= Nb_Capteur; Pour++) {
     Capteur[Pour].Y = Capteur[Pour].Y + Combien;
