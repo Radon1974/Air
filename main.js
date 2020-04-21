@@ -185,7 +185,7 @@ canvas.addEventListener('mousedown', function (f) {
         ActionMouse = 'Ajoute_Objet3';
         break;
       case 'Ajoute_Objet3':
-        Ajoute_Objet3(Objet2, X_s, Y_s, Quoi_Donc2, Celui_La2);//Вставка компонента
+        Ajoute_Objet3(Objet2, X_s / Facteur, Y_s / Facteur, Quoi_Donc2, Celui_La2);//Вставка компонента
         Redess(false);                                            //Перерисовка холста
         funcCursor("default");
         ActionMouse = '';
@@ -255,38 +255,7 @@ canvas.addEventListener('mousedown', function (f) {
         alert('Запустить');
         funcCursor("default");
         break;
-      case 'Increase':
-        alert('Увеличить');
-        funcCursor("default");
-        break;
-      case 'Decrease':
-        alert('Уменьшить');
-        funcCursor("default");
-        break;
-      case 'Left':
-        alert('Влево');
-        funcCursor("default");
-        break;
-      case 'Right':
-        alert('Вправо');
-        funcCursor("default");
-        break;
-      case 'Up':
-        alert('Вверх');
-        funcCursor("default");
-        break;
-      case 'Down':
-        alert('Вниз');
-        funcCursor("default");
-        break;
-      case 'Return':
-        alert('Возврат');
-        funcCursor("default");
-        break;
-      case 'About':
-        alert('О программе');
-        funcCursor("default");
-        break;
+
     }
   }
   if (event.which == 3) {

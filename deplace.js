@@ -26,8 +26,8 @@ function Deplace_Objet() {
 
   //Lax = 150;
   //Lay = 150;
-  Lax = X_s;
-  Lay = Y_s;
+  Lax = X_s / Facteur;
+  Lay = Y_s / Facteur;
 
   if (Objet == 'Un_Cap') { if (['Et', 'Ou', 'Inhibition'].includes(Capteur[Pour].Modele)) { Objet = 'Une_Cellule' } }
 

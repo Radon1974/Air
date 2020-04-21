@@ -1356,7 +1356,7 @@ function Cree_Texte() {  //
 }
 
 //Создать текст
-function Cree_Texte2() {  //Ввод тексата
+function Cree_Texte2() {  //Ввод текста
   var Textenter = '';
   var Poured = false;
   var Quoi_Donc = '';
@@ -1370,14 +1370,18 @@ function Cree_Texte2() {  //Ввод тексата
   }
 
   Textenter = Ed('Введите текст : ', '', Poured);
-  Otxy(X_s, Y_s, Textenter);
+  //Otxy(X_s, Y_s, Textenter);
 
   if (Textenter != '') {
     Nb_Texte++;
-    Texte[Nb_Texte].X = Xe;
-    Texte[Nb_Texte].Y = Ye;
+    //Texte[Nb_Texte].X = Xe;
+    //Texte[Nb_Texte].Y = Ye;
+    Texte[Nb_Texte].X = X_s / Facteur;
+    Texte[Nb_Texte].Y = Y_s / Facteur;
+
     Texte[Nb_Texte].Le_Texte = Textenter;
     Texte[Nb_Texte].Lataille = 1;
+    Redess(false);
   }
 
 }
