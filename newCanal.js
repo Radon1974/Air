@@ -1,6 +1,6 @@
 //Создание силового канала
-//TODO: Виснет на распределителе, когда он на экране (при добавлении канала)
-//TODO: Не привязывается канал к источнику канала
+
+
 function Entre_Canal() {  //Присвоение точек каналу
     //    var XL = 0;
     //    var YL = 0;
@@ -32,7 +32,7 @@ function Entre_Canal() {  //Присвоение точек каналу
     //}
 
     if (Debut) {
-        Canal[Nb_Canal].Bout[1] = Branche;
+        Canal[Nb_Canal].Bout[1] = Object.assign({},Branche2);
         Canal[Nb_Canal].NbPoint++;
         Canal[Nb_Canal].ParcoursX[Canal[Nb_Canal].NbPoint] = XL;   //Ввод первой точки
         Canal[Nb_Canal].ParcoursY[Canal[Nb_Canal].NbPoint] = YL;
@@ -41,7 +41,7 @@ function Entre_Canal() {  //Присвоение точек каналу
     if (Ext) {                      //Если конечная точка то присвоить значения
         XFin = XL;
         YFin = YL;
-        Canal[Nb_Canal].Bout[2] = Branche;
+        Canal[Nb_Canal].Bout[2] = Object.assign({},Branche2);
     }
 
     if (!Debut) {                   //Если 2 точка, то нарисовать 1 линию
@@ -100,7 +100,7 @@ function Entre_Canal_Pilote(Encore) {  //
         //}
 
         if (Debut) {
-            Canal_Pilote[Nb_Canal_Pilote].Bout[1] = Branche;
+            Canal_Pilote[Nb_Canal_Pilote].Bout[1] = Object.assign({},Branche2);
             Canal_Pilote[Nb_Canal_Pilote].NbPoint++;
             Canal_Pilote[Nb_Canal_Pilote].ParcoursX[Canal_Pilote[Nb_Canal_Pilote].NbPoint] = XL;
             Canal_Pilote[Nb_Canal_Pilote].ParcoursY[Canal_Pilote[Nb_Canal_Pilote].NbPoint] = YL;
@@ -109,7 +109,7 @@ function Entre_Canal_Pilote(Encore) {  //
         if (Ext) {
             XFin = XL;
             YFin = YL;
-            Canal_Pilote[Nb_Canal_Pilote].Bout[2] = Branche;
+            Canal_Pilote[Nb_Canal_Pilote].Bout[2] = Object.assign({},Branche2);
         }
 
         if (!Debut) {
@@ -356,7 +356,7 @@ function Cree_Canal() {  //Запись канала после введения
             }
         }
     }
-    //if (Pouet) { Nb_Canal-- }  //Для отладки закоментировано (временно)
+    if (Pouet) { Nb_Canal-- }  //Для отладки закоментировано (временно)
     if (Nb_Canal == Max_Canal) { Encore = false }
 
 }
@@ -475,7 +475,7 @@ function Cree_Canal_Pilote() {  //Запись канала после введ�
             if ((Canal_Pilote[Nb_Canal_Pilote].Bout[Pour].Quoi == 'Un_Cap') && (Bout[3 - Pour].Quoi == 'Un_Cap') && (Canal_Pilote[Nb_Canal_Pilote].Bout[1].Lequel == Canal_Pilote[Nb_Canal_Pilote].Bout[2].Lequel)) (Pouet = true)
         }
     }
-    //if (Pouet) { Nb_Canal_Pilote-- }  //Для отладки закоментировано (временно)
+    if (Pouet) { Nb_Canal_Pilote-- }  //Для отладки закоментировано (временно)
     if (Nb_Canal_Pilote == Max_Canal_Pilote) { Encore = false }
 }
 
@@ -945,9 +945,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                         Distance = D;
                         Xd = AliMentation[Pour].X;  //Присвоить координаты силовой линии
                         Yd = AliMentation[Pour].Y;
-                        Branche.Quoi = 'Une_Alim';
-                        Branche.Lequel = Pour;
-                        Branche.Branchement = 0;
+                        Branche2.Quoi = 'Une_Alim';
+                        Branche2.Lequel = Pour;
+                        Branche2.Branchement = 0;
                     }
                 }
             }
@@ -960,9 +960,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                         Distance = D;
                         Xd = Carrefour[Pour].X;     //Присвоить координаты  линии управления
                         Yd = Carrefour[Pour].Y;
-                        Branche.Quoi = 'Un_Carrefour';
-                        Branche.Lequel = Pour;
-                        Branche.Branchement = 0;
+                        Branche2.Quoi = 'Un_Carrefour';
+                        Branche2.Lequel = Pour;
+                        Branche2.Branchement = 0;
                     }
                 }
             }
@@ -974,9 +974,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                         Distance = D;
                         Xd = Alim_Pilote[Pour].X;    //Присвоить координаты силовой линии (пересечение)
                         Yd = Alim_Pilote[Pour].Y;
-                        Branche.Quoi = 'Une_Alim_Pilote';
-                        Branche.Lequel = Pour;
-                        Branche.Branchement = 0;
+                        Branche2.Quoi = 'Une_Alim_Pilote';
+                        Branche2.Lequel = Pour;
+                        Branche2.Branchement = 0;
                     }
                 }
             }
@@ -988,9 +988,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                         Distance = D;
                         Xd = Carrefour_Pilote[Pour].X;  //Присвоить координаты  линии управления (пересечение)
                         Yd = Carrefour_Pilote[Pour].Y;
-                        Branche.Quoi = 'Un_Carrefour_Pilote';
-                        Branche.Lequel = Pour;
-                        Branche.Branchement = 0;
+                        Branche2.Quoi = 'Un_Carrefour_Pilote';
+                        Branche2.Lequel = Pour;
+                        Branche2.Branchement = 0;
                     }
                 }
             }
@@ -1006,9 +1006,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                                 Distance = D;
                                 Xd = Distributeur[Pour].ExtX[Pour2];  //Присвоить координаты  Distributeur
                                 Yd = Distributeur[Pour].ExtY[Pour2];
-                                Branche.Quoi = 'Un_D';
-                                Branche.Lequel = Pour;
-                                Branche.Branchement = Pour2;
+                                Branche2.Quoi = 'Un_D';
+                                Branche2.Lequel = Pour;
+                                Branche2.Branchement = Pour2;
                             }
                         }
                     }
@@ -1025,9 +1025,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                                 Distance = D;
                                 Xd = Distributeur[Pour].ExtX[Pour2];  //Присвоить координаты  Distributeur (пересечение)
                                 Yd = Distributeur[Pour].ExtY[Pour2];
-                                Branche.Quoi = 'Un_D';
-                                Branche.Lequel = Pour;
-                                Branche.Branchement = Pour2;
+                                Branche2.Quoi = 'Un_D';
+                                Branche2.Lequel = Pour;
+                                Branche2.Branchement = Pour2;
                             }
                         }
                     }
@@ -1043,9 +1043,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                             Distance = D;
                             Xd = Verin[Pour].EntreeX[Pour2];    //Присвоить координаты  Verin
                             Yd = Verin[Pour].EntreeY[Pour2];
-                            Branche.Quoi = 'Un_V';
-                            Branche.Lequel = Pour;
-                            Branche.Branchement = Pour2;
+                            Branche2.Quoi = 'Un_V';    //Тип компонента (гидроцилиндр)
+                            Branche2.Lequel = Pour;    //Номер  гидроцилиндра
+                            Branche2.Branchement = Pour2;  //Номер точки присоединения к гидроцилиндру
                         }
                     }
                 }
@@ -1060,9 +1060,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                             Distance = D;
                             Xd = Capteur[Pour].ExtX[Pour2];  //Присвоить координаты  Verin (пересечение)
                             Yd = Capteur[Pour].ExtY[Pour2];
-                            Branche.Quoi = 'Un_Cap';
-                            Branche.Lequel = Pour;
-                            Branche.Branchement = Pour2;
+                            Branche2.Quoi = 'Un_Cap';
+                            Branche2.Lequel = Pour;
+                            Branche2.Branchement = Pour2;
                         }
                     }
                 }
@@ -1079,9 +1079,9 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                             Distance = D;
                             Xd = Memoire[Pour].ExtX[Pour2];   //Присвоить координаты  Memoire (пересечение)
                             Yd = Memoire[Pour].ExtY[Pour2];
-                            Branche.Quoi = 'Une_Memoire';
-                            Branche.Lequel = Pour;
-                            Branche.Branchement = Pour2;
+                            Branche2.Quoi = 'Une_Memoire';
+                            Branche2.Lequel = Pour;
+                            Branche2.Branchement = Pour2;
                         }
                     }
                 }
@@ -1095,18 +1095,18 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                             Distance = D;
                             Xd = Sequenceur[Pour].ExtX[Pour2];   //Присвоить координаты  Sequenceur (пересечение)
                             Yd = Sequenceur[Pour].ExtY[Pour2];
-                            Branche.Quoi = 'Un_Sequenceur';
-                            Branche.Lequel = Pour;
-                            Branche.Branchement = Pour2;
+                            Branche2.Quoi = 'Un_Sequenceur';
+                            Branche2.Lequel = Pour;
+                            Branche2.Branchement = Pour2;
                         }
                     }
                 }
             }
 
             console.log("Xd", Xd, "Yd", Yd);
-            console.log("Branche.Quoi", Branche.Quoi);
-            console.log("Branche.Lequel", Branche.Lequel);
-            console.log("Branche.Branchement", Branche.Branchement);
+            console.log("Branche2.Quoi", Branche2.Quoi);
+            console.log("Branche2.Lequel", Branche2.Lequel);
+            console.log("Branche2.Branchement", Branche2.Branchement);
             if (Distance < 6) {
                 XL = Xd;
                 YL = Yd;
