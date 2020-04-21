@@ -1074,7 +1074,7 @@ function Affiche_Carrefour_Pilote(Numero, Blanc) {  //
 //Отобразить текст
 function Affiche_Texte(Numero, C) {  //
   Couleur(C);
-  ctx.font = (Math.round(Texte[Numero].Lataille * 8 * Facteur) + 4) + 'px Arial'
+  ctx.font = (Math.round(Texte[Numero].Lataille * 8 * Facteur) + 4) + 'px Arial'   //TODO: 9
   Otxy(Math.round(Texte[Numero].X), Math.round(Texte[Numero].Y - Texte[Numero].Lataille * 6 - 4), Texte[Numero].Le_Texte);
   ctx.font.height = (Math.round(8 * Facteur)) + 'px Arial';
   Couleur('#000000');
@@ -1112,7 +1112,7 @@ function FormCreate() {  //Sender: TObject
   SVG = false;
   Pasapas = true;
   DoubleBuffered = true;
-  Facteur = 1.1;
+  Facteur = 1;
   Fichiermodifie = false;
   //Feuille = Form1.Image1.canvas;
   Heure = false;

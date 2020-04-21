@@ -93,7 +93,7 @@ function funcCursor(whichSelected) {
 
 //Вывод текста
 function Otxy(X, Y, S) {
-  ctx.fillText(S, X, Y);
+  ctx.fillText(S, X * Facteur, Y * Facteur);     //TODO: 1
 }
 
 //Ввод текста
@@ -107,10 +107,10 @@ Demande = prompt(Entete, Demande);
 function NPave(X, Y, Co) {
   ctx.fillStyle = Co;
   ctx.beginPath();
-  ctx.moveTo(X - 2, Y + 2);
-  ctx.lineTo(X + 2, Y + 2);
-  ctx.lineTo(X + 2, Y - 2);
-  ctx.lineTo(X - 2, Y - 2);
+  ctx.moveTo((X - 2) * Facteur, (Y + 2) * Facteur); //TODO: 2
+  ctx.lineTo((X + 2) * Facteur, (Y + 2) * Facteur);
+  ctx.lineTo((X + 2) * Facteur, (Y - 2) * Facteur);
+  ctx.lineTo((X - 2) * Facteur, (Y - 2) * Facteur);
   ctx.closePath();
   ctx.fill();
 }
@@ -119,10 +119,10 @@ function NPave(X, Y, Co) {
 function NPavepetit(X, Y, Co) {
   ctx.fillStyle = Co;
   ctx.beginPath();
-  ctx.moveTo(X - 1, Y + 1);
-  ctx.lineTo(X + 1, Y + 1);
-  ctx.lineTo(X + 1, Y - 1);
-  ctx.lineTo(X - 1, Y - 1);
+  ctx.moveTo((X - 1) * Facteur, (Y + 1) * Facteur); //TODO: 3
+  ctx.lineTo((X + 1) * Facteur, (Y + 1) * Facteur);
+  ctx.lineTo((X + 1) * Facteur, (Y - 1) * Facteur);
+  ctx.lineTo((X - 1) * Facteur, (Y - 1) * Facteur);
   ctx.closePath();
   ctx.fill();
 }
@@ -136,8 +136,8 @@ function Couleur(C) {
 //Рисование линии
 function Ligne(X1, Y1, X2, Y2) {
   ctx.beginPath();
-  ctx.moveTo(X1, Y1);
-  ctx.lineTo(X2, Y2);
+  ctx.moveTo(X1 * Facteur, Y1 * Facteur);  //TODO: 4
+  ctx.lineTo(X2 * Facteur, Y2 * Facteur);
   ctx.stroke();
 }
 
@@ -145,9 +145,9 @@ function Ligne(X1, Y1, X2, Y2) {
 function Ellipse_SVG(X1, Y1, X2, Y2) {
   ctx.save();
   ctx.beginPath();
-  ctx.translate(X1, Y1);
-  ctx.scale(X2 / Y2, 1);
-  ctx.arc(0, 0, Y2, 0, Math.PI * 2, true);
+  ctx.translate(X1 * Facteur, Y1 * Facteur);  //TODO: 5
+  ctx.scale((X2 * Facteur) / (Y2 * Facteur), 1);
+  ctx.arc(0, 0, Y2 * Facteur, 0, Math.PI * 2, true);
   ctx.restore();
   ctx.closePath();
   ctx.stroke();
@@ -156,7 +156,7 @@ function Ellipse_SVG(X1, Y1, X2, Y2) {
 //Рисование круга
 function Cercle(X, Y, Rr ) {
   ctx.beginPath();
-  ctx.arc(X, Y, Rr, 0, 2 * Math.PI, false);
+  ctx.arc(X * Facteur, Y * Facteur, Rr * Facteur, 0, 2 * Math.PI, false);  //TODO: 6
   ctx.stroke();
 }
 

@@ -11,8 +11,8 @@ function Ajoute_Objet() {  //
     
     
         Objet ='Tout';
-        Vieux_Facteur =Facteur;
-        Facteur =1.1;
+        Vieux_Facteur = Facteur;
+        Facteur =1;
         ClearDevice();
         Couleur('#000000');
         PetitMenu('#A6CAF0','<Новый Компонент>   Укажите компонент');
@@ -485,7 +485,7 @@ function Pointe_Objet(Objet, Co) {  //
     function PaveP(X, Y) {  //X,Y - координаты
       NPave(X, Y, Co);
       if (Nb_Point < 200) { Nb_Point++ }
-      Les_points[Nb_Point] [1] = X * Facteur;
+      Les_points[Nb_Point] [1] = X * Facteur;  //TODO: 7
       Les_points[Nb_Point] [2] = Y * Facteur;
     }
   
@@ -712,7 +712,7 @@ function Pointe_Objet(Objet, Co) {  //
   
     //Дистанция
     function Dist(X, Y) {  //X,Y - координаты
-      if (Math.sqrt(Math.pow(X_s - X * Facteur, 2) + Math.pow(Y_s - Y * Facteur, 2)) < Prox) { return true } else { return false }
+      if (Math.sqrt(Math.pow(X_s - X * Facteur, 2) + Math.pow(Y_s - Y * Facteur, 2)) < Prox) { return true } else { return false } //TODO: 8
     }
   
   

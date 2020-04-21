@@ -115,7 +115,7 @@ begin
 end;*/
 
 //Закрыть кнопка
-function FormCloseQuery(Sender, CanClose) {  //
+function FormCloseQuery(Sender, CanClose) {
   Droite = true;
   if (Fichiermodifie) {
     Dialogvaleur = MessageDlg('Сохранить файл ?', mtConfirmation, [mbYes, mbno, mbcancel], 0);
@@ -131,48 +131,53 @@ function FormCloseQuery(Sender, CanClose) {  //
 }
 
 //Выход  кнопка
-function Quitter1Click(Sender) {  //
+function Quitter1Click(Sender) {
   Close();
 }
 
-//По поводу  кнопка
-function Apropos1Click(Sender) {  //
-  Aboutbox.copyright.caption = 'Air-simulator';
-  Aboutbox.showmodal
+//О программе
+function Apropos1Click() {
+  alert('Air-simulator');
+  //Aboutbox.copyright.caption = 'Air-simulator';
+  //Aboutbox.showmodal
 }
 
 //Черный и белый  кнопка
-function Noiretblanc1Click(Sender) {  //
+function Noiretblanc1Click(Sender) {
   Redess(true);
 }
 
 //
-function Timer1Timer(Sender) {  //
+function Timer1Timer(Sender) {
   if (Compteursouris < 10) { Compteursouris++ }
   if (Compteursouris > 4) { if (heure) { if ((GetAsyncKeyState(VK_LBUTTON) && $8000) != 0) { Gauche = true; } } }
 }
 
 //Лупа увеличить  кнопка
-function Loupe1Click(Sender) {  //
+function Loupe1Click() {
   if (Facteur > 3.5) { return false }
   Facteur = Facteur * 1.1;
-  redess(false);
+  
+  //ctx.scale(1.1, 1.1);
+  Redess(false);
 }
 
 //Лупа уменьшить  кнопка
-function Loupe2Click(Sender) {  //
+function Loupe2Click() {
   if (Facteur < 0.9) { return false }
   Facteur = Facteur / 1.1;
+  if (Facteur < 1) { Facteur = 1 }  //Добавил чтоб ниже 1 не опускалось
+  //ctx.scale(0.9, 0.9);
   Redess(false);
 }
 
 //Выход  кнопка
-function Sortir1Click(Sender) {  //
+function Sortir1Click() {
   Droite = true;
 }
 
 //Движение  кнопка
-function Dplacer1Click() {  //
+function Dplacer1Click() {
 Fichiermodifie = true;
 PetitMenu('#A6CAF0', '<Переместить>  Выбор компонента ?');
 
@@ -188,15 +193,15 @@ ActionMouse = 'Move';
 }
 
 //Время
-function Timer2Timer(Sender) {  //
+function Timer2Timer(Sender) {
 
-  X_s = Math.round(20 * Facteur);
+  X_s = Math.round(20 * Facteur);  //TODO: 10
   Y_s = Math.round(30 * Facteur);
   Gauche = true;
 }
 
 //Продолжение кнопка
-function Continu1Click(Sender) {  //
+function Continu1Click(Sender) {
   //Cacommence();
   Pasapas = false;
   Anime();
@@ -205,7 +210,7 @@ function Continu1Click(Sender) {  //
 }
 
 //Выбор положения компонента кнопка
-function RAZ1Click(Sender) {  //
+function RAZ1Click(Sender) {
   var Pour = 0;
   var Objet = '';
 

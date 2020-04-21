@@ -74,10 +74,10 @@ Button8.addEventListener('click', function (e) {
   alert('Запустить');
 });
 Button9.addEventListener('click', function (e) {
-  alert('Увеличить');
+  Loupe1Click();
 });
 Button10.addEventListener('click', function (e) {
-  alert('Уменьшить');
+  Loupe2Click();
 });
 Button11.addEventListener('click', function (e) {
   Gauche1Click();
@@ -92,10 +92,10 @@ Button14.addEventListener('click', function (e) {
   Dessous1Click();
 });
 Button15.addEventListener('click', function (e) {
-  alert('Возврат');
+  Sortir1Click();
 });
 Button16.addEventListener('click', function (e) {
-  alert('О программе');
+  Apropos1Click();
 });
 
 /*canvas.addEventListener('click', function (e) {
@@ -126,12 +126,12 @@ Button16.addEventListener('click', function (e) {
   else if (funcHitArea(mouse, btnAbout)) { alert('О программе') }
 });*/
 
-function MouseClick() {
-  canvas.addEventListener('mousedown', function (f) {
-    mouse.x = f.pageX - this.offsetLeft;
-    mouse.y = f.pageY - this.offsetTop;
-    X_s = mouse.x * Facteur;
-    Y_s = mouse.y * Facteur;
+//function MouseClick() {
+//  canvas.addEventListener('mousedown', function (f) {
+//    mouse.x = f.pageX - this.offsetLeft;
+//   mouse.y = f.pageY - this.offsetTop;
+//    X_s = mouse.x * Facteur;
+//    Y_s = mouse.y * Facteur;
 
     /*if (event.which == 1) {
       Gauche = true;
@@ -139,8 +139,8 @@ function MouseClick() {
     if (event.which == 3) {
       Droite = true
     }*/
-  })
-}
+//  })
+//}
 
 
 //Обработчик событий мыши
@@ -153,11 +153,18 @@ function MouseClick() {
 });*/
 
 
+
+
+
+
 canvas.addEventListener('mousedown', function (f) {
   mouse.x = f.pageX - this.offsetLeft;
   mouse.y = f.pageY - this.offsetTop;
-  X_s = mouse.x * Facteur;
-  Y_s = mouse.y * Facteur;
+  //X_s = mouse.x * Facteur;
+  //Y_s = mouse.y * Facteur;
+  X_s = mouse.x;
+  Y_s = mouse.y;
+  
   //console.log("Mouse X", mouse.x, X_s, "Mouse Y", mouse.y, Y_s );
 
   //++++++++++++++++++++++++++++++++++++++
@@ -178,7 +185,7 @@ canvas.addEventListener('mousedown', function (f) {
         ActionMouse = 'Ajoute_Objet3';
         break;
       case 'Ajoute_Objet3':
-        Ajoute_Objet3(Objet2, mouse.x, mouse.y, Quoi_Donc2, Celui_La2);//Вставка компонента
+        Ajoute_Objet3(Objet2, X_s, Y_s, Quoi_Donc2, Celui_La2);//Вставка компонента
         Redess(false);                                            //Перерисовка холста
         funcCursor("default");
         ActionMouse = '';
@@ -220,7 +227,7 @@ canvas.addEventListener('mousedown', function (f) {
       //++++++++++++++++++++++++++++++++++++++
       case 'DRA':
 
-        DRA(mouse.x, mouse.y);              //Ввод точки канала
+        DRA(X_s, Y_s);              //Ввод точки канала
         Entre_Canal();                      //Ввод канала
         if (Ext) {
           Cree_Canal();                       //Запись канала после введения данных
@@ -234,7 +241,7 @@ canvas.addEventListener('mousedown', function (f) {
       //++++++++++++++++++++++++++++++++++++++        
       case 'DRA2':
 
-        DRA(mouse.x, mouse.y);              //Ввод точки канала
+        DRA(X_s, Y_s);              //Ввод точки канала
         Entre_Canal_Pilote();                      //Ввод канала
         if (Ext) {
           Cree_Canal_Pilote();                       //Запись канала после введения данных
