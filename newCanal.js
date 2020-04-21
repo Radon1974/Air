@@ -472,7 +472,7 @@ function Cree_Canal_Pilote() {  //Запись канала после введ�
         for (let Pour = 1; Pour <= 2; Pour++) {
 
             if ((Canal_Pilote[Nb_Canal_Pilote].Bout[Pour].Quoi == 'Une_Alim_Pilote') && (Canal_Pilote[Nb_Canal_Pilote].Bout[3 - Pour].Quoi == 'Une_Alim_Pilote')) (Pouet = true)
-            if ((Canal_Pilote[Nb_Canal_Pilote].Bout[Pour].Quoi == 'Un_Cap') && (Bout[3 - Pour].Quoi == 'Un_Cap') && (Canal_Pilote[Nb_Canal_Pilote].Bout[1].Lequel == Canal_Pilote[Nb_Canal_Pilote].Bout[2].Lequel)) (Pouet = true)
+            if ((Canal_Pilote[Nb_Canal_Pilote].Bout[Pour].Quoi == 'Un_Cap') && (Canal_Pilote[Nb_Canal_Pilote].Bout[3 - Pour].Quoi == 'Un_Cap') && (Canal_Pilote[Nb_Canal_Pilote].Bout[1].Lequel == Canal_Pilote[Nb_Canal_Pilote].Bout[2].Lequel)) (Pouet = true)
         }
     }
     if (Pouet) { Nb_Canal_Pilote-- }  //Для отладки закоментировано (временно)

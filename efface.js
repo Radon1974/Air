@@ -1,20 +1,20 @@
-
+//TODO: Не удаляет каналы
 //Стереть канал
 function Efface_Canal(Celui_La2) {  //
   var Pour = 0;
   for (let Pour = Celui_La2; Pour <= Nb_Canal - 1; Pour++) {
-    Canal[Pour] = Canal[Pour + 1];
-    Nb_Canal--;
+    Canal[Pour] = Canal[Pour + 1]; 
   }
+  Nb_Canal--;
 }
 
 //Стереть канал пилота
 function Efface_Canal_Pilote(Celui_La2) {  //
   var Pour = 0;
   for (let Pour = Celui_La2; Pour <= Nb_Canal_Pilote - 1; Pour++) {
-    Canal_Pilote[Pour] = Canal_Pilote[Pour + 1];
-    Nb_Canal_Pilote--;
+    Canal_Pilote[Pour] = Canal_Pilote[Pour + 1]; 
   }
+  Nb_Canal_Pilote--;
 }
 
 //Стереть
