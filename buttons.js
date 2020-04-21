@@ -259,6 +259,33 @@ function RAZ1Click(Sender) {  //
 
 
 
+//Слева  кнопка
+function Gauche1Click() {  //Переместить все компоненты влево
+  if (Minimumh() > 30) { Decah(-15) };
+  Redess(false);
+}
+
+//Справа  кнопка
+function Droite1Click() {  //Переместить все компоненты вправо
+  if (Minimumh() < 1200) { Decah(15) };
+  Redess(false);
+}
+
+//Выше  кнопка
+function Dessus1Click() {  //Переместить все компоненты выше
+  if (Minimumv() > 30) { Decav(-15) };
+  Redess(false);
+}
+
+//Ниже  кнопка
+function Dessous1Click() {  //Переместить все компоненты ниже
+  if (Minimumv() < 900) { Decav(15) };
+  Redess(false);
+}
+
+
+
+
 
 
 

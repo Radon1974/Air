@@ -1,4 +1,4 @@
-//TODO: Не удаляет каналы
+
 //Стереть канал
 function Efface_Canal(Celui_La2) {  //
   var Pour = 0;

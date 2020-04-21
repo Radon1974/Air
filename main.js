@@ -80,16 +80,16 @@ Button10.addEventListener('click', function (e) {
   alert('Уменьшить');
 });
 Button11.addEventListener('click', function (e) {
-  alert('Влево');
+  Gauche1Click();
 });
 Button12.addEventListener('click', function (e) {
-  alert('Вправо');
+  Droite1Click();
 });
 Button13.addEventListener('click', function (e) {
-  alert('Вверх');
+  Dessus1Click();
 });
 Button14.addEventListener('click', function (e) {
-  alert('Вниз');
+  Dessous1Click();
 });
 Button15.addEventListener('click', function (e) {
   alert('Возврат');
