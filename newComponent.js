@@ -485,7 +485,7 @@ function Pointe_Objet(Objet, Co) {  //
     function PaveP(X, Y) {  //X,Y - координаты
       NPave(X, Y, Co);
       if (Nb_Point < 200) { Nb_Point++ }
-      Les_points[Nb_Point] [1] = X * Facteur;  //TODO: 7
+      Les_points[Nb_Point] [1] = X * Facteur;
       Les_points[Nb_Point] [2] = Y * Facteur;
     }
   
@@ -712,13 +712,14 @@ function Pointe_Objet(Objet, Co) {  //
   
     //Дистанция
     function Dist(X, Y) {  //X,Y - координаты
-      if (Math.sqrt(Math.pow(X_s - X * Facteur, 2) + Math.pow(Y_s - Y * Facteur, 2)) < Prox) { return true } else { return false } //TODO: 8
+      if (Math.sqrt(Math.pow(X_s - X * Facteur, 2) + Math.pow(Y_s - Y * Facteur, 2)) < Prox) { return true } else { return false }
     }
   
   
       while (PourPt <= Nb_Point) {   //Точки выбора компонентов
   
-        Di = Math.sqrt(Math.pow((1.0 * X_s - Les_points[PourPt] [1]), 2) + Math.pow((1.0 * Y_s - Les_points[PourPt] [2]), 2));
+        //Di = Math.sqrt(Math.pow((X_s - Les_points[PourPt] [1]), 2) + Math.pow((Y_s - Les_points[PourPt] [2]), 2));
+        Di = Math.sqrt(Math.pow(X_s - (Les_points[PourPt][1]) * Facteur, 2) + Math.pow(Y_s - (Les_points[PourPt][2]) * Facteur, 2));
         //console.log("Расстояние", Di, "x=", Les_points[PourPt] [1], "y=", Les_points[PourPt] [2] );
         
         if ((Di < 5) && (Di > 1)) { //было от 5 до 1

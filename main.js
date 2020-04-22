@@ -18,8 +18,11 @@ const Button1 = document.getElementById('Button1'),
   Button13 = document.getElementById('Button13'),
   Button14 = document.getElementById('Button14'),
   Button15 = document.getElementById('Button15'),
-  Button16 = document.getElementById('Button16');
-
+  Button16 = document.getElementById('Button16'),
+  Button17 = document.getElementById('Button17'),
+  Button18 = document.getElementById('Button18'),
+  Button19 = document.getElementById('Button19'),
+  Button20 = document.getElementById('Button20');
 
 
 //Часы
@@ -50,51 +53,63 @@ FormCreate();
 //Обработчик событий мыши
 
 Button1.addEventListener('click', function (e) {
-  alert('Файл');
+  alert('Файл новый');
 });
 Button2.addEventListener('click', function (e) {
-  Composant1Click()
+  alert('Файл загрузить');
 });
 Button3.addEventListener('click', function (e) {
-  Texte1Click()
+  alert('Файл сохранить');
 });
 Button4.addEventListener('click', function (e) {
-  Efface1Click()
+  Composant1Click()
 });
 Button5.addEventListener('click', function (e) {
+  Texte1Click()
+});
+Button6.addEventListener('click', function (e) {
+  Efface1Click()
+});
+Button7.addEventListener('click', function (e) {
   Dplacer1Click();
 });
-Button6.addEventListener('click', function (e) {    //Добавить силовую цепь
+Button8.addEventListener('click', function (e) {    //Добавить силовую цепь
   Puissance1Click();
 });
-Button7.addEventListener('click', function (e) {    //Добавить цепь управления
+Button9.addEventListener('click', function (e) {    //Добавить цепь управления
   Commande1Click();
 });
-Button8.addEventListener('click', function (e) {
-  alert('Запустить');
-});
-Button9.addEventListener('click', function (e) {
-  Loupe1Click();
-});
 Button10.addEventListener('click', function (e) {
-  Loupe2Click();
+  alert('Пошаговый запуск');
 });
 Button11.addEventListener('click', function (e) {
-  Gauche1Click();
+  alert('Непрерывный запуск');
 });
 Button12.addEventListener('click', function (e) {
-  Droite1Click();
+  RAZ1Click();
 });
 Button13.addEventListener('click', function (e) {
-  Dessus1Click();
+  Loupe1Click();
 });
 Button14.addEventListener('click', function (e) {
-  Dessous1Click();
+  Loupe2Click();
 });
 Button15.addEventListener('click', function (e) {
-  Sortir1Click();
+  Gauche1Click();
 });
 Button16.addEventListener('click', function (e) {
+  Droite1Click();
+});
+Button17.addEventListener('click', function (e) {
+  Dessus1Click();
+});
+Button18.addEventListener('click', function (e) {
+  Dessous1Click();
+});
+Button19.addEventListener('click', function (e) {
+  Sortir1Click();
+});
+Button20.addEventListener('click', function (e) {
   Apropos1Click();
 });
 
@@ -133,12 +148,12 @@ Button16.addEventListener('click', function (e) {
 //    X_s = mouse.x * Facteur;
 //    Y_s = mouse.y * Facteur;
 
-    /*if (event.which == 1) {
-      Gauche = true;
-    }
-    if (event.which == 3) {
-      Droite = true
-    }*/
+/*if (event.which == 1) {
+  Gauche = true;
+}
+if (event.which == 3) {
+  Droite = true
+}*/
 //  })
 //}
 
@@ -164,7 +179,7 @@ canvas.addEventListener('mousedown', function (f) {
   //Y_s = mouse.y * Facteur;
   X_s = mouse.x;
   Y_s = mouse.y;
-  
+
   //console.log("Mouse X", mouse.x, X_s, "Mouse Y", mouse.y, Y_s );
 
   //++++++++++++++++++++++++++++++++++++++
@@ -251,9 +266,11 @@ canvas.addEventListener('mousedown', function (f) {
           Fichiermodifie = false;
         }
         break;
-      case 'Run':
-        alert('Запустить');
+      case 'RAZ1':        //TODO:Выбор положения при нажатии
+        RAZ1Click2();
         funcCursor("default");
+        ActionMouse = '';
+        Fichiermodifie = false;
         break;
 
     }

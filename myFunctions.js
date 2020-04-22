@@ -93,7 +93,7 @@ function funcCursor(whichSelected) {
 
 //Вывод текста
 function Otxy(X, Y, S) {
-  ctx.fillText(S, X * Facteur, Y * Facteur);     //TODO: 1
+  ctx.fillText(S, X * Facteur, Y * Facteur);
 }
 
 //Ввод текста
@@ -107,7 +107,7 @@ Demande = prompt(Entete, Demande);
 function NPave(X, Y, Co) {
   ctx.fillStyle = Co;
   ctx.beginPath();
-  ctx.moveTo((X - 2) * Facteur, (Y + 2) * Facteur); //TODO: 2
+  ctx.moveTo((X - 2) * Facteur, (Y + 2) * Facteur);
   ctx.lineTo((X + 2) * Facteur, (Y + 2) * Facteur);
   ctx.lineTo((X + 2) * Facteur, (Y - 2) * Facteur);
   ctx.lineTo((X - 2) * Facteur, (Y - 2) * Facteur);
@@ -119,7 +119,7 @@ function NPave(X, Y, Co) {
 function NPavepetit(X, Y, Co) {
   ctx.fillStyle = Co;
   ctx.beginPath();
-  ctx.moveTo((X - 1) * Facteur, (Y + 1) * Facteur); //TODO: 3
+  ctx.moveTo((X - 1) * Facteur, (Y + 1) * Facteur);
   ctx.lineTo((X + 1) * Facteur, (Y + 1) * Facteur);
   ctx.lineTo((X + 1) * Facteur, (Y - 1) * Facteur);
   ctx.lineTo((X - 1) * Facteur, (Y - 1) * Facteur);
@@ -136,7 +136,7 @@ function Couleur(C) {
 //Рисование линии
 function Ligne(X1, Y1, X2, Y2) {
   ctx.beginPath();
-  ctx.moveTo(X1 * Facteur, Y1 * Facteur);  //TODO: 4
+  ctx.moveTo(X1 * Facteur, Y1 * Facteur);
   ctx.lineTo(X2 * Facteur, Y2 * Facteur);
   ctx.stroke();
 }
@@ -145,7 +145,7 @@ function Ligne(X1, Y1, X2, Y2) {
 function Ellipse_SVG(X1, Y1, X2, Y2) {
   ctx.save();
   ctx.beginPath();
-  ctx.translate(X1 * Facteur, Y1 * Facteur);  //TODO: 5
+  ctx.translate(X1 * Facteur, Y1 * Facteur);
   ctx.scale((X2 * Facteur) / (Y2 * Facteur), 1);
   ctx.arc(0, 0, Y2 * Facteur, 0, Math.PI * 2, true);
   ctx.restore();
@@ -156,7 +156,7 @@ function Ellipse_SVG(X1, Y1, X2, Y2) {
 //Рисование круга
 function Cercle(X, Y, Rr ) {
   ctx.beginPath();
-  ctx.arc(X * Facteur, Y * Facteur, Rr * Facteur, 0, 2 * Math.PI, false);  //TODO: 6
+  ctx.arc(X * Facteur, Y * Facteur, Rr * Facteur, 0, 2 * Math.PI, false);
   ctx.stroke();
 }
 
@@ -173,8 +173,8 @@ function Pointille(X1, Y1, X2, Y2) {
   ctx.setLineDash([5, 3]);
   //dashes are 5px && spaces are 3px
   ctx.beginPath();
-  ctx.moveTo(X1, Y1);
-  ctx.lineTo(X2, Y2);
+  ctx.moveTo(X1 * Facteur, Y1 * Facteur);
+  ctx.lineTo(X2 * Facteur, Y2 * Facteur);
   ctx.stroke();
   ctx.setLineDash([]);
 }
@@ -184,7 +184,7 @@ function Arc_De_Cercle(X, Y, AngleDebut, AngleFin, Rayon) {
   AngleDebut = AngleDebut * Math.PI / 180;
   AngleFin = AngleFin * Math.PI / 180;
   ctx.lineWidth = 1; // толщина линии
-  ctx.arc(X, Y, Rayon, AngleDebut, AngleFin, true);
+  ctx.arc(X * Facteur, Y * Facteur, Rayon * Facteur, AngleDebut, AngleFin, true);
   ctx.stroke();
 }
 

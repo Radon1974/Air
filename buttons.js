@@ -195,7 +195,7 @@ ActionMouse = 'Move';
 //Время
 function Timer2Timer(Sender) {
 
-  X_s = Math.round(20 * Facteur);  //TODO: 10
+  X_s = Math.round(20 * Facteur);
   Y_s = Math.round(30 * Facteur);
   Gauche = true;
 }
@@ -209,56 +209,22 @@ function Continu1Click(Sender) {
   Cestfini();
 }
 
-//Выбор положения компонента кнопка
-function RAZ1Click(Sender) {
-  var Pour = 0;
+//TODO:Выбор положения компонента кнопка
+function RAZ1Click() {
   var Objet = '';
+  Objet = 'Toutsaufcanal';
+  Pointe_Objet(Objet, '#0000FF')
+  Fichiermodifie = true;
+  ActionMouse = 'RAZ1'
 
   //Cacommence();
-  while (true) {
+  //while (true) {
 
-    Objet = Toutsaufcanal;
-    PetitMenu(25343, '<Маневр>  Выбор компонента ?');
-    Pointe_Objet(Objet, Pour, 25343);
-    switch (Objet) {
-      case 'Rien':
-      case 'Ouste':
-        Redess(false);
-        Cestfini();
-        return false;
-
-      case 'Un_V':
-        with (Verin[Pour]) { tige = Max((tige + 1) % 10, 2) };
-        break;
-      case 'Un_D':
-
-        switch (Distributeur[Pour].Modele) {
-          case '_3_2':
-          case '_4_2':
-          case '_5_2':
-          case '_2_2':
-          case '_2_2_':
-            Distributeur[Pour].Etat = Max((Distributeur[Pour].Etat + 1) % 3, 1);
-            break;
-          case '_4_3':
-          case '_5_3':
-            Distributeur[Pour].Etat = Max((Distributeur[Pour].Etat + 1) % 4, 1);
-            break;
-        }
-        break;
-      case 'Un_Cap':
-        if (!(['Et', 'Ou', 'Inhibition'].includes(Capteur[Pour].Modele))) { Capteur[Pour].Etat = Max((Capteur[Pour].Etat + 1) % 3, 1) }
-        break;
-      case 'Une_Memoire':
-        Memoire[Pour].Etat = Max((Memoire[Pour].Etat + 1) % 3, 1);
-        break;
-      case 'Un_Sequenceur':
-        Sequenceur[Pour].Etat = (Sequenceur[Pour].Etat + 1) % (Sequenceur[Pour].Combien + 1);
-        break;
-    }
-    Redess(false);
-  }
-  Cestfini();
+    
+    PetitMenu('#A6CAF0', '<Маневр>  Выбор компонента ?');
+    
+  //}
+  //Cestfini();
 }
 
 
