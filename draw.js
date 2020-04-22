@@ -15,7 +15,7 @@
 
 });*/
 
-//Обнуление
+//Обнуление Etat_Ext и Etat
 function Raz() {
   //var i = 1,k = 1;
   for (let i = 1; i <= Nb_Canal; i++) { Canal[i].Etat = Zero }
@@ -994,9 +994,9 @@ function Affiche_Canal(Numero, Blanc) {  //
   if (!Blanc) { if (Canal[Numero].Etat == Un) { Couleur('#FF0000') } else { Couleur('#000000') } } else { Couleur('#000000') }
   Xe = Canal[Numero].ParcoursX[1];
   Ye = Canal[Numero].ParcoursY[1];
-  console.log("Canal[Numero].NbPoint", Canal[Numero].NbPoint);
-  console.log("Xe1",Xe,"Ye1",Ye); 
-  console.log("Xe2",Canal[Numero].ParcoursX[2],"Ye2",Canal[Numero].ParcoursY[2]);
+  //console.log("Canal[Numero].NbPoint", Canal[Numero].NbPoint);
+  //console.log("Xe1",Xe,"Ye1",Ye); 
+  //console.log("Xe2",Canal[Numero].ParcoursX[2],"Ye2",Canal[Numero].ParcoursY[2]);
   for (let Pour = 2; Pour <= Canal[Numero].NbPoint; Pour++) {
     Ligne(Xe, Ye, Canal[Numero].ParcoursX[Pour], Canal[Numero].ParcoursY[Pour]);
     Xe = Canal[Numero].ParcoursX[Pour];
@@ -1391,13 +1391,17 @@ function AD(X, Increment) {  //
 }
 
 
-function pause() {
-  Sleep(1000);
+function Pause(PTime) {
+  PTime = PTime * 1000;
+  Sleep(PTime);
 }
 
-function Sleep(ms) {
-  ms += new Date().getTime();
-  while (new Date() < ms) { }
+function Sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
 }
 
 

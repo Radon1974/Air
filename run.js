@@ -1,4 +1,4 @@
-function RAZ1Click2() {  //TODO: Функция изменить положение
+function RAZ1Click2() {  //Функция изменить положение
     var Pour = 0;
     //var Objet = '';
     //Objet2 = 'Toutsaufcanal';
@@ -62,7 +62,7 @@ function Min(a, b) {
 
 
 //Анимация
-function Anime() {  //
+function Anime1() {  //TODO: Выполнение анимации компонентов
     var Pour = 0;
     var Pour2 = 0;
     var Pour3 = 0;
@@ -77,14 +77,14 @@ function Anime() {  //
 
     //Управление часами
     Affiche_Temps(20, 30, true);
-    while (true) {
+    //while (true) {
 
         for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) {
             if (!(['_4_3', '_5_3'].includes(Distributeur[Pour].Modele))) {
                 if ((Distributeur[Pour].Com[2].Quoi == 'Ressort_Droit') && (Distributeur[Pour].Com[1].Quoi == 'Poussoir_Gauche')) { Place_Distributeur_a(Pour, 1) }
             }
         }
-        PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
+        //PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
 
         for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) {
             if (Distributeur[Pour].Com[2].Quoi == (Ressort_Droit)) {
@@ -101,19 +101,38 @@ function Anime() {  //
                     if (!(Verin[Pour3].Modele == 'Double_V')) {
                         if ((Math.round(Math.abs(((Verin[Pour3].X + (Verin[Pour3].Tige - 1) * L_Bout + VL_Tige + 2 * L_Bout) - Capteur[Pour].X))) < 11) && ((Verin[Pour3].Y - Capteur[Pour].Y) < 0) && (Math.abs(Verin[Pour3].Y - Capteur[Pour].Y) < 40)) { Place_Capteur_a(Pour, 2) }
                     } else {
-                        if ((Math.round(Math.abs(((Verin[Pour3].Y - (Verin[Pour3].tige - 1) * L_Bout - VL_Tige - 2 * L_Bout) - Capteur[Pour].Y))) < 11) && ((Verin[Pour3].X - Capteur[Pour].X) < 0) && (Math.abs(Verin[Pour3].X - Capteur[Pour].X) < 40)) { Place_Capteur_a(Pour, 2) }
+                        if ((Math.round(Math.abs(((Verin[Pour3].Y - (Verin[Pour3].Tige - 1) * L_Bout - VL_Tige - 2 * L_Bout) - Capteur[Pour].Y))) < 11) && ((Verin[Pour3].X - Capteur[Pour].X) < 0) && (Math.abs(Verin[Pour3].X - Capteur[Pour].X) < 40)) { Place_Capteur_a(Pour, 2) }
                     }
                 }
             }
         }
+}
 
-        L_Action = 'Un_Cap';
-        while (['Un_D', 'Un_Cap'].includes(l_Action)) {
 
-            L_Action = 'Action';
-            Heure = true;
+
+//Анимация
+function Anime2() {  //TODO: Выполнение анимации компонентов
+    var Pour = 0;
+    var Pour2 = 0;
+    var Pour3 = 0;
+    var Celui_La = 0;
+    var Fois = 0;
+    var Encours = 0;
+    var Le_Type = '';
+    var En_Un = false;
+    var En_Deux = false;
+    var L_Action = '';
+    var Tempo = 0;
+
+        //L_Action = 'Un_Cap';
+        while (['Un_D', 'Un_Cap'].includes(L_Action)) {
+
+            //L_Action = 'Action';
+            L_Action = Objet2;
+            Celui_La = Celui_La2;
+            //Heure = true;
             //if (!Pasapas) { form1.timer2.enabled = true }
-            Pointe_Objet(L_Action, Celui_La, '#808080');
+            //Pointe_Objet(L_Action, Celui_La, '#808080');
             //form1.timer2.enabled = false;
             Heure = false;
             if (Celui_La == 0) {
@@ -123,8 +142,8 @@ function Anime() {  //
             }
             switch (L_Action) {
                 case 'Un_D':
-                    if ((Distributeur[Celui_La].Com[1].Quoi = 'Poussoir_gauche') && (['Ressort_Droit', 'Scie_Droite'].includes(Distributeur[Celui_La].Com[2].Quoi))) {
-                        place_Distributeur_a(Celui_La, 3 - Distributeur[Celui_La].Etat)
+                    if ((Distributeur[Celui_La].Com[1].Quoi == 'Poussoir_gauche') && (['Ressort_Droit', 'Scie_Droite'].includes(Distributeur[Celui_La].Com[2].Quoi))) {
+                        Place_Distributeur_a(Celui_La, 3 - Distributeur[Celui_La].Etat)
                     };
                     break;
                 case 'Un_Cap':
@@ -132,10 +151,10 @@ function Anime() {  //
                     break;
             }
         }
-        RAZ();
-        for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { for (Pour2 = 1; Pour2 <= 2; Pour2++) { if (Canal_Pilote[Pour].Bout[Pour2].Quoi = 'Une_Alim_Pilote') { Canal_Pilote[Pour].Etat = Un } } }
+        Raz();
+        for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { for (Pour2 = 1; Pour2 <= 2; Pour2++) { if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Une_Alim_Pilote') { Canal_Pilote[Pour].Etat = Un } } }
         for (let Pour = 1; Pour <= Nb_Canal; Pour++) { Canal[Pour].Etat = Zero }
-        for (let Fois = 1; Pour <= 16; Fois++) {
+        for (let Fois = 1; Fois <= 16; Fois++) {
 
             for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
                 if (Canal_Pilote[Pour].Etat != Bof) {
@@ -234,7 +253,7 @@ function Anime() {  //
             for (let Pour = 1; Pour <= Nb_Memoire; Pour++) {
                 if ((Memoire[Pour].Etat_Ext[1] == 1) && (Memoire[Pour].Etat_Ext[2] != 1)) { Memoire[Pour].Etat = 2 }
                 if ((Memoire[Pour].Etat_Ext[1] != 1) && (Memoire[Pour].Etat_Ext[2] == 1)) { Memoire[Pour].Etat = 1 }
-                Affiche_memoire(Pour, 15, false);
+                Affiche_Memoire(Pour, 15, false);
             }
 
             for (let Pour = 1; Pour <= Nb_Memoire; Pour++) {
@@ -248,13 +267,13 @@ function Anime() {  //
             for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
                 if (Canal_Pilote[Pour].Etat != 1) {
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
-                        if (Canal_Pilote[Pour].Bout[Pour2].Quoi = 'Une_Memoire') {
+                        if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Une_Memoire') {
                             if (Canal_Pilote[Pour].Bout[Pour2].Branchement == 3) { Canal_Pilote[Pour].Etat = Memoire[Canal_Pilote[Pour].Bout[Pour2].Lequel].Etat_Ext[3] }
                         }
                     }
 
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
-                        if (Canal_Pilote[Pour].Bout[Pour2].Quoi = 'Un_Sequenceur') {
+                        if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Un_Sequenceur') {
                             if (Sequenceur[Canal_Pilote[Pour].Bout[Pour2].Lequel].Etat_Ext[Canal_Pilote[Pour].Bout[Pour2].Branchement] == 1) { Canal_Pilote[Pour].Etat = 1 }
                             else {
                                 if ([9, 10, 11, 12, 13, 14, 15, 16, 21, 22].includes(Canal_Pilote[Pour].Bout[Pour2].Branchement)) {
@@ -299,24 +318,24 @@ function Anime() {  //
         for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) {
             if (!(['_4_3', '_5_3'].includes(Distributeur[Pour]).Modele)) {
                 if (Distributeur[Pour].Etat_Ext[-1] == 1) {
-                    if (Distributeur[Pour].Etat_Ext[0] == 0) { Place_distributeur_a(Pour, 2) };
+                    if (Distributeur[Pour].Etat_Ext[0] == 0) { Place_Distributeur_a(Pour, 2) };
                 } else {
                     if (((Distributeur[Pour].Com[2].Quoi == 'Ressort_Droit') && (Distributeur[Pour].Modele != '_2_2')) || (Distributeur[Pour].Etat_Ext[0] == 1)) { Place_Distributeur_a(pour, 1) };
                 }
             } else {
 
-                if ((Distributeur[Pour].Etat_Ext[-1] == 1) && (Distributeur[Pour].Etat_Ext[0] == 0)) { Place_distributeur_a(Pour, 2) }
+                if ((Distributeur[Pour].Etat_Ext[-1] == 1) && (Distributeur[Pour].Etat_Ext[0] == 0)) { Place_Distributeur_a(Pour, 2) }
                 else {
-                    if ((Distributeur[Pour].Etat_Ext[-1] == 0) && (Distributeur[Pour].Etat_Ext[0] == 1)) { Place_distributeur_a(Pour, 3) }
-                    else { if ((Distributeur[Pour].Etat_Ext[-1] == 0) && (Distributeur[Pour].Etat_Ext[0] == 0)) { Place_distributeur_a(Pour, 1) } }
+                    if ((Distributeur[Pour].Etat_Ext[-1] == 0) && (Distributeur[Pour].Etat_Ext[0] == 1)) { Place_Distributeur_a(Pour, 3) }
+                    else { if ((Distributeur[Pour].Etat_Ext[-1] == 0) && (Distributeur[Pour].Etat_Ext[0] == 0)) { Place_Distributeur_a(Pour, 1) } }
                 }
             }
         }
 
-        for (let Pour = 1; Pour <= Nb_Canal; Pour++) { for (Pour2 = 1; Pour2 <= 2; Pour2++) { if (Canal[Pour].Bout[Pour2].Quoi = 'Une_Alim') { Canal[Pour].Etat = Un } } }
+        for (let Pour = 1; Pour <= Nb_Canal; Pour++) { for (Pour2 = 1; Pour2 <= 2; Pour2++) { if (Canal[Pour].Bout[Pour2].Quoi == 'Une_Alim') { Canal[Pour].Etat = Un } } }
 
-        for (let Fois = 1; Fois <= 4; Fois++) {
-
+        for (let Fois = 1; Fois <= 4; Fois++) { 
+            
             for (let Pour = 1; Pour <= Nb_Canal; Pour++) {
                 if ([Bouche, Un].includes(Canal[Pour].Etat)) {
                     for (Pour2 = 1; Pour2 <= 2; Pour2++) {
@@ -385,7 +404,7 @@ function Anime() {  //
                     }
 
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
-                        if (Canal[Pour].Bout[Pour2].Quoi = 'Un_Carrefour') {
+                        if (Canal[Pour].Bout[Pour2].Quoi == 'Un_Carrefour') {
                             if ([Bouche, Un].includes(Carrefour[Canal[Pour].Bout[Pour2].Lequel].Etat)) {
                                 Canal[Pour].Etat = Carrefour[Canal[Pour].Bout[Pour2].Lequel].Etat;
                             }
@@ -404,19 +423,19 @@ function Anime() {  //
             switch (Verin[Pour].Modele) {
                 case 'Simple_R':
                 case 'R_Simple':
-                    if (Verin[Pour].Modele == 'R_SImple') { En_Un = En_Deux }
+                    if (Verin[Pour].Modele == 'R_Simple') { En_Un = En_Deux }
                     if (En_Un) {
-                        if (Tige < 9) {
+                        if (Verin[Pour].Tige < 9) {
                             Affiche_Verin(Pour, '#FFFFFF', false);
-                            Tige++;
+                            Verin[Pour].Tige++;
                             Affiche_Verin(Pour, '#000000', false);
                         }
                     } else {
                         if (!((Verin[Pour].Modele == 'Simple_R') && (Verin[Pour].Etat_Ext[1] == Bouche))) {
-                            if (!((Verin[Pour].Modele = 'r_SImple') && (Verin[Pour].Etat_Ext[2] = Bouche))) {
-                                if (Tige > 2) {
+                            if (!((Verin[Pour].Modele == 'R_Simple') && (Verin[Pour].Etat_Ext[2] == Bouche))) {
+                                if (Verin[Pour].Tige > 2) {
                                     Affiche_Verin(Pour, '#FFFFFF', false);
-                                    Tige--;
+                                    Verin[Pour].Tige--;
                                     Affiche_Verin(Pour, '#000000', false);
                                 }
                             }
@@ -431,18 +450,18 @@ function Anime() {  //
                 case 'Double_V':
                     if (En_Un && En_Deux) {
                         PetitMenu('#FF0000', 'Обе камеры запитаны !');
-                        Pause();
+                        //Pause(5);
                     } else {
                         if (!En_Un && !En_Deux) {
                             PetitMenu('#FF0000', 'Нет камеры с питанием !');
-                            Pause();
+                            //Pause(5);
                         }
                         else {
                             if (En_Un) {
                                 if (Verin[Pour].Tige < 9) {
                                     if (!(Verin[Pour].Etat_Ext[2] == Bouche)) {
                                         Affiche_Verin(Pour, '#FFFFFF', false);
-                                        Inc(Verin[Pour].Tige);
+                                        Verin[Pour].Tige++;
                                         Affiche_Verin(Pour, '#000000', false);
                                     }
                                 }
@@ -461,8 +480,9 @@ function Anime() {  //
 
             }
         }
-    }
 }
+
+
 
 
 

@@ -80,10 +80,10 @@ Button9.addEventListener('click', function (e) {    //Добавить цепь 
   Commande1Click();
 });
 Button10.addEventListener('click', function (e) {
-  alert('Пошаговый запуск');
+  Anime1Click();
 });
 Button11.addEventListener('click', function (e) {
-  alert('Непрерывный запуск');
+  Continu1Click();
 });
 Button12.addEventListener('click', function (e) {
   RAZ1Click();
@@ -266,13 +266,31 @@ canvas.addEventListener('mousedown', function (f) {
           Fichiermodifie = false;
         }
         break;
-      case 'RAZ1':        //TODO:Выбор положения при нажатии
+      case 'RAZ1':        //Выбор положения при нажатии
         RAZ1Click2();
         funcCursor("default");
         ActionMouse = '';
         Fichiermodifie = false;
         break;
 
+      //++++++++++++++++++++++++++++++++++++++  
+        case 'Anime':        //Выбор положения при нажатии
+        for (let Pour = 1; Pour <= 10; Pour++) {
+        
+        Heure = true;
+        Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+        
+        Anime2();
+        //Sleep(1000)
+        Redess(false);
+            
+        }
+
+        funcCursor("default");
+        ActionMouse = '';
+        Fichiermodifie = false;
+        
+        break;
     }
   }
   if (event.which == 3) {
@@ -363,7 +381,7 @@ var Compteursouris = 0;
 var Facteur = 1, Vieux_Facteur = 0, XG = 0, YG = 0;
 var Textenter = '', Heure = false, Prox2 = 0, Objet2 = '', Celui_La2 = 0, Quoi_Donc2 = '', Lax2 = 0, Lay2 = 0;
 var Puissance = true, Ext = true, Debut = true, XL = 0, YL = 0, Old_XL = 0, Old_YL = 0, XFin = 0, YFin = 0;
-var Pointe_Quoi = '';
+var Pointe_Quoi = '', timerId = '';
 
 for (let i = 1; i <= Max_Distributeur; i++) {
   Distributeur[i] = {
