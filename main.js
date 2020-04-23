@@ -53,7 +53,7 @@ FormCreate();
 //Обработчик событий мыши
 
 Button1.addEventListener('click', function (e) {
-  alert('Файл новый');
+  Nouveau1Click();
 });
 Button2.addEventListener('click', function (e) {
   alert('Файл загрузить');
@@ -194,12 +194,14 @@ canvas.addEventListener('mousedown', function (f) {
 
       //++++++++++++++++++++++++++++++++++++++
       case 'Pointe_Objet2':
+
         Pointe_Objet2(Objet2, Prox2);                             //Выбор компонента
         Ajoute_Objet2(Objet2, Celui_La2);                         //
         Ou_Que();                    //Выбор места установки компонента
         ActionMouse = 'Ajoute_Objet3';
         break;
       case 'Ajoute_Objet3':
+
         Ajoute_Objet3(Objet2, X_s / Facteur, Y_s / Facteur, Quoi_Donc2, Celui_La2);//Вставка компонента
         Redess(false);                                            //Перерисовка холста
         funcCursor("default");
@@ -209,6 +211,7 @@ canvas.addEventListener('mousedown', function (f) {
 
       //++++++++++++++++++++++++++++++++++++++
       case 'Texte':
+
         Cree_Texte2()
         funcCursor("default");
         ActionMouse = '';
@@ -217,6 +220,7 @@ canvas.addEventListener('mousedown', function (f) {
 
       //++++++++++++++++++++++++++++++++++++++
       case 'Remove':
+
         Celui_La2 = 1;
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
         Effacer()  //
@@ -228,6 +232,7 @@ canvas.addEventListener('mousedown', function (f) {
 
       //++++++++++++++++++++++++++++++++++++++  
       case 'Move':
+
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
         Ou_Que(); //Выбор места установки компонента
         ActionMouse = 'Move2';
@@ -267,6 +272,7 @@ canvas.addEventListener('mousedown', function (f) {
         }
         break;
       case 'RAZ1':        //Выбор положения при нажатии
+
         RAZ1Click2();
         funcCursor("default");
         ActionMouse = '';
@@ -274,22 +280,35 @@ canvas.addEventListener('mousedown', function (f) {
         break;
 
       //++++++++++++++++++++++++++++++++++++++  
-        case 'Anime':        //Выбор положения при нажатии
-        for (let Pour = 1; Pour <= 10; Pour++) {
+      case 'Anime1':        //Выбор положения при нажатии
+      
+      Heure = true;
+      Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+      Anime2();
+      Redess(false);
+      if (Objet2 != 'Rien') { ActionMouse = 'Anime1'   //Если нажата клавиша "Возврат" - то выход   
+    } else {
+      ActionMouse = '';
+      Fichiermodifie = false;
+    }         
+      funcCursor("default");
+      break;        
+
+      //++++++++++++++++++++++++++++++++++++++  
+        case 'Anime2':        //Выбор положения при нажатии
         
+        var intervalID = setInterval(function () {  //Непрерывный цикл
         Heure = true;
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
-        
         Anime2();
-        //Sleep(1000)
         Redess(false);
-            
-        }
-
+        timerId++
+        if (Objet2 == 'Rien') {clearInterval(intervalID)} //Если нажата клавиша "Возврат" - то выход из цикла
+        }, 1000);   
+        
         funcCursor("default");
         ActionMouse = '';
         Fichiermodifie = false;
-        
         break;
     }
   }
@@ -381,7 +400,7 @@ var Compteursouris = 0;
 var Facteur = 1, Vieux_Facteur = 0, XG = 0, YG = 0;
 var Textenter = '', Heure = false, Prox2 = 0, Objet2 = '', Celui_La2 = 0, Quoi_Donc2 = '', Lax2 = 0, Lay2 = 0;
 var Puissance = true, Ext = true, Debut = true, XL = 0, YL = 0, Old_XL = 0, Old_YL = 0, XFin = 0, YFin = 0;
-var Pointe_Quoi = '', timerId = '';
+var Pointe_Quoi = '', timerId = 0;
 
 for (let i = 1; i <= Max_Distributeur; i++) {
   Distributeur[i] = {

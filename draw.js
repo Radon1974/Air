@@ -1104,6 +1104,7 @@ console.log("Nb_Canal", Nb_Canal)
 function Redess(Blanc) {  //
   ClearDevice();
   Redessprinc(Blanc);
+  
 }
 
 //Создание формы
@@ -1429,75 +1430,7 @@ function Sleep(milliseconds) {
 
 
 
-//Сохранение файла  кнопка
-function Ouvrir1Click(Sender) {  //
 
-  if (Fichiermodifie) {
-    Dialogvaleur = MessageDlg('Сохранить файл ?', mtConfirmation, [mbYes, mbno, mbcancel], 0);
-    switch (Dialogvaleur) {
-      case 'id_yes':
-        Enregregistersous1Click(Self);
-        break;
-      case 'id_Cancel':
-        return false
-    }
-  }
-
-  if (openDialog1.execute) {
-    Fichiermodifie = false;
-    nomdefichier = OpenDialog1.Filename;
-    Lecturede(nomdefichier);
-    Facteur = 1;
-  }
-  redess(false);
-}
-
-//Запись файла  кнопка
-/*function Enregregistersous1Click(Sender) {  //
-var Pour=0;
-    F:File;
-Begin
-  if (SaveDialog1.execute) then
-  Begin
-    nomdefichier =SaveDialog1.Filename;
-    assignfile(F,nomdefichier);
-    Pour =0;
-    ReWrite(f,1);
-    try
-      BlockWrite(f,Nb_Verin,2);
-      BlockWrite(f,Nb_Distributeur,2);
-      BlockWrite(f,Nb_Commande,2);
-      BlockWrite(f,Nb_Canal,2);
-      BlockWrite(f,Nb_Canal_Pilote,2);
-      BlockWrite(f,Nb_Alimentation,2);
-      BlockWrite(f,Nb_Capteur,2);
-      BlockWrite(f,Nb_Alim_Pilote,2);
-      BlockWrite(f,Nb_Carrefour,2);
-      BlockWrite(f,Nb_Carrefour_Pilote,2);
-      BlockWrite(f,Nb_Memoire,2);
-      BlockWrite(f,Nb_Sequenceur,2);
-      BlockWrite(f,Nb_Texte,2);
-      BlockWrite(f,Pour,2);            {R‚serve}
-      BlockWrite(f,Pour,2);
-      BlockWrite(f,Verin[1],Nb_Verin*SizeOf(Verin[1]));
-      BlockWrite(f,Distributeur[1],Nb_Distributeur*SizeOf(Distributeur[1]));
-      BlockWrite(f,Commande[1],Nb_Commande*SizeOf(Commande[1]));
-      BlockWrite(f,Canal[1],Nb_Canal*SizeOf(Canal[1]));
-      BlockWrite(f,Canal_Pilote[1],Nb_Canal_Pilote*SizeOf(Canal_Pilote[1]));
-      BlockWrite(f,AliMentation[1],Nb_Alimentation*SizeOf(AliMentation[1]));
-      BlockWrite(f,Capteur[1],Nb_Capteur*SizeOf(Capteur[1]));
-      BlockWrite(f,Alim_Pilote[1],Nb_Alim_Pilote*SizeOf(Alim_Pilote[1]));
-      BlockWrite(f,Carrefour[1],Nb_Carrefour*SizeOf(Carrefour[1]));
-      BlockWrite(f,Carrefour_Pilote[1],Nb_Carrefour_Pilote*SizeOf(Carrefour_Pilote[1]));
-      BlockWrite(f,Memoire[1],Nb_Memoire*SizeOf(Memoire[1]));
-      BlockWrite(f,Sequenceur[1],Nb_Sequenceur*SizeOf(Sequenceur[1]));
-      for (let Pour=1; Pour <= Nb_Texte; Pour++) Do BlockWrite(f,Texte[Pour],SizeOf(Texte[Pour]));
-      finally
-        Closefile(f);
-      end;
-      Fichiermodifie =false;
-  end;
-end;*/
 
 
 
@@ -1554,16 +1487,16 @@ begin
 end;*/
 
 //Цветное  кнопка
-function Couleur1Click(Sender) {  //
-  redess(false);
-}
+//function Couleur1Click(Sender) {  //
+//  redess(false);
+//}
 
 //
-function FormKeyDown(Sender, Key, Shift) {  //
-  if (Key = vk_escape) { Droite = true };
-  if (key = 107) { if (Shift.includes(ssCtrl)) { if (loupe1.Enabled) { loupe1Click(self) } } }
-  if (key = 109) { if (Shift.includes(ssCtrl)) { if (loupe2.Enabled) { Loupe2Click(self) } } }
-}
+//function FormKeyDown(Sender, Key, Shift) {  //
+//  if (Key = vk_escape) { Droite = true };
+//  if (key = 107) { if (Shift.includes(ssCtrl)) { if (loupe1.Enabled) { loupe1Click(self) } } }
+//  if (key = 109) { if (Shift.includes(ssCtrl)) { if (loupe2.Enabled) { Loupe2Click(self) } } }
+///}
 
 //Сохранить MsPaint  кнопка
 /*function TForm1.MsPaintBmp1Click(Sender: TObject) {  //

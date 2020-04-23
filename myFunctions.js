@@ -1,32 +1,32 @@
 //Нажимаем на пробел
 
 // Рисуем текст
-CanvasRenderingContext2D.prototype.funcTextCreate = function(x, y, text, color,
-razmer) {
+CanvasRenderingContext2D.prototype.funcTextCreate = function (x, y, text, color,
+  razmer) {
   this.font = 'bold ' + razmer + 'pt' + ' sans-serif';
   this.fillStyle = color;
   this.fillText(text, x, y);
 };
 
 // Рисуем квадрат с скругленными краями
-CanvasRenderingContext2D.prototype.funcRoundRect = function(btn) {
+CanvasRenderingContext2D.prototype.funcRoundRect = function (btn) {
   this.fillStyle = btn.color;
 
   this.fillRect((btn.x), (btn.y),
-  (btn.w), btn.h);
+    (btn.w), btn.h);
 
   //return this;
 };
 
 // Рисуем квадрат без скругленных краев с подсказкой
-CanvasRenderingContext2D.prototype.funcRectPodskazka = function(btn) {
+CanvasRenderingContext2D.prototype.funcRectPodskazka = function (btn) {
   this.fillStyle = '#f0f0f0';
   this.fillRect((mouseCoord.x + 10), (mouseCoord.y + 15),
-  (8.35 * btn.text.length), btn.h);
+    (8.35 * btn.text.length), btn.h);
   this.fillStyle = 'black';
   this.strokeRect((mouseCoord.x + 10), (mouseCoord.y + 15),
-  (8.35 * btn.text.length), btn.h);
-  this.font = ' ' + 10  + 'pt' + ' Courier';
+    (8.35 * btn.text.length), btn.h);
+  this.font = ' ' + 10 + 'pt' + ' Courier';
   this.fillStyle = 'black';
   this.fillText(btn.text, (mouseCoord.x + 15),
     (mouseCoord.y + 25.5));
@@ -34,7 +34,7 @@ CanvasRenderingContext2D.prototype.funcRectPodskazka = function(btn) {
 };
 
 // Сообщение в журнал событий, в правое верхнее нижнее окно и т.д.
-CanvasRenderingContext2D.prototype.funcSoobshenie = function(color1,
+CanvasRenderingContext2D.prototype.funcSoobshenie = function (color1,
   color2, x, y, w, h, kegl, text) {
   this.fillStyle = color1;
   this.fillRect((x), (y), (w), h);
@@ -44,7 +44,7 @@ CanvasRenderingContext2D.prototype.funcSoobshenie = function(color1,
 };
 
 // Рисуем квадрат без подсказки
-CanvasRenderingContext2D.prototype.funcRect = function(btn) {
+CanvasRenderingContext2D.prototype.funcRect = function (btn) {
   this.fillStyle = btn.color;
   this.fillRect((btn.x), (btn.y) *
     popravkaX, (btn.w), btn.h);
@@ -53,7 +53,7 @@ CanvasRenderingContext2D.prototype.funcRect = function(btn) {
 //Функция аналогична событию onload
 function myOnload(img, ctx, w, h, x, y) {
   img.src = img.src;
-  img.onload = function() {
+  img.onload = function () {
     //ctx.globalAlpha = 0.2;
     ctx.drawImage(img, x, y, w, h);
   };
@@ -62,9 +62,9 @@ function myOnload(img, ctx, w, h, x, y) {
 
 //Попадание в область Canvas - Click или Move
 function funcHitArea(e, object) {
-  if (e.x > object.x  &&
+  if (e.x > object.x &&
     e.x < (object.x + object.w) &&
-    e.y > object.y  &&
+    e.y > object.y &&
     e.y < (object.y + object.h)) {
     return true;
   }
@@ -72,9 +72,9 @@ function funcHitArea(e, object) {
 }
 
 //Отрисовывает таймера справа
-CanvasRenderingContext2D.prototype.funcCreateTimerSprava = function() {
+CanvasRenderingContext2D.prototype.funcCreateTimerSprava = function () {
   if (etapiAPK.timerSpravaPokazat == true) {
-    this.font = ' ' + 10  + 'pt' + ' sans-serif';
+    this.font = ' ' + 10 + 'pt' + ' sans-serif';
     this.fillStyle = 'blue';
     this.fillText(etapiAPK.prefixTimeraSprava + etapiAPK.timerTimera +
       ' сек.', 1510, 690);
@@ -83,7 +83,7 @@ CanvasRenderingContext2D.prototype.funcCreateTimerSprava = function() {
 
 //Изменить вид курсора
 function funcCursor(whichSelected) {
-  document.body.style.cursor =  whichSelected
+  document.body.style.cursor = whichSelected
 }
 
 /*function funcEventMoveCanvas(e) {
@@ -98,9 +98,9 @@ function Otxy(X, Y, S) {
 
 //Ввод текста
 function Ed(Entete, Demande, Ouiounon) { //Ed(entete,demande:string;var ouiounon:boolean):string;
-Demande = prompt(Entete, Demande); 
+  Demande = prompt(Entete, Demande);
 
- return Demande
+  return Demande
 }
 
 //Рисование закрашенного прямоугольника (маленького)
@@ -154,7 +154,7 @@ function Ellipse_SVG(X1, Y1, X2, Y2) {
 }
 
 //Рисование круга
-function Cercle(X, Y, Rr ) {
+function Cercle(X, Y, Rr) {
   ctx.beginPath();
   ctx.arc(X * Facteur, Y * Facteur, Rr * Facteur, 0, 2 * Math.PI, false);
   ctx.stroke();
@@ -205,4 +205,133 @@ function Triangle(X, Y) {
   Ligne(X - Cote, Y, X + Cote, Y);
   Ligne(X - Cote, Y, X, Y + Cote * 1.7);
   Ligne(X + Cote, Y, X, Y + Cote * 1.7);
+}
+
+var test = {        //Для примера
+  "myKey": "Привет!"
+};
+
+//+++Чтение файла+++
+document.getElementById("selFile").onchange = function () {
+  var fileReader = new FileReader();
+  fileReader.onload = function () {
+    var o = JSON.parse(this.result);
+    //Object.assign(localStorage, o);   // использовать этот объект localStorage
+    alert("done, myKey=" + o["myKey"]); // o[] -> localStorage.getItem("myKey")
+  };
+  fileReader.readAsText(this.files[0]);
+};
+
+ //+++Запись файла+++
+ document.querySelector("downFile").onclick = function() {
+  var json = JSON.stringify(test); // test -> localStorage
+  var file = new File([json], "myFilename.txt", {
+    type: "application/octet-stream"
+  });
+  var blobUrl = (URL || webkitURL).createObjectURL(file);
+  window.location = blobUrl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//+++Запись файла+++
+function download(filename, content) {
+  var a = document.createElement("a");
+  linkDownload(a, filename, content);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+
+
+function linkDownload(a, filename, content) {
+  contentType = "data:application/octet-stream,";
+  uriContent = contentType + encodeURIComponent(content);
+  a.setAttribute("href", uriContent);
+  a.setAttribute("download", filename);
+}
+
+
+
+
+
+//Чтение файла
+function readFile(object, callback) {
+  var file = object.files[0];
+  console.log(file);
+  var reader = new FileReader();
+  reader.onload = function () {
+    callback(reader.result);
+    console.log(reader);
+  };
+  reader.readAsText(file);
+}
+
+
+
+
+
+function saveFile(data, name) {
+  var a = document.createElement("a");
+  a.setAttribute("download", name || "file.txt");
+  a.setAttribute(
+    "href",
+    "data:application/octet-stream;base64," + btoa(data || "undefined")
+  );
+  a.click();
+}
+
+function read() {
+  var file = document.getElementById("file").files[0];
+  console.log(
+    'Loading "' + file.name + '"... (' + Math.round(file.size / 1024) + "kB)"
+  );
+  if (file.size >= 256 * 1024) {
+    if (
+      !confirm(
+        "File size is " +
+        Math.round(file.size / 1024) +
+        "kBytes! Really want to read it?"
+      )
+    ) {
+      console.log("Aborting loading file...");
+      return;
+    }
+  }
+  var reader = new FileReader();
+  reader.onload = function () {
+    console.log("File readed!");
+    document.getElementById("out").innerHTML = reader.result;
+    savedata = reader.result;
+    savename = file.name;
+  };
+  console.log("Starting reading file...");
+  reader.readAsText(file);
 }

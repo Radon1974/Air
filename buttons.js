@@ -86,13 +86,7 @@ function Commande1Click() {  //
   //Cestfini();
 }
 
-//Анимация кнопка
-function Anime1Click() {  //
-  //Cacommence();
-  Pasapas = true;
-  Anime1();
-  //Cestfini();
-}
+
 
 //Мышка вверх  кнопка
 function Image1MouseUp(Sender, Button, Shift, X, Y) {  //
@@ -101,7 +95,7 @@ function Image1MouseUp(Sender, Button, Shift, X, Y) {  //
 }
 
 //Новый  кнопка
-function Nouveau1Click(Sender) {  //
+function Nouveau1Click() {
   Super_raz();
   Facteur = 1;
   redess(false);
@@ -201,6 +195,23 @@ function Timer2Timer(Sender) {
   Gauche = true;
 }
 
+
+//Анимация кнопка
+ function Anime1Click() {  //
+  //Cacommence();
+  
+  Pasapas = true;
+  Anime1();
+
+  PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
+  L_Action = 'Action';
+  Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
+  Fichiermodifie = true;
+  ActionMouse = 'Anime1';
+  //Cestfini();
+}
+
+
 //Продолжение кнопка
 function Continu1Click() {
   //Cacommence();
@@ -212,7 +223,7 @@ function Continu1Click() {
   L_Action = 'Action';
   Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
   Fichiermodifie = true;
-  ActionMouse = 'Anime';
+  ActionMouse = 'Anime2';
   
   //Pasapas = false;
   //Cestfini();
@@ -264,7 +275,127 @@ function Dessous1Click() {  //Переместить все компоненты
 }
 
 
+//Сохранение и открытие файла  кнопка
+/*function Ouvrir1Click() {  //
 
+  let res = {
+    Nb_Verin: NbVerin,
+    Nb_Distributeur: Nb_Distributeur,
+    Nb_Commande: Nb_Commande,
+    Nb_Canal: Nb_Canal,
+    Nb_Canal_Pilote: Nb_Canal_Pilote,
+    Nb_Alimentation: Nb_Alimentation,
+    Nb_Capteur: Nb_Capteur,
+    Nb_Alim_Pilote: Nb_Alim_Pilote,
+    Nb_Carrefour: Nb_Carrefour,
+    Nb_Carrefour_Pilote: Nb_Carrefour_Pilote,
+    Nb_Memoire: Nb_Memoire,
+    Nb_Sequenceur: Nb_Sequenceur,
+    Nb_Texte: Nb_Texte,
+
+    BlockWrite(f,Verin[1],Nb_Verin*SizeOf(Verin[1]));
+      BlockWrite(f,Distributeur[1],Nb_Distributeur*SizeOf(Distributeur[1]));
+      BlockWrite(f,Commande[1],Nb_Commande*SizeOf(Commande[1]));
+      BlockWrite(f,Canal[1],Nb_Canal*SizeOf(Canal[1]));
+      BlockWrite(f,Canal_Pilote[1],Nb_Canal_Pilote*SizeOf(Canal_Pilote[1]));
+      BlockWrite(f,AliMentation[1],Nb_Alimentation*SizeOf(AliMentation[1]));
+      BlockWrite(f,Capteur[1],Nb_Capteur*SizeOf(Capteur[1]));
+      BlockWrite(f,Alim_Pilote[1],Nb_Alim_Pilote*SizeOf(Alim_Pilote[1]));
+      BlockWrite(f,Carrefour[1],Nb_Carrefour*SizeOf(Carrefour[1]));
+      BlockWrite(f,Carrefour_Pilote[1],Nb_Carrefour_Pilote*SizeOf(Carrefour_Pilote[1]));
+      BlockWrite(f,Memoire[1],Nb_Memoire*SizeOf(Memoire[1]));
+      BlockWrite(f,Sequenceur[1],Nb_Sequenceur*SizeOf(Sequenceur[1]));
+      for (let Pour=1; Pour <= Nb_Texte; Pour++) Do BlockWrite(f,Texte[Pour],SizeOf(Texte[Pour]));
+    
+  }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*if (Fichiermodifie) {
+    Dialogvaleur = MessageDlg('Сохранить файл ?', mtConfirmation, [mbYes, mbno, mbcancel], 0);
+    switch (Dialogvaleur) {
+      case 'id_yes':
+        Enregregistersous1Click(Self);
+        break;
+      case 'id_Cancel':
+        return false
+    }
+  }
+
+  if (openDialog1.execute) {
+    Fichiermodifie = false;
+    nomdefichier = OpenDialog1.Filename;
+    Lecturede(nomdefichier);
+    Facteur = 1;
+  }
+  redess(false);
+}*/
+
+//Запись файла  кнопка
+/*function Enregregistersous1Click(Sender) {  //
+var Pour=0;
+    F:File;
+Begin
+  if (SaveDialog1.execute) then
+  Begin
+    nomdefichier =SaveDialog1.Filename;
+    assignfile(F,nomdefichier);
+    Pour =0;
+    ReWrite(f,1);
+    try
+      BlockWrite(f,Nb_Verin,2);
+      BlockWrite(f,Nb_Distributeur,2);
+      BlockWrite(f,Nb_Commande,2);
+      BlockWrite(f,Nb_Canal,2);
+      BlockWrite(f,Nb_Canal_Pilote,2);
+      BlockWrite(f,Nb_Alimentation,2);
+      BlockWrite(f,Nb_Capteur,2);
+      BlockWrite(f,Nb_Alim_Pilote,2);
+      BlockWrite(f,Nb_Carrefour,2);
+      BlockWrite(f,Nb_Carrefour_Pilote,2);
+      BlockWrite(f,Nb_Memoire,2);
+      BlockWrite(f,Nb_Sequenceur,2);
+      BlockWrite(f,Nb_Texte,2);
+      BlockWrite(f,Pour,2);            {R‚serve}
+      BlockWrite(f,Pour,2);
+      BlockWrite(f,Verin[1],Nb_Verin*SizeOf(Verin[1]));
+      BlockWrite(f,Distributeur[1],Nb_Distributeur*SizeOf(Distributeur[1]));
+      BlockWrite(f,Commande[1],Nb_Commande*SizeOf(Commande[1]));
+      BlockWrite(f,Canal[1],Nb_Canal*SizeOf(Canal[1]));
+      BlockWrite(f,Canal_Pilote[1],Nb_Canal_Pilote*SizeOf(Canal_Pilote[1]));
+      BlockWrite(f,AliMentation[1],Nb_Alimentation*SizeOf(AliMentation[1]));
+      BlockWrite(f,Capteur[1],Nb_Capteur*SizeOf(Capteur[1]));
+      BlockWrite(f,Alim_Pilote[1],Nb_Alim_Pilote*SizeOf(Alim_Pilote[1]));
+      BlockWrite(f,Carrefour[1],Nb_Carrefour*SizeOf(Carrefour[1]));
+      BlockWrite(f,Carrefour_Pilote[1],Nb_Carrefour_Pilote*SizeOf(Carrefour_Pilote[1]));
+      BlockWrite(f,Memoire[1],Nb_Memoire*SizeOf(Memoire[1]));
+      BlockWrite(f,Sequenceur[1],Nb_Sequenceur*SizeOf(Sequenceur[1]));
+      for (let Pour=1; Pour <= Nb_Texte; Pour++) Do BlockWrite(f,Texte[Pour],SizeOf(Texte[Pour]));
+      finally
+        Closefile(f);
+      end;
+      Fichiermodifie =false;
+  end;
+end;*/
 
 
 
