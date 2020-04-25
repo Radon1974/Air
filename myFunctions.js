@@ -207,7 +207,7 @@ function Triangle(X, Y) {
   Ligne(X + Cote, Y, X, Y + Cote * 1.7);
 }
 
-var test = {        //Для примера
+var SaveF = {        //Для примера
   "myKey": "Привет!"
 };
 
@@ -215,16 +215,16 @@ var test = {        //Для примера
 document.getElementById("selFile").onchange = function () {
   var fileReader = new FileReader();
   fileReader.onload = function () {
-    var o = JSON.parse(this.result);
-    //Object.assign(localStorage, o);   // использовать этот объект localStorage
-    alert("done, myKey=" + o["myKey"]); // o[] -> localStorage.getItem("myKey")
+    var LoadF = JSON.parse(this.result);
+    //Object.assign(localStorage, LoadF);   // использовать этот объект localStorage
+    alert("done, myKey=" + LoadF["myKey"]); // LoadF[] -> localStorage.getItem("myKey")
   };
   fileReader.readAsText(this.files[0]);
 };
 
  //+++Запись файла+++
- document.querySelector("downFile").onclick = function() {
-  var json = JSON.stringify(test); // test -> localStorage
+ document.getElementById("downFile").onclick = function() {
+  var json = JSON.stringify(SaveF); // test -> localStorage
   var file = new File([json], "myFilename.txt", {
     type: "application/octet-stream"
   });
