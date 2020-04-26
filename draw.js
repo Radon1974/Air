@@ -1097,7 +1097,7 @@ function Redessprinc(Blanc) {  // Отображение компонентов 
   for (let Pour = 1; Pour <= Nb_Memoire; Pour++) { Affiche_Memoire(Pour, '#000000', Blanc) }
   for (let Pour = 1; Pour <= Nb_Sequenceur; Pour++) { Affiche_Sequenceur(Pour, Blanc) }
   for (let Pour = 1; Pour <= Nb_Texte; Pour++) { Affiche_Texte(Pour, '#000000') }
-console.log("Nb_Canal", Nb_Canal)
+
   ctx.font = '10px Arial'
 }
 

@@ -4,8 +4,7 @@ var canvas = document.getElementById("myCanvas"),
   h = canvas.height;
 
 const Button1 = document.getElementById('Button1'),
-  Button2 = document.getElementById('Button2'),
-  Button3 = document.getElementById('Button3'),
+
   Button4 = document.getElementById('Button4'),
   Button5 = document.getElementById('Button5'),
   Button6 = document.getElementById('Button6'),
@@ -55,12 +54,7 @@ FormCreate();
 Button1.addEventListener('click', function (e) {
   Nouveau1Click();
 });
-Button2.addEventListener('click', function (e) {
-  alert('Файл загрузить');
-});
-Button3.addEventListener('click', function (e) {
-  alert('Файл сохранить');
-});
+
 Button4.addEventListener('click', function (e) {
   Composant1Click()
 });

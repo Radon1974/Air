@@ -96,10 +96,10 @@ function Image1MouseUp(Sender, Button, Shift, X, Y) {  //
 
 //Новый  кнопка
 function Nouveau1Click() {
-  Super_raz();
+  Super_Raz();
   Facteur = 1;
-  redess(false);
-  Fichiermodifie = false;
+  Redess(false);
+  Fichiermodifie = true;
 }
 
 //Распечатать кнопка
@@ -275,39 +275,6 @@ function Dessous1Click() {  //Переместить все компоненты
 }
 
 
-//Сохранение и открытие файла  кнопка
-/*function Ouvrir1Click() {  //
-
-  let res = {
-    Nb_Verin: NbVerin,
-    Nb_Distributeur: Nb_Distributeur,
-    Nb_Commande: Nb_Commande,
-    Nb_Canal: Nb_Canal,
-    Nb_Canal_Pilote: Nb_Canal_Pilote,
-    Nb_Alimentation: Nb_Alimentation,
-    Nb_Capteur: Nb_Capteur,
-    Nb_Alim_Pilote: Nb_Alim_Pilote,
-    Nb_Carrefour: Nb_Carrefour,
-    Nb_Carrefour_Pilote: Nb_Carrefour_Pilote,
-    Nb_Memoire: Nb_Memoire,
-    Nb_Sequenceur: Nb_Sequenceur,
-    Nb_Texte: Nb_Texte,
-
-    BlockWrite(f,Verin[1],Nb_Verin*SizeOf(Verin[1]));
-      BlockWrite(f,Distributeur[1],Nb_Distributeur*SizeOf(Distributeur[1]));
-      BlockWrite(f,Commande[1],Nb_Commande*SizeOf(Commande[1]));
-      BlockWrite(f,Canal[1],Nb_Canal*SizeOf(Canal[1]));
-      BlockWrite(f,Canal_Pilote[1],Nb_Canal_Pilote*SizeOf(Canal_Pilote[1]));
-      BlockWrite(f,AliMentation[1],Nb_Alimentation*SizeOf(AliMentation[1]));
-      BlockWrite(f,Capteur[1],Nb_Capteur*SizeOf(Capteur[1]));
-      BlockWrite(f,Alim_Pilote[1],Nb_Alim_Pilote*SizeOf(Alim_Pilote[1]));
-      BlockWrite(f,Carrefour[1],Nb_Carrefour*SizeOf(Carrefour[1]));
-      BlockWrite(f,Carrefour_Pilote[1],Nb_Carrefour_Pilote*SizeOf(Carrefour_Pilote[1]));
-      BlockWrite(f,Memoire[1],Nb_Memoire*SizeOf(Memoire[1]));
-      BlockWrite(f,Sequenceur[1],Nb_Sequenceur*SizeOf(Sequenceur[1]));
-      for (let Pour=1; Pour <= Nb_Texte; Pour++) Do BlockWrite(f,Texte[Pour],SizeOf(Texte[Pour]));
-    
-  }*/
 
 
 

@@ -207,9 +207,9 @@ function Triangle(X, Y) {
   Ligne(X + Cote, Y, X, Y + Cote * 1.7);
 }
 
-var SaveF = {        //Для примера
-  "myKey": "Привет!"
-};
+//var SaveF = {        //Для примера
+//  "myKey": "Привет!"
+//};
 
 //+++Чтение файла+++
 document.getElementById("selFile").onchange = function () {
@@ -217,13 +217,16 @@ document.getElementById("selFile").onchange = function () {
   fileReader.onload = function () {
     var LoadF = JSON.parse(this.result);
     //Object.assign(localStorage, LoadF);   // использовать этот объект localStorage
-    alert("done, myKey=" + LoadF["myKey"]); // LoadF[] -> localStorage.getItem("myKey")
+    //alert("done, myKey=" + LoadF["myKey"]); // LoadF[] -> localStorage.getItem("myKey")
+    Load1Click(LoadF)
+    Redess(false)
   };
   fileReader.readAsText(this.files[0]);
 };
 
- //+++Запись файла+++
- document.getElementById("downFile").onclick = function() {
+//+++Запись файла+++
+document.getElementById("downFile").onclick = function () {
+  var SaveF = Save1Click()
   var json = JSON.stringify(SaveF); // test -> localStorage
   var file = new File([json], "myFilename.txt", {
     type: "application/octet-stream"
@@ -233,11 +236,73 @@ document.getElementById("selFile").onchange = function () {
 }
 
 
+//Сохранение  файла
+function Save1Click() {
+
+  return {
+    'Nb_Verin': Nb_Verin,
+    'Nb_Distributeur': Nb_Distributeur,
+    'Nb_Commande': Nb_Commande,
+    'Nb_Canal': Nb_Canal,
+    'Nb_Canal_Pilote': Nb_Canal_Pilote,
+    'Nb_Alimentation': Nb_Alimentation,
+    'Nb_Capteur': Nb_Capteur,
+    'Nb_Alim_Pilote': Nb_Alim_Pilote,
+    'Nb_Carrefour': Nb_Carrefour,
+    'Nb_Carrefour_Pilote': Nb_Carrefour_Pilote,
+    'Nb_Memoire': Nb_Memoire,
+    'Nb_Sequenceur': Nb_Sequenceur,
+    'Nb_Texte': Nb_Texte,
+
+    'Verin': Verin,
+    'Distributeur': Distributeur,
+    'Commande': Commande,
+    'Canal': Canal,
+    'Canal_Pilote': Canal_Pilote,
+    'AliMentation': AliMentation,
+    'Capteur': Capteur,
+    'Alim_Pilote': Alim_Pilote,
+    'Carrefour': Carrefour,
+    'Carrefour_Pilote': Carrefour_Pilote,
+    'Memoire': Memoire,
+    'Sequenceur': Sequenceur,
+    'Texte': Texte
+  };
+
+}
 
 
+//Открытие файла
+function Load1Click(LoadF) {
+  Nb_Verin = LoadF['Nb_Verin'],
+  Nb_Distributeur = LoadF['Nb_Distributeur'],
+  Nb_Commande = LoadF['Nb_Commande'],
+  Nb_Canal = LoadF['Nb_Canal'],
+  Nb_Canal_Pilote = LoadF['Nb_Canal_Pilote'],
+  Nb_Alimentation = LoadF['Nb_Alimentation'],
+  Nb_Capteur = LoadF['Nb_Capteur'],
+  Nb_Alim_Pilote = LoadF['Nb_Alim_Pilote'],
+  Nb_Carrefour = LoadF['Nb_Carrefour'],
+  Nb_Carrefour_Pilote = LoadF['Nb_Carrefour_Pilote'],
+  Nb_Memoire = LoadF['Nb_Memoire'],
+  Nb_Sequenceur = LoadF['Nb_Sequenceur'],
+  Nb_Texte = LoadF['Nb_Texte'],
 
+  Verin = LoadF['Verin'],
+  Distributeur = LoadF['Distributeur'],
+  Commande = LoadF['Commande'],
+  Canal = LoadF['Canal'],
+  Canal_Pilote = LoadF['Canal_Pilote'],
+  AliMentation = LoadF['AliMentation'],
+  Capteur = LoadF['Capteur'],
+  Alim_Pilote = LoadF['Alim_Pilote'],
+  Carrefour = LoadF['Carrefour'],
+  Carrefour_Pilote = LoadF['Carrefour_Pilote'],
+  Memoire = LoadF['Memoire'],
+  Sequenceur = LoadF['Sequenceur'],
+  Texte = LoadF['Texte']
 
-
+}
 
 
 
