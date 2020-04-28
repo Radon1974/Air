@@ -999,11 +999,11 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
 
             if (Puissance) {
                 for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) {
-                    if (Distributeur[Pour].Modele = '_5_2') { Combien = 5 } else { Combien = 4 }
+                    if (Distributeur[Pour].Modele == '_5_2') { Combien = 5 } else { Combien = 4 }
                     for (let Pour2 = 1; Pour2 <= Combien; Pour2++) {
                         D = Dista(Distributeur[Pour].ExtX[Pour2], Distributeur[Pour].ExtY[Pour2]);
 
-                        if ((!((Pour2 = 3) && (Distributeur[Pour].Modele = '_3_2'))) && (!(([2, 3].includes(Pour2)) && (['_2_2', '_2_2_'].includes(Distributeur[Pour].Modele))))) {
+                        if ((!((Pour2 == 3) && (Distributeur[Pour].Modele == '_3_2'))) && (!(([2, 3].includes(Pour2)) && (['_2_2', '_2_2_'].includes(Distributeur[Pour].Modele))))) {
                             if (D < Distance) {
                                 Distance = D;
                                 Xd = Distributeur[Pour].ExtX[Pour2];  //Присвоить координаты  Distributeur
@@ -1105,10 +1105,7 @@ function DRA(X_s, Y_s) {  // Ввод точки канала
                 }
             }
 
-            console.log("Xd", Xd, "Yd", Yd);
-            console.log("Branche2.Quoi", Branche2.Quoi);
-            console.log("Branche2.Lequel", Branche2.Lequel);
-            console.log("Branche2.Branchement", Branche2.Branchement);
+
             if (Distance < 6) {
                 XL = Xd;
                 YL = Yd;

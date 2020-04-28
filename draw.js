@@ -49,6 +49,26 @@ function Raz_Vieux() {
 function Super_Raz() {
   //var Pour = 1, K = 1;
   Raz_Vieux();
+  Raz();
+
+for (let Pour = 1; Pour <= Nb_Canal; Pour++) {  //for (let Pour = 1; Pour <= Max_Canal; Pour++) {
+    for (let K = 1; K <= 2; K++) {
+      Canal[Pour].Etat = Zero;
+      Canal[Pour].Bout[K].Quoi = 'Rien';
+    }
+  }
+
+  for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {  //for (let Pour = 1; Pour <= Max_Canal_Pilote; Pour++) {
+    for (let K = 1; K <= 2; K++) {
+      Canal_Pilote[Pour].Etat = Bof;
+      Canal_Pilote[Pour].Bout[K].Quoi = 'Rien';
+    }
+  }
+
+  for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) { for (let K = -1; K <= 5; K++) { Distributeur[Pour].Etat_Ext[K] = 0 } }  //for (let Pour = 1; Pour <= Max_Distributeur; Pour++) { for (let K = -1; K <= 5; K++) { Distributeur[Pour].Etat_Ext[K] = 0 } }
+  for (let Pour = 1; Pour <= Nb_Capteur; Pour++) { Capteur[Pour].Etat = 0 }  //for (let Pour = 1; Pour <= Max_Capteur; Pour++) { Capteur[Pour].Etat = 0 } 
+  
+
   Nb_Verin = 0;
   Nb_Distributeur = 0;
   Nb_Commande = 0;
@@ -62,23 +82,7 @@ function Super_Raz() {
   Nb_Memoire = 0;
   Nb_Sequenceur = 0;
   Nb_Texte = 0;
-  for (let Pour = 1; Pour <= Max_Canal; Pour++) {
-    for (let K = 1; K <= 2; K++) {
-      Canal[Pour].Etat = Zero;
-      Canal[Pour].Bout[K].Quoi = 'Rien';
-    }
-  }
-
-  for (let Pour = 1; Pour <= Max_Canal_Pilote; Pour++) {
-    for (let K = 1; K <= 2; K++) {
-      Canal_Pilote[Pour].Etat = Bof;
-      Canal_Pilote[Pour].Bout[K].Quoi = 'Rien';
-    }
-  }
-
-  for (let Pour = 1; Pour <= Max_Distributeur; Pour++) { for (let K = -1; K <= 5; K++) { Distributeur[Pour].Etat_Ext[K] = 0 } }
-  for (let Pour = 1; Pour <= Max_Capteur; Pour++) { Capteur[Pour].Etat = 0 }
-  Raz();
+  
 }
 
 //Отображение времени
@@ -1298,7 +1302,7 @@ function Ou_Que() {  //Old_X, Old_Y - координаты   Objet - вывод�
   Old_Y = Y;
   Lax2 = X;   //Для совместимости
   Lay2 = Y;
-  console.log("Lax2",Lax2,"Lay2", Lay2)
+  
   /*while (true) {
     //Croix(X, Y);
     Gauche = false;   //Показать курсор пока не будет true (нажата левая клавиша мыши)

@@ -196,7 +196,7 @@ function Timer2Timer(Sender) {
 }
 
 
-//Анимация кнопка
+//Пошаговый запуск кнопка
  function Anime1Click() {  //
   //Cacommence();
   
@@ -212,7 +212,7 @@ function Timer2Timer(Sender) {
 }
 
 
-//Продолжение кнопка
+//Непрерывный запуск кнопка
 function Continu1Click() {
   //Cacommence();
   

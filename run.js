@@ -1,3 +1,4 @@
+
 function RAZ1Click2() {  //Функция изменить положение
     var Pour = 0;
     //var Objet = '';
@@ -58,11 +59,11 @@ function Min(a, b) {
 
 
 
-
+//
 
 
 //Анимация
-function Anime1() {  //TODO: Выполнение анимации компонентов
+function Anime1() {  // Выполнение анимации компонентов
     var Pour = 0;
     var Pour2 = 0;
     var Pour3 = 0;
@@ -87,7 +88,7 @@ function Anime1() {  //TODO: Выполнение анимации компон�
         //PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
 
         for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) {
-            if (Distributeur[Pour].Com[2].Quoi == (Ressort_Droit)) {
+            if (Distributeur[Pour].Com[2].Quoi == 'Ressort_Droit') {
                 if (Distributeur[Pour].Com[1].Quoi != 'Pilote_Gauche') { Place_Distributeur_a(Pour, 1) }
             }
         }
@@ -111,7 +112,7 @@ function Anime1() {  //TODO: Выполнение анимации компон�
 
 
 //Анимация
-function Anime2() {  //TODO: Выполнение анимации компонентов
+function Anime2() {  // Выполнение анимации компонентов
     var Pour = 0;
     var Pour2 = 0;
     var Pour3 = 0;
@@ -288,7 +289,7 @@ function Anime2() {  //TODO: Выполнение анимации компон�
             for (let Pour = 1; Pour <= Nb_Sequenceur; Pour++) {
                 if (Sequenceur[Pour].Etat_Ext[18] == 1) { Sequenceur[Pour].Etat = 0 }
                 if ((Sequenceur[Pour].Etat != 0) && (Sequenceur[Pour].Etat_Ext[19] == 1)) { Sequenceur[Pour].Etat_Ext[Etat + 8] = 1 }
-                if ((Sequenceur[Pour].Etat == Combien) && (Sequenceur[Pour].Etat_Ext[Etat] == 1)) { Etat_Ext[22] = 1 } else { Etat_Ext[22] = 0 }
+                if ((Sequenceur[Pour].Etat == Combien) && (Sequenceur[Pour].Etat_Ext[Etat] == 1)) { Sequenceur[Pour].Etat_Ext[22] = 1 } else { Sequenceur[Pour].Etat_Ext[22] = 0 }
                 if (Sequenceur[Pour].Etat == 1) { Sequenceur[Pour].Etat_Ext[17] = 1 }
                 if (Sequenceur[Pour].Etat != 0) {
                     if (Sequenceur[Pour].Etat != Combien) {
@@ -316,11 +317,11 @@ function Anime2() {  //TODO: Выполнение анимации компон�
         }
 
         for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) {
-            if (!(['_4_3', '_5_3'].includes(Distributeur[Pour]).Modele)) {
+            if (!(['_4_3', '_5_3'].includes(Distributeur[Pour].Modele))) {
                 if (Distributeur[Pour].Etat_Ext[-1] == 1) {
                     if (Distributeur[Pour].Etat_Ext[0] == 0) { Place_Distributeur_a(Pour, 2) };
                 } else {
-                    if (((Distributeur[Pour].Com[2].Quoi == 'Ressort_Droit') && (Distributeur[Pour].Modele != '_2_2')) || (Distributeur[Pour].Etat_Ext[0] == 1)) { Place_Distributeur_a(pour, 1) };
+                    if (((Distributeur[Pour].Com[2].Quoi == 'Ressort_Droit') && (Distributeur[Pour].Modele != '_2_2')) || (Distributeur[Pour].Etat_Ext[0] == 1)) { Place_Distributeur_a(Pour, 1) };
                 }
             } else {
 
@@ -339,7 +340,9 @@ function Anime2() {  //TODO: Выполнение анимации компон�
             for (let Pour = 1; Pour <= Nb_Canal; Pour++) {
                 if ([Bouche, Un].includes(Canal[Pour].Etat)) {
                     for (Pour2 = 1; Pour2 <= 2; Pour2++) {
-                        if (Canal[Pour].Bout[Pour2].Quoi == 'Un_Carrefour') { Carrefour[Canal[Pour].Bout[Pour2].Lequel].Etat = Canal[Pour].Etat; }
+                        if (Canal[Pour].Bout[Pour2].Quoi == 'Un_Carrefour') { 
+                            Carrefour[Canal[Pour].Bout[Pour2].Lequel].Etat = Canal[Pour].Etat; 
+                        }
                     }
                 }
             }
@@ -349,7 +352,9 @@ function Anime2() {  //TODO: Выполнение анимации компон�
 
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
                         if (Canal[Pour].Bout[Pour2].Quoi == 'Un_D') {
-                            if (Canal[Pour].Bout[Pour2].Branchement == 1) { Distributeur[Canal[Pour].Bout[Pour2].Lequel].Etat_Ext[Canal[Pour].Bout[Pour2].Branchement] = Canal[Pour].Etat }
+                            if (Canal[Pour].Bout[Pour2].Branchement == 1) { 
+                                Distributeur[Canal[Pour].Bout[Pour2].Lequel].Etat_Ext[Canal[Pour].Bout[Pour2].Branchement] = Canal[Pour].Etat 
+                            }
                         }
                     }
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
@@ -361,7 +366,7 @@ function Anime2() {  //TODO: Выполнение анимации компон�
             }
 
             for (let Pour = 1; Pour <= Nb_Distributeur; Pour++) {
-                if (!([_4_3, _5_3].includes(Distributeur[Pour].Modele))) {
+                if (!(['_4_3', '_5_3'].includes(Distributeur[Pour].Modele))) {
                     switch (Distributeur[Pour].Etat) {
                         case 1:
                             Distributeur[Pour].Etat_Ext[3] = Distributeur[Pour].Etat_Ext[1];
@@ -416,10 +421,10 @@ function Anime2() {  //TODO: Выполнение анимации компон�
         }
 
         for (let Pour = 1; Pour <= Nb_Canal; Pour++) { Affiche_Canal(Pour, false) }
-        for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { Affiche_Canal_Pilote(Pour, false); }
+        for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { Affiche_Canal_Pilote(Pour, false) }
         for (let Pour = 1; Pour <= Nb_Verin; Pour++) {
-            En_Un = Verin[Pour].Etat_Ext[1] = 1;
-            En_Deux = Verin[Pour].Etat_Ext[2] = 1;
+            En_Un = Verin[Pour].Etat_Ext[1] == 1;
+            En_Deux = Verin[Pour].Etat_Ext[2] == 1;
             switch (Verin[Pour].Modele) {
                 case 'Simple_R':
                 case 'R_Simple':
@@ -467,7 +472,7 @@ function Anime2() {  //TODO: Выполнение анимации компон�
                                 }
                             } else {
                                 if (Verin[Pour].Tige > 2) {
-                                    if (!(Verin[Pour].Etat_Ext[1] = Bouche)) {
+                                    if (!(Verin[Pour].Etat_Ext[1] == Bouche)) {
                                         Affiche_Verin(Pour, '#FFFFFF', false);
                                         Verin[Pour].Tige--;
                                         Affiche_Verin(Pour, '#000000', false);
