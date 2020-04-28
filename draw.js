@@ -144,7 +144,7 @@ function Cree_Sequenceur(XE, YE, Combien_Etape) { //XE,YE - координаты
   //var Pour = 0;
 
   Nb_Sequenceur++;
-
+  NewSequenceur(Nb_Sequenceur);
   Sequenceur[Nb_Sequenceur].X = XE;
   Sequenceur[Nb_Sequenceur].Y = YE;
   Sequenceur[Nb_Sequenceur].Combien = Combien_Etape;
@@ -220,7 +220,7 @@ function Affiche_Sequenceur(Numero, Blanc) { //Numero - номер, Blanc - от
 //Создать гидроцилиндр
 function Cree_Verin(XX, YY, Model) { //XX - координата  X, YY - координата Y, Model - тип гидроцилиндра
   Nb_Verin++;
-
+  NewVerin(Nb_Verin);
   Verin[Nb_Verin].X = XX;
   Verin[Nb_Verin].Y = YY;
   if (Model != 'Double_V') {
@@ -364,6 +364,7 @@ function Affiche_Verin(Numero, C, Blanc) {  //Numero - номер гидроци
 //Создать комманду
 function Cree_Commande(XX, YY, Model) {
   Nb_Commande++;
+  NewCommande(Nb_Commande);
   Commande[Nb_Commande].X = XX;
   Commande[Nb_Commande].Y = YY;
   Commande[Nb_Commande].Modele = Model;
@@ -426,6 +427,7 @@ function Affiche_Commande(Numero, C, Blanc, Deca, Etat) { //Numero - номер 
 //Создать память
 function Cree_Memoire(XC, YC, L_Etat) {  //XC,YC - координаты, L_Etat - 0 или 1
   Nb_Memoire++;
+  NewMemoire(Nb_Memoire);
   Memoire[Nb_Memoire].X = XC;
   Memoire[Nb_Memoire].Y = YC;
   Memoire[Nb_Memoire].Etat = L_Etat;
@@ -474,6 +476,7 @@ function Affiche_Memoire(Numero, C, Blanc) {  //Numero номер, C - цвет,
 //Создать датчик
 function Cree_Capteur(XC, YC, Modelec, L_Etat) {  //XC,YC - координаты, Modelec - модель, L_Etat - 1 (несжата) или 2 (сжата)
   Nb_Capteur++;
+  NewCapteur(Nb_Capteur);
   Capteur[Nb_Capteur].X = XC;
   Capteur[Nb_Capteur].Y = YC;
   if (Modelec != 'A_Galet_V') {
@@ -696,6 +699,8 @@ function Affiche_Capteur(Numero, C, Blanc) {  //Numero- номер, C - цвет
 function Cree_Distributeur(XC, YC, Modelec, Commande1, Commande2, L_Etat) {
   //XC,YC - координаты, Modelec - модель, Commande1,Commande2 - тип толкателя, L_Etat - 
   Nb_Distributeur++;
+  NewDistributeur(Nb_Distributeur);
+  //var newDisctr = {};
   Distributeur[Nb_Distributeur].X = XC;
   Distributeur[Nb_Distributeur].Y = YC;
 
@@ -763,6 +768,7 @@ function Cree_Distributeur(XC, YC, Modelec, Commande1, Commande2, L_Etat) {
   Commande[Nb_Commande].Etat = L_Etat;
   Distributeur[Nb_Distributeur].Com[2].Quoi = Commande2;
   Distributeur[Nb_Distributeur].Com[2].Laquelle = Nb_Commande;
+  //Distributeur.push(newDisctr)
 }
 //Отобразить автомат
 function Affiche_Distributeur(Numero, C, Blanc) {
@@ -1168,6 +1174,7 @@ function Cestfini() {  //
 //Создать питание
 function Cree_Alimentation(Xe, Ye) {  //
   Nb_Alimentation++;
+  NewAliMentation(Nb_Alimentation);
   AliMentation[Nb_Alimentation].X = Xe;
   AliMentation[Nb_Alimentation].Y = Ye;
 }
@@ -1175,6 +1182,7 @@ function Cree_Alimentation(Xe, Ye) {  //
 //Создать питание пилота
 function Cree_Alim_Pilote(Xe, Ye) {  //
   Nb_Alim_Pilote++;
+  NewAlim_Pilote(Nb_Alim_Pilote);
   Alim_Pilote[Nb_Alim_Pilote].X = Xe;
   Alim_Pilote[Nb_Alim_Pilote].Y = Ye;
 }
@@ -1182,6 +1190,7 @@ function Cree_Alim_Pilote(Xe, Ye) {  //
 //Создать пересечение
 function Cree_Carrefour(Xe, Ye) {  //
   Nb_Carrefour++;
+  NewCarrefour(Nb_Carrefour);
   Carrefour[Nb_Carrefour].X = Xe;
   Carrefour[Nb_Carrefour].Y = Ye;
   Etat = Zero;
@@ -1190,6 +1199,7 @@ function Cree_Carrefour(Xe, Ye) {  //
 //Создать пересечение пилота
 function Cree_Carrefour_Pilote(Xe, Ye) {  //
   Nb_Carrefour_Pilote++;
+  NewCarrefour_Pilote(Nb_Carrefour_Pilote);
   Carrefour_Pilote[Nb_Carrefour_Pilote].X = Xe;
   Carrefour_Pilote[Nb_Carrefour_Pilote].Y = Ye;
   Etat = Bof;
@@ -1375,6 +1385,7 @@ function Cree_Texte2() {  //Ввод текста
 
   if (Textenter != '') {
     Nb_Texte++;
+    NewTexte(Nb_Texte);
     //Texte[Nb_Texte].X = Xe;
     //Texte[Nb_Texte].Y = Ye;
     Texte[Nb_Texte].X = X_s / Facteur;

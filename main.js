@@ -197,6 +197,7 @@ canvas.addEventListener('mousedown', function (f) {
       case 'Ajoute_Objet3':
 
         Ajoute_Objet3(Objet2, X_s / Facteur, Y_s / Facteur, Quoi_Donc2, Celui_La2);//Вставка компонента
+        PetitMenu('#000000', '<Симулятор> Готов!');
         Redess(false);                                            //Перерисовка холста
         funcCursor("default");
         ActionMouse = '';
@@ -208,6 +209,7 @@ canvas.addEventListener('mousedown', function (f) {
 
         Cree_Texte2()
         funcCursor("default");
+        PetitMenu('#000000', '<Симулятор> Готов!');
         ActionMouse = '';
         Fichiermodifie = false;
         break;
@@ -221,6 +223,7 @@ canvas.addEventListener('mousedown', function (f) {
 
         //Ajoute_Objet2(Objet2, Celui_La2); //
         //Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
+        PetitMenu('#000000', '<Симулятор> Готов!');
         ActionMouse = '';
         break;
 
@@ -229,12 +232,14 @@ canvas.addEventListener('mousedown', function (f) {
 
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
         Ou_Que(); //Выбор места установки компонента
+        PetitMenu('#A6CAF0', '<Переместить>  Укажите новую позицию ?');
         ActionMouse = 'Move2';
         break;
 
       case 'Move2':
         Deplace_Objet()
         funcCursor("default");
+        PetitMenu('#000000', '<Симулятор> Готов!');
         ActionMouse = '';
         Fichiermodifie = false;
         break;
@@ -247,6 +252,7 @@ canvas.addEventListener('mousedown', function (f) {
           Cree_Canal();                       //Запись канала после введения данных
           Redess(false);                      //Перерисовка холста                      
           funcCursor("default");
+          PetitMenu('#000000', '<Симулятор> Готов!');
           ActionMouse = '';
           Fichiermodifie = false;
         }
@@ -261,6 +267,7 @@ canvas.addEventListener('mousedown', function (f) {
           Cree_Canal_Pilote();                       //Запись канала после введения данных
           Redess(false);                      //Перерисовка холста                      
           funcCursor("default");
+          PetitMenu('#000000', '<Симулятор> Готов!');
           ActionMouse = '';
           Fichiermodifie = false;
         }
@@ -269,48 +276,54 @@ canvas.addEventListener('mousedown', function (f) {
 
         RAZ1Click2();
         funcCursor("default");
+        PetitMenu('#000000', '<Симулятор> Готов!');
         ActionMouse = '';
         Fichiermodifie = false;
         break;
 
       //++++++++++++++++++++++++++++++++++++++  
       case 'Anime1':        //Выбор положения при нажатии
-      
-      Heure = true;
-      Pointe_Objet2(Objet2, Prox2); //Выбор компонента
-      Anime2();
-      Redess(false);
-      if (Objet2 != 'Rien') { ActionMouse = 'Anime1'   //Если нажата клавиша "Возврат" - то выход   
-    } else {
-      ActionMouse = '';
-      Fichiermodifie = false;
-    }         
-      funcCursor("default");
-      break;        
 
-      //++++++++++++++++++++++++++++++++++++++  
-        case 'Anime2':        //Выбор положения при нажатии
-        
-        var intervalID = setInterval(function () {  //Непрерывный цикл
         Heure = true;
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
         Anime2();
         Redess(false);
-        timerId++
-        if (Objet2 == 'Rien') {clearInterval(intervalID)} //Если нажата клавиша "Возврат" - то выход из цикла
-        }, 1000);   
-        
+        if (Objet2 != 'Rien') {
+          ActionMouse = 'Anime1'   //Если нажата клавиша "Возврат" - то выход   
+        } else {
+          PetitMenu('#000000', '<Симулятор> Готов!');
+          ActionMouse = '';
+          Fichiermodifie = false;
+        }
         funcCursor("default");
-        ActionMouse = '';
-        Fichiermodifie = false;
         break;
+
+      //++++++++++++++++++++++++++++++++++++++  
+      case 'Anime2':        //Выбор положения при нажатии
+
+        var intervalID = setInterval(function () {  //Непрерывный цикл
+          Heure = true;
+          Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+          Anime2();
+          Redess(false);
+          timerId++
+          if (Objet2 == 'Rien') {
+            clearInterval(intervalID)
+            funcCursor("default");
+            PetitMenu('#000000', '<Симулятор> Готов!');
+            ActionMouse = '';
+            Fichiermodifie = false;  
+    } //Если нажата клавиша "Возврат" - то выход из цикла
+  }, 1000);
+
+break;
     }
   }
-  if (event.which == 3) {
-    Droite = true;
-    Gauche = false;
-    Fichiermodifie = false;
-  }
+if (event.which == 3) {
+  Droite = true;
+  Gauche = false;
+  Fichiermodifie = false;
+}
 });
 
 
@@ -395,8 +408,11 @@ var Facteur = 1, Vieux_Facteur = 0, XG = 0, YG = 0;
 var Textenter = '', Heure = false, Prox2 = 0, Objet2 = '', Celui_La2 = 0, Quoi_Donc2 = '', Lax2 = 0, Lay2 = 0;
 var Puissance = true, Ext = true, Debut = true, XL = 0, YL = 0, Old_XL = 0, Old_YL = 0, XFin = 0, YFin = 0;
 var Pointe_Quoi = '', timerId = 0;
+//Distributeur.append()
 
-for (let i = 1; i <= Max_Distributeur; i++) {
+
+function NewDistributeur(i) {
+  //for (let i = 1; i <= Max_Distributeur; i++) {
   Distributeur[i] = {
     X: 0,
     Y: 0,
@@ -416,9 +432,11 @@ for (let i = 1; i <= Max_Distributeur; i++) {
     Modele: '',
     Etat: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Sequenceur; i++) {
+function NewSequenceur(i) {
+  //for (let i = 1; i <= Max_Sequenceur; i++) {
   Sequenceur[i] = {
     X: 0,
     Y: 0,
@@ -429,9 +447,11 @@ for (let i = 1; i <= Max_Sequenceur; i++) {
     Etat: 0,
     Combien: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Verin; i++) {
+function NewVerin(i) {
+  //for (let i = 1; i <= Max_Verin; i++) {
   Verin[i] = {
     X: 0,
     Y: 0,
@@ -441,18 +461,22 @@ for (let i = 1; i <= Max_Verin; i++) {
     EntreeY: [],
     Modele: ''
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Commande; i++) {
+function NewCommande(i) {
+  //for (let i = 1; i <= Max_Commande; i++) {
   Commande[i] = {
     X: 0,
     Y: 0,
     Etat: 0,
     Modele: ''
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Canal; i++) {
+function NewCanal(i) {
+  //for (let i = 1; i <= Max_Canal; i++) {
   Canal[i] = {
     X: 0,
     Y: 0,
@@ -474,9 +498,11 @@ for (let i = 1; i <= Max_Canal; i++) {
       Branchement: 0
     }]
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Canal_Pilote; i++) {
+function NewCanal_Pilote(i) {
+  //for (let i = 1; i <= Max_Canal_Pilote; i++) {
   Canal_Pilote[i] = {
     X: 0,
     Y: 0,
@@ -498,23 +524,29 @@ for (let i = 1; i <= Max_Canal_Pilote; i++) {
       Branchement: 0
     }]
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Alimentation; i++) {
+function NewAliMentation(i) {
+  //for (let i = 1; i <= Max_Alimentation; i++) {
   AliMentation[i] = {
     X: 0,
     Y: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Alimentation; i++) {
+function NewAlim_Pilote(i) {
+  //for (let i = 1; i <= Max_Alimentation; i++) {
   Alim_Pilote[i] = {
     X: 0,
     Y: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Capteur; i++) {
+function NewCapteur(i) {
+  //for (let i = 1; i <= Max_Capteur; i++) {
   Capteur[i] = {
     X: 0,
     Y: 0,
@@ -526,25 +558,31 @@ for (let i = 1; i <= Max_Capteur; i++) {
     Lie_a: 0,
     Position: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Carrefour; i++) {
+function NewCarrefour(i) {
+  //for (let i = 1; i <= Max_Carrefour; i++) {
   Carrefour[i] = {
     X: 0,
     Y: 0,
     Etat: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Carrefour; i++) {
+function NewCarrefour_Pilote(i) {
+  //for (let i = 1; i <= Max_Carrefour; i++) {
   Carrefour_Pilote[i] = {
     X: 0,
     Y: 0,
     Etat: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Memoire; i++) {
+function NewMemoire(i) {
+  //for (let i = 1; i <= Max_Memoire; i++) {
   Memoire[i] = {
     X: 0,
     Y: 0,
@@ -553,16 +591,20 @@ for (let i = 1; i <= Max_Memoire; i++) {
     ExtY: [],
     Etat: 0
   }
+  //}
 }
 
-for (let i = 1; i <= Max_Texte; i++) {
+function NewTexte(i) {
+  //for (let i = 1; i <= Max_Texte; i++) {
   Texte[i] = {
     X: 0,
     Y: 0,
     Lataille: 0,
     Le_Texte: ''
   }
+  //}
 }
+
 
 for (let i = 1; i <= 200; i++) {
   Les_points[i] = new Array(2);

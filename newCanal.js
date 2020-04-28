@@ -308,8 +308,9 @@ function Cree_CanalZero() {  //Обнуление нового канала (д�
     if (Nb_Canal == Max_Canal) { Encore = false }
     //while (Encore) {
     Nb_Canal++;
+    NewCanal(Nb_Canal);
     //FillChar(Canal[Nb_Canal], SizeOf(Canal[Nb_Canal]), 0);
-    Canal[Nb_Canal] = {
+    /*Canal[Nb_Canal] = {
         X: 0,
         Y: 0,
         NbPoint: 0,
@@ -329,7 +330,7 @@ function Cree_CanalZero() {  //Обнуление нового канала (д�
             Lequel: 0,
             Branchement: 0
         }]
-    }
+    }*/
 }
 
 function Cree_Canal() {  //Запись канала после введения данных
@@ -436,8 +437,9 @@ function Cree_CanalZero_Pilote() {  //
     if (Nb_Canal_Pilote == Max_Canal_Pilote) { Encore = false }
     //while (Encore) {
     Nb_Canal_Pilote++;
+    NewCanal_Pilote(Nb_Canal_Pilote);
     //FillChar(Canal_Pilote[Nb_Canal_Pilote], SizeOf(Canal_Pilote[Nb_Canal_Pilote]), 0); //Реализовать
-    Canal_Pilote[Nb_Canal_Pilote] = {
+    /*Canal_Pilote[Nb_Canal_Pilote] = {
         X: 0,
         Y: 0,
         NbPoint: 0,
@@ -457,7 +459,7 @@ function Cree_CanalZero_Pilote() {  //
             Lequel: 0,
             Branchement: 0
         }]
-    }
+    }*/
 }
 
 function Cree_Canal_Pilote() {  //Запись канала после введения данных

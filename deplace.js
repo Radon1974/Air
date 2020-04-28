@@ -31,7 +31,7 @@ function Deplace_Objet() {
 
   if (Objet == 'Un_Cap') { if (['Et', 'Ou', 'Inhibition'].includes(Capteur[Pour].Modele)) { Objet = 'Une_Cellule' } }
 
-  PetitMenu('#A6CAF0', '<Переместить>  Укажите новую позицию ?');
+  
   //GetCursorPos(MyPoint);
   //SetCursorPos(Math.round((mypoint.X) / Facteur), Math.round((mypoint.Y) / Facteur));
   Immonde_rustine_double_v = false;
