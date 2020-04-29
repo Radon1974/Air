@@ -170,7 +170,7 @@ function Anime2() {  // Выполнение анимации компонент
             for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
                 if (Canal_Pilote[Pour].Etat != Bof) {
                     for (Pour2 = 1; Pour2 <= 2; Pour2++) {
-                        if (Bout[Pour2].Quoi == 'Un_Cap') {
+                        if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Un_Cap') {
                             if ([1, 2].includes(Canal_Pilote[Pour].Bout[Pour2].Branchement)) {
                                 Capteur[Canal_Pilote[Pour].Bout[Pour2].Lequel].Etat_Ext[Canal_Pilote[Pour].Bout[Pour2].Branchement] = Canal_Pilote[Pour].Etat
                             }

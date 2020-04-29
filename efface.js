@@ -100,7 +100,7 @@ function Effacer() {  //
                         for (let Pour = Celui_La2; Pour <= Nb_Carrefour - 1; Pour++) { Carrefour[Pour] = Carrefour[Pour + 1] }
                         Nb_Carrefour--;
                       } else {
-                        if (Pointe_Quoi = 'Un_Texte') {
+                        if (Pointe_Quoi == 'Un_Texte') {
                           for (let Pour = Celui_La2; Pour <= Nb_Texte - 1; Pour++) { Texte[Pour] = Texte[Pour + 1] }
                           Nb_Texte--;
                         } else {
