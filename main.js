@@ -107,63 +107,6 @@ Button20.addEventListener('click', function (e) {   //О программе
   Apropos1Click();
 });
 
-/*canvas.addEventListener('click', function (e) {
-
-  mouse.x = e.pageX - this.offsetLeft;
-  mouse.y = e.pageY - this.offsetTop;
-
-
-  if (funcHitArea(mouse, btnFile)) { alert('Файл') }
-  else if (funcHitArea(mouse, btnNewComponent)) { 
-    Fichiermodifie = true;
-    Ajoute_Objet ();                    //Вывод на экран компонентов
-    ActionMouse = 'Pointe_Objet2';
-  }
-  else if (funcHitArea(mouse, btnText)) { Texte1Click() }
-  else if (funcHitArea(mouse, btnRemove)) { alert('Удалить') }
-  else if (funcHitArea(mouse, btnMove)) { alert('Переместить') }
-  else if (funcHitArea(mouse, btnPowerCircuit)) { alert('Силовая цепь') }
-  else if (funcHitArea(mouse, btnControlCircuit)) { alert('Цепь управления') }
-  else if (funcHitArea(mouse, btnRun)) { alert('Запустить') }
-  else if (funcHitArea(mouse, btnIncrease)) { alert('Увеличить') }
-  else if (funcHitArea(mouse, btnDecrease)) { alert('Уменьшить') }
-  else if (funcHitArea(mouse, btnLeft)) { alert('Влево') }
-  else if (funcHitArea(mouse, btnRight)) { alert('Вправо') }
-  else if (funcHitArea(mouse, btnUp)) { alert('Вверх') }
-  else if (funcHitArea(mouse, btnDown)) { alert('Вниз') }
-  else if (funcHitArea(mouse, btnReturn)) { alert('Возврат') }
-  else if (funcHitArea(mouse, btnAbout)) { alert('О программе') }
-});*/
-
-//function MouseClick() {
-//  canvas.addEventListener('mousedown', function (f) {
-//    mouse.x = f.pageX - this.offsetLeft;
-//   mouse.y = f.pageY - this.offsetTop;
-//    X_s = mouse.x * Facteur;
-//    Y_s = mouse.y * Facteur;
-
-/*if (event.which == 1) {
-  Gauche = true;
-}
-if (event.which == 3) {
-  Droite = true
-}*/
-//  })
-//}
-
-
-//Обработчик событий мыши
-/*canvas.addEventListener('mousemove', function (e) {
-  mouse.x = e.pageX - this.offsetLeft;
-  mouse.y = e.pageY - this.offsetTop;
-  X_s = mouse.x;
-  Y_s = mouse.y;
-
-});*/
-
-
-
-
 
 
 canvas.addEventListener('mousedown', function (f) {

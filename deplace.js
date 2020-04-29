@@ -11,9 +11,7 @@ function Deplace_Objet() {
     dy = 0;
   var mypoint = '';
 
- // Objet = 'Toutsaufcanal';
-  //PetitMenu('#A6CAF0', '<Переместить>  Выбор компонента ?');
-  //Pointe_Objet(Objet, Pour, '#0000FF');
+
   
   Pour = Celui_La2;
   Objet = Objet2;
@@ -24,22 +22,20 @@ function Deplace_Objet() {
     return false;
   }
 
-  //Lax = 150;
-  //Lay = 150;
+ 
   Lax = X_s / Facteur;
   Lay = Y_s / Facteur;
 
   if (Objet == 'Un_Cap') { if (['Et', 'Ou', 'Inhibition'].includes(Capteur[Pour].Modele)) { Objet = 'Une_Cellule' } }
 
   
-  //GetCursorPos(MyPoint);
-  //SetCursorPos(Math.round((mypoint.X) / Facteur), Math.round((mypoint.Y) / Facteur));
+
   Immonde_rustine_double_v = false;
   Immonde_rustine_galet_v = false;
 
   if (Objet == 'Un_V') { if (Verin[Pour].Modele == 'Double_V') { Immonde_rustine_double_v = true } }
   if (Objet == 'Un_Cap') { if (Capteur[Pour].Modele == 'A_Galet_V') { Immonde_rustine_galet_v = true } }
-  //Ou_Que(Lax, Lay, false, Objet);
+ 
   Immonde_rustine_double_v = false;
   Immonde_rustine_galet_v = false;
   if (Objet == 'Ouste') { return false }

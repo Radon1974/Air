@@ -125,16 +125,13 @@ function Anime2() {  // Выполнение анимации компонент
     var L_Action = '';
     var Tempo = 0;
 
-        //L_Action = 'Un_Cap';
+
         while (['Un_D', 'Un_Cap'].includes(L_Action)) {
 
             //L_Action = 'Action';
             L_Action = Objet2;
             Celui_La = Celui_La2;
-            //Heure = true;
-            //if (!Pasapas) { form1.timer2.enabled = true }
-            //Pointe_Objet(L_Action, Celui_La, '#808080');
-            //form1.timer2.enabled = false;
+
             Heure = false;
             if (Celui_La == 0) {
                 Redess(false);

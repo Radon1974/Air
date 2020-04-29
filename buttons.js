@@ -102,11 +102,7 @@ function Nouveau1Click() {
   Fichiermodifie = true;
 }
 
-//Распечатать кнопка
-/*function Pressepapier1Click(Sender) {  //
-begin
-   ClipBoard.Assign(form1.Image1.picture);
-end;*/
+
 
 //Закрыть кнопка
 function FormCloseQuery(Sender, CanClose) {
@@ -132,8 +128,7 @@ function Quitter1Click(Sender) {
 //О программе
 function Apropos1Click() {
   alert('Air-simulator');
-  //Aboutbox.copyright.caption = 'Air-simulator';
-  //Aboutbox.showmodal
+
 }
 
 //Черный и белый  кнопка
@@ -161,7 +156,7 @@ function Loupe2Click() {
   if (Facteur < 0.9) { return false }
   Facteur = Facteur / 1.1;
   if (Facteur < 1) { Facteur = 1 }  //Добавил чтоб ниже 1 не опускалось
-  //ctx.scale(0.9, 0.9);
+ 
   Redess(false);
 }
 
@@ -181,10 +176,7 @@ PetitMenu('#A6CAF0', '<Переместить>  Выбор компонента 
 
 Pointe_Objet(Objet2, '#0000FF'); //Выбор компонента
 ActionMouse = 'Move';
-  //Cacommence();
-  //Droite = false;
-  //while (!Droite) { Deplace_Objet() }
-  //Cestfini();
+
 }
 
 //Время
@@ -224,9 +216,7 @@ function Continu1Click() {
   Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
   Fichiermodifie = true;
   ActionMouse = 'Anime2';
-  
-  //Pasapas = false;
-  //Cestfini();
+
 }
 
 //Выбор положения компонента кнопка
@@ -237,14 +227,8 @@ function RAZ1Click() {
   Fichiermodifie = true;
   ActionMouse = 'RAZ1'
 
-  //Cacommence();
-  //while (true) {
-
+  PetitMenu('#A6CAF0', '<Маневр>  Выбор компонента ?');
     
-    PetitMenu('#A6CAF0', '<Маневр>  Выбор компонента ?');
-    
-  //}
-  //Cestfini();
 }
 
 
@@ -274,337 +258,3 @@ function Dessous1Click() {  //Переместить все компоненты
   Redess(false);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*if (Fichiermodifie) {
-    Dialogvaleur = MessageDlg('Сохранить файл ?', mtConfirmation, [mbYes, mbno, mbcancel], 0);
-    switch (Dialogvaleur) {
-      case 'id_yes':
-        Enregregistersous1Click(Self);
-        break;
-      case 'id_Cancel':
-        return false
-    }
-  }
-
-  if (openDialog1.execute) {
-    Fichiermodifie = false;
-    nomdefichier = OpenDialog1.Filename;
-    Lecturede(nomdefichier);
-    Facteur = 1;
-  }
-  redess(false);
-}*/
-
-//Запись файла  кнопка
-/*function Enregregistersous1Click(Sender) {  //
-var Pour=0;
-    F:File;
-Begin
-  if (SaveDialog1.execute) then
-  Begin
-    nomdefichier =SaveDialog1.Filename;
-    assignfile(F,nomdefichier);
-    Pour =0;
-    ReWrite(f,1);
-    try
-      BlockWrite(f,Nb_Verin,2);
-      BlockWrite(f,Nb_Distributeur,2);
-      BlockWrite(f,Nb_Commande,2);
-      BlockWrite(f,Nb_Canal,2);
-      BlockWrite(f,Nb_Canal_Pilote,2);
-      BlockWrite(f,Nb_Alimentation,2);
-      BlockWrite(f,Nb_Capteur,2);
-      BlockWrite(f,Nb_Alim_Pilote,2);
-      BlockWrite(f,Nb_Carrefour,2);
-      BlockWrite(f,Nb_Carrefour_Pilote,2);
-      BlockWrite(f,Nb_Memoire,2);
-      BlockWrite(f,Nb_Sequenceur,2);
-      BlockWrite(f,Nb_Texte,2);
-      BlockWrite(f,Pour,2);            {R‚serve}
-      BlockWrite(f,Pour,2);
-      BlockWrite(f,Verin[1],Nb_Verin*SizeOf(Verin[1]));
-      BlockWrite(f,Distributeur[1],Nb_Distributeur*SizeOf(Distributeur[1]));
-      BlockWrite(f,Commande[1],Nb_Commande*SizeOf(Commande[1]));
-      BlockWrite(f,Canal[1],Nb_Canal*SizeOf(Canal[1]));
-      BlockWrite(f,Canal_Pilote[1],Nb_Canal_Pilote*SizeOf(Canal_Pilote[1]));
-      BlockWrite(f,AliMentation[1],Nb_Alimentation*SizeOf(AliMentation[1]));
-      BlockWrite(f,Capteur[1],Nb_Capteur*SizeOf(Capteur[1]));
-      BlockWrite(f,Alim_Pilote[1],Nb_Alim_Pilote*SizeOf(Alim_Pilote[1]));
-      BlockWrite(f,Carrefour[1],Nb_Carrefour*SizeOf(Carrefour[1]));
-      BlockWrite(f,Carrefour_Pilote[1],Nb_Carrefour_Pilote*SizeOf(Carrefour_Pilote[1]));
-      BlockWrite(f,Memoire[1],Nb_Memoire*SizeOf(Memoire[1]));
-      BlockWrite(f,Sequenceur[1],Nb_Sequenceur*SizeOf(Sequenceur[1]));
-      for (let Pour=1; Pour <= Nb_Texte; Pour++) Do BlockWrite(f,Texte[Pour],SizeOf(Texte[Pour]));
-      finally
-        Closefile(f);
-      end;
-      Fichiermodifie =false;
-  end;
-end;*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var firmColorBlue = '#0079c1';
-//Файл
-var btnFile = {
-  x: 0,
-  y: 0,
-  w: 45,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Новый компонент
-var btnNewComponent = {
-  x: 45,
-  y: 0,
-  w: 130,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Текст
-var btnText = {
-  x: 175,
-  y: 0,
-  w: 45,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Удалить
-var btnRemove = {
-  x: 220,
-  y: 0,
-  w: 65,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Переместить
-var btnMove = {
-  x: 285,
-  y: 0,
-  w: 100,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Силовая цепь
-var btnPowerCircuit = {
-  x: 385,
-  y: 0,
-  w: 105,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Цепь управления
-var btnControlCircuit = {
-  x: 490,
-  y: 0,
-  w: 125,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Запустить
-var btnRun = {
-  x: 615,
-  y: 0,
-  w: 80,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Увеличить
-var btnIncrease = {
-  x: 695,
-  y: 0,
-  w: 80,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Уменьшить
-var btnDecrease = {
-  x: 775,
-  y: 0,
-  w: 85,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Влево
-var btnLeft = {
-  x: 860,
-  y: 0,
-  w: 50,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Вправо
-var btnRight = {
-  x: 910,
-  y: 0,
-  w: 60,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Вверх
-var btnUp = {
-  x: 970,
-  y: 0,
-  w: 50,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Вниз
-var btnDown = {
-  x: 1020,
-  y: 0,
-  w: 45,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//Возврат
-var btnReturn = {
-  x: 1065,
-  y: 0,
-  w: 65,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-//О программе
-var btnAbout = {
-  x: 1130,
-  y: 0,
-  w: 100,
-  h: 30,
-  r: 20,
-  color: firmColorBlue
-};
-
-
-
-
-
-//Нарисовать кнопки
-function Button() {
-  //Кнопки
-  ctx.funcRoundRect(btnFile);
-  ctx.funcTextCreate(btnFile.x + 5, btnFile.y + 20,
-    'Файл', 'black', 10);
-
-  ctx.funcRoundRect(btnNewComponent);
-  ctx.funcTextCreate(btnNewComponent.x + 5, btnNewComponent.y + 20,
-    'Новый компонент', 'black', 10);
-
-  ctx.funcRoundRect(btnText);
-  ctx.funcTextCreate(btnText.x + 5, btnText.y + 20,
-    'Текст', 'black', 10);
-
-  ctx.funcRoundRect(btnRemove);
-  ctx.funcTextCreate(btnRemove.x + 5, btnRemove.y + 20,
-    'Удалить', 'black', 10);
-
-  ctx.funcRoundRect(btnMove);
-  ctx.funcTextCreate(btnMove.x + 5, btnMove.y + 20,
-    'Переместить', 'black', 10);
-
-  ctx.funcRoundRect(btnPowerCircuit);
-  ctx.funcTextCreate(btnPowerCircuit.x + 5, btnPowerCircuit.y + 20,
-    'Силовая цепь', 'black', 10);
-
-  ctx.funcRoundRect(btnControlCircuit);
-  ctx.funcTextCreate(btnControlCircuit.x + 5, btnControlCircuit.y + 20,
-    'Цепь управления', 'black', 10);
-
-  ctx.funcRoundRect(btnRun);
-  ctx.funcTextCreate(btnRun.x + 5, btnRun.y + 20,
-    'Запустить', 'black', 10);
-
-  ctx.funcRoundRect(btnIncrease);
-  ctx.funcTextCreate(btnIncrease.x + 5, btnIncrease.y + 20,
-    'Увеличить', 'black', 10);
-
-  ctx.funcRoundRect(btnDecrease);
-  ctx.funcTextCreate(btnDecrease.x + 5, btnDecrease.y + 20,
-    'Уменьшить', 'black', 10);
-
-  ctx.funcRoundRect(btnLeft);
-  ctx.funcTextCreate(btnLeft.x + 5, btnLeft.y + 20,
-    'Влево', 'black', 10);
-
-  ctx.funcRoundRect(btnRight);
-  ctx.funcTextCreate(btnRight.x + 5, btnRight.y + 20,
-    'Вправо', 'black', 10);
-
-  ctx.funcRoundRect(btnUp);
-  ctx.funcTextCreate(btnUp.x + 5, btnUp.y + 20,
-    'Вверх', 'black', 10);
-
-  ctx.funcRoundRect(btnDown);
-  ctx.funcTextCreate(btnDown.x + 5, btnDown.y + 20,
-    'Вниз', 'black', 10);
-
-  ctx.funcRoundRect(btnReturn);
-  ctx.funcTextCreate(btnReturn.x + 5, btnReturn.y + 20,
-    'Возврат', 'black', 10);
-
-  ctx.funcRoundRect(btnAbout);
-  ctx.funcTextCreate(btnAbout.x + 5, btnAbout.y + 20,
-    'О программе', 'black', 10);
-}

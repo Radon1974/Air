@@ -1,21 +1,5 @@
 
-//Обработчик событий мыши
-/*canvas.addEventListener('mouseup', function (g) {
-  if (event.which == 3) {
-    Droite = false;
-  }
-  else {
-    Gauche = false
-  }
 
-  mouse.x = g.pageX - this.offsetLeft;
-  mouse.y = g.pageY - this.offsetTop;
-  X_s = mouse.x;
-  Y_s = mouse.y;
-
-});*/
-
-//Обнуление Etat_Ext и Etat
 function Raz() {
   //var i = 1,k = 1;
   for (let i = 1; i <= Nb_Canal; i++) { Canal[i].Etat = Zero }
@@ -357,7 +341,7 @@ function Affiche_Verin(Numero, C, Blanc) {  //Numero - номер гидроци
   }
 
   Couleur('#FFFFFF');
-  //  if SVG then form1.memo1.lines.Add('</g>');
+ 
 
 }
 
@@ -450,7 +434,7 @@ function Affiche_Memoire(Numero, C, Blanc) {  //Numero номер, C - цвет,
   var Coul = '';
   var Pour = 0;
 
-  //if SVG then form1.memo1.lines.Add('<g>');
+  
   Couleur(C);
 
   if (C == '#FFFFFF') { Coul = '#FFFFFF' } else { Coul = '#FF00FF' }
@@ -468,7 +452,7 @@ function Affiche_Memoire(Numero, C, Blanc) {  //Numero номер, C - цвет,
   NPave(Memoire[Numero].X + Dmemoire / 2, Memoire[Numero].Y + 1 / 4 * Dmemoire, Coul);
 
   Couleur('#000000'); //Черный
-  //if SVG then form1.memo1.lines.Add('</g>');
+  
 }
 
 
@@ -642,7 +626,7 @@ function Affiche_Capteur(Numero, C, Blanc) {  //Numero- номер, C - цвет
   }
 
 
-  //if SVG then form1.memo1.lines.Add('<g>');
+  
   if (!Blanc) { Couleur(C) } else { Couleur('#000000') } //Черный
   Couleur(C);
 
@@ -691,7 +675,7 @@ function Affiche_Capteur(Numero, C, Blanc) {  //Numero- номер, C - цвет
       break;
   }
   Couleur('#000000');
-  //if SVG then form1.memo1.lines.Add('</g>');
+  
 }
 
 
@@ -704,7 +688,7 @@ function Cree_Distributeur(XC, YC, Modelec, Commande1, Commande2, L_Etat) {
   //XC,YC - координаты, Modelec - модель, Commande1,Commande2 - тип толкателя, L_Etat - 
   Nb_Distributeur++;
   NewDistributeur(Nb_Distributeur);
-  //var newDisctr = {};
+  
   Distributeur[Nb_Distributeur].X = XC;
   Distributeur[Nb_Distributeur].Y = YC;
 
@@ -772,7 +756,7 @@ function Cree_Distributeur(XC, YC, Modelec, Commande1, Commande2, L_Etat) {
   Commande[Nb_Commande].Etat = L_Etat;
   Distributeur[Nb_Distributeur].Com[2].Quoi = Commande2;
   Distributeur[Nb_Distributeur].Com[2].Laquelle = Nb_Commande;
-  //Distributeur.push(newDisctr)
+  
 }
 //Отобразить автомат
 function Affiche_Distributeur(Numero, C, Blanc) {
@@ -896,7 +880,7 @@ function Affiche_Distributeur(Numero, C, Blanc) {
   }
 
 
-  //if SVG then form1.memo1.lines.Add('<g>');
+  
   if (!Blanc) { Couleur(C) } else { Couleur('#000000') } //Черный
   Couleur(C);
 
@@ -986,7 +970,7 @@ function Affiche_Distributeur(Numero, C, Blanc) {
   }
 
   Couleur('#000000');
-  //if SVG then form1.memo1.lines.Add('</g>');
+  
 }
 
 
@@ -1004,9 +988,7 @@ function Affiche_Canal(Numero, Blanc) {  //
   if (!Blanc) { if (Canal[Numero].Etat == Un) { Couleur('#FF0000') } else { Couleur('#000000') } } else { Couleur('#000000') }
   Xe = Canal[Numero].ParcoursX[1];
   Ye = Canal[Numero].ParcoursY[1];
-  //console.log("Canal[Numero].NbPoint", Canal[Numero].NbPoint);
-  //console.log("Xe1",Xe,"Ye1",Ye); 
-  //console.log("Xe2",Canal[Numero].ParcoursX[2],"Ye2",Canal[Numero].ParcoursY[2]);
+ 
   for (let Pour = 2; Pour <= Canal[Numero].NbPoint; Pour++) {
     Ligne(Xe, Ye, Canal[Numero].ParcoursX[Pour], Canal[Numero].ParcoursY[Pour]);
     Xe = Canal[Numero].ParcoursX[Pour];
@@ -1142,43 +1124,34 @@ function FormCreate() {
   DoubleBuffered = true;
   Facteur = 1;
   Fichiermodifie = false;
-  //Feuille = Form1.Image1.canvas;
+  
   Heure = false;
   Super_Raz();
-  /*if (ParamCount > 0) {
 
-    NomdeFichier = changefileext(ParamStr(1), '.PWW');
-    Lecturede(nomdefichier);
-    form1.Caption = 'PFFF ' + ExtractFilename(NomdeFichier);
-  }*/
   Redess(false);
-  //SetLinemode(pmcopy);
+  
   Compteursouris = 0;
-  //MetaFile = TMetaFile.Create;
+ 
   Immonde_rustine_double_v = false;
   Immonde_rustine_galet_v = false;
-  //Button(); //Вывести кнопки 
+  
 }
 
 //Вывод текста в верхнюю строку
 function PetitMenu(couleur, s) {
   document.getElementById('placeForText').innerHTML = s;
   document.getElementById('placeForText').style.color = couleur;
-  //form1.panel1.color:=couleur;form1.panel1.caption:=s;
-  //ctx.fillStyle = couleur;
-  //ctx.textAlign = "center";
-  //ctx.font = "12px Verdana";
-  //ctx.fillText(s, canvas.width/2, 50);
+  
 }
 
 //Выход по нажатию правой кнопки мыши
 function Cestfini() {  //
-  //Actionencours = false;
+  
   Redess(false);
   PetitMenu('#FFFFFF', 'Pfff');
   funcCursor('default'); //Курсор в виде стрелки
   Couleur('#000000');
-  //Changemenu();
+  
 }
 
 
@@ -1231,86 +1204,6 @@ function Ou_Que() {  //Old_X, Old_Y - координаты   Objet - вывод�
   var X = 0;
   var Y = 0;
 
-  //Пересечение
-  /*function Croix(X, Y) {  //
-    var H = 0;
-    var V = 0;
-    var H2 = 0;
-    var H3 = 0;
-    var V2 = 0;
-
-    //setlinemode(pmnot);
-    if (!Panoramique) {
-      V = Math.round(7 / 4 * CLargeur);
-      V2 = Math.round(1 / 4 * CLargeur);
-      H = Math.round(5 / 4 * DLargeur);
-      H3 = Math.round(7 / 4 * DLargeur);
-      H2 = Math.round(L_Bout / 2);
-      switch (Objet) {
-        case 'Un_V':
-          if (!Immonde_rustine_double_v) {
-            Ligne(X, Y + Math.round(VHauteur / 2), X + Math.round(VLargeur), Y + Math.round(VHauteur / 2));
-            Ligne(X, Y - Math.round(VHauteur / 2), X + Math.round(VLargeur), Y - Math.round(VHauteur / 2));
-            Ligne(X + Math.round(VLargeur), Y - Math.round(VHauteur / 2), X + Math.round(VLargeur), Y + Math.round(VHauteur / 2));
-            Ligne(X + VLargeur - H2, Y + VHauteur / 2, X + VLargeur - H2, Y + VHauteur + 10);
-            Ligne(X + H2, Y + VHauteur / 2, X + H2, Y + VHauteur + 10);
-          } else {
-            Ligne(X + Math.round(VHauteur / 2), Y, X + Math.round(VHauteur / 2), Y - Math.round(VLargeur));
-            Ligne(X - Math.round(VHauteur / 2), Y, X - Math.round(VHauteur / 2), Y - Math.round(VLargeur));
-            Ligne(X - Math.round(VHauteur / 2), Y - Math.round(VLargeur), X + Math.round(VHauteur / 2), Y - Math.round(VLargeur));
-            Ligne(X + VHauteur / 2, Y - VLargeur + H2, X + VHauteur + 10, Y - VLargeur + H2);
-            Ligne(X + VHauteur / 2, Y - H2, X + VHauteur + 10, Y - H2);
-          }
-          break;
-
-        case 'Un_D':
-          Ligne(X, Y - DLargeur / 2, X + 2 * DLargeur, Y - DLargeur / 2);
-          Ligne(X, Y + DLargeur / 2, X + 2 * DLargeur, Y + DLargeur / 2);
-          Ligne(X + 3 * DLargeur - 5, Y - DLargeur / 2, X + 3 * DLargeur, Y - DLargeur / 2);
-          Ligne(X + 3 * DLargeur - 5, Y + DLargeur / 2, X + 3 * DLargeur, Y + DLargeur / 2);
-          Ligne(X + 2 * DLargeur, Y + DLargeur / 2, X + 2 * DLargeur, Y - DLargeur / 2);
-          Ligne(X + 3 * DLargeur, Y + DLargeur / 2, X + 3 * DLargeur, Y - DLargeur / 2);
-          Ligne(X + H, Y - DLargeur / 2, X + H, Y - DLargeur - 10);
-          Ligne(X + H, Y + DLargeur / 2, X + H, Y + DLargeur + 10);
-          Ligne(X + 3 * DLargeur / 2, Y + DLargeur / 2, X + 3 * DLargeur / 2, Y + DLargeur + 10);
-          Ligne(X + H3, Y - DLargeur / 2, X + H3, Y - DLargeur - 10);
-          break;
-
-        case 'Un_Cap':
-          if (!Immonde_rustine_galet_v) {
-            Ligne(X - CLargeur / 2, Y, X - CLargeur / 2, Y + 2 * CLargeur);
-            Ligne(X + CLargeur / 2, Y, X + CLargeur / 2, Y + 2 * CLargeur);
-            Ligne(X + 50, Y + V, X - 50, Y + V);
-            Arc_De_Cercle(X, Y - DLargeur / 3 - DLargeur / 8, 0, 360, DLargeur / 7);
-          } else {
-            Ligne(X, Y - CLargeur / 2, X + 2 * CLargeur, Y - CLargeur / 2);
-            Ligne(X, Y + CLargeur / 2, X + 2 * CLargeur, Y + CLargeur / 2);
-            Ligne(X + 7 / 4 * CLargeur, Y + 50, X + 7 / 4 * CLargeur, Y - 50);
-            Arc_De_Cercle(X - DLargeur / 3 - DLargeur / 8, Y, 0, 360, DLargeur / 7);
-          }
-          break;
-
-        case 'Une_Cellule':
-          Rect(X - CLargeur / 2, Y, X + CLargeur / 2, Y + CLargeur);
-          Ligne(X - CLargeur / 2, Y + V2, X - 50, Y + V2);
-          Ligne(X + 50, Y + 3 * V2, X - 50, Y + 3 * V2);
-          break;
-        case 'Une_Alim':
-        case 'Une_Alim_Pilote':
-          Cercle(X, Y, ARayon);
-          break;
-        case 'Une_Memoire':
-          Rect(X - DMemoire, Y, X + DMemoire, Y + DMemoire);
-          break;
-        default:
-          Ligne(X - 20, Y, X + 20, Y);
-          Ligne(X, Y - 20, X, Y + 20);
-      }
-    }
-    //setlinemode(pmcopy);
-  }*/
-
-
   funcCursor('crosshair');   //Курсор в виде креста
   Couleur('#000000');
   X = X_s;     //Координаты курсора
@@ -1320,33 +1213,6 @@ function Ou_Que() {  //Old_X, Old_Y - координаты   Objet - вывод�
   Lax2 = X;   //Для совместимости
   Lay2 = Y;
   
-  /*while (true) {
-    //Croix(X, Y);
-    Gauche = false;   //Показать курсор пока не будет true (нажата левая клавиша мыши)
-    Droite = false;   //Показать курсор пока не будет true (нажата правая клавиша мыши)
-    while ((!Gauche) && (!Droite) && (X = X_s) && (Y = Y_s)) { 
-      Sleep(2000);
-      break;
-    }  //application.processmessages
-    //Croix(X, Y);
-    X = X_s;
-    Y = Y_s;
-    if (Gauche) {
-      Old_X = X; Old_Y = Y;
-      Couleur('#000000');
-      funcCursor('default');   //Курсор в виде стрелки
-      return false;
-    } else {
-      if (Droite) {
-        Old_X = X;
-        Old_Y = Y;
-        Couleur('#000000');
-        Objet = 'Ouste';
-        funcCursor('default');   //Курсор в виде стрелки
-        return false;
-      }
-    }
-  }*/
 }
 
 //Создать текст
@@ -1359,32 +1225,6 @@ function Cree_Texte() {  //
   PetitMenu('#808080', '<Текст> Положение текста ?, правая кнопка = Назад');
   Ou_Que(Xe, Ye, false, Quoi_Donc);
 
-
-
-  /*if (Quoi_Donc == 'Ouste') {
-    Redess(false);
-    PetitMenu('#FFFFFF', 'Air simulator');
-    return false;
-  }
-
-  S = Ed('Введите текст : ', '', Poured);
-  if (S != '') {
-    Nb_Texte++;
-    Texte[Nb_Texte].X = Xe;
-    Texte[Nb_Texte].Y = Ye;
-    Texte[Nb_Texte].Le_Texte = S;
-    Texte[Nb_Texte].Lataille = 1;
-    Dialogvaleur = MessageDlg('Двойная высота ?', mtConfirmation, [mbYes, mbno, mbcancel], 0);
-
-    switch (Dialogvaleur) {
-      case 'id_yes':
-        Texte[Nb_Texte].Lataille = 2; //Двойная высота текста
-        break;
-      case 'id_Cancel':
-        Texte[Nb_Texte].Lataille = 1; //Обычная высота текста
-        break;
-    };
-  };*/
 }
 
 //Создать текст
@@ -1402,13 +1242,12 @@ function Cree_Texte2() {  //Ввод текста
   }
 
   Textenter = Ed('Введите текст : ', '', Poured);
-  //Otxy(X_s, Y_s, Textenter);
+
 
   if (Textenter != '') {
     Nb_Texte++;
     NewTexte(Nb_Texte);
-    //Texte[Nb_Texte].X = Xe;
-    //Texte[Nb_Texte].Y = Ye;
+
     Texte[Nb_Texte].X = X_s / Facteur;
     Texte[Nb_Texte].Y = Y_s / Facteur;
 
@@ -1436,187 +1275,6 @@ function Sleep(milliseconds) {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
 }
-
-
-
-
-
-//Перемещение мышкой
-/*function Image1MouseMove(Sender, Shift, X, Y) {  //
-  X_s =X;
-  Y_s =Y;
-}*/
-
-//Мышка вниз  кнопка
-/*function Image1MouseDown(Sender, Button,  Shift, X, Y) {  //
-   X_s =X;
-   Y_s =Y;
-   Droite =(button=mbRight);
-   Gauche =(button=mbLeft);
-   Compteursouris =0;
-}*/
-
-
-
-
-
-
-
-
-
-
-
-//Печать  кнопка
-/*function TForm1.Imprimer1Click(Sender: TObject) {  //
-var rect='';
-    coef,nbx,nby:Double;
-    margex,margey,largeur:Integer;
-begin
-  nbx =GetDeviceCaps(Printer.Handle,logpixelsX);
-  nby =GetDeviceCaps(Printer.Handle,logpixelsY);
-  Margex =Math.round(Nbx*10/25.4);
-  MargeY =Math.round(Nby*10/25.4);
-  Printer.Orientation  = poPortrait;
-  if (PrintDialog1.execute) Then
-  Begin
-    With printer Do
-    begin
-      Printer.Orientation  = {poPortrait; }
-      poLandscape  ;
-      coef =form1.Image1.height/form1.Image1.Width;
-      rect.left =margex;
-      Rect.top =margey;
-      if (pagewidth*form1.Image1.height/form1.Image1.Width>pageheight) then largeur =pagewidth
-                                                                     else largeur =Math.round(pageheight*form1.Image1.Width/form1.Image1.height);
-      rect.right =largeur-MargeX;
-      rect.bottom =Math.round(largeur*coef)-MargeY;
-      PrintScale =poproportional;
-      BeginDoc;
-        Canvas.StretchDraw(rect,form1.Image1.Picture.Graphic);
-      EndDoc;
-    end;
-  end;
-end;*/
-
-
-
-//Сохранить изображение  кнопка
-/*function TForm1.Sauverlimage1Click(Sender: TObject) {  //
- var JpegImg: TJpegImage;
-begin
-   if (SavePictureDialog1.execute) then
-   begin
-     Nomdefichier =SavepictureDialog1.Filename;
-     nomdefichier =changefileext(nomdefichier,'.jpg');
-     JpegImg  = TJpegImage.Create;
-   try
-   JpegImg.Assign(Form1.image1.picture.Bitmap);
-   JpegImg.SaveToFile(nomdefichier);
-  finally
-    JpegImg.Free
-  end;
-  end;
-end;*/
-
-//Цветное  кнопка
-//function Couleur1Click(Sender) {  //
-//  redess(false);
-//}
-
-//
-//function FormKeyDown(Sender, Key, Shift) {  //
-//  if (Key = vk_escape) { Droite = true };
-//  if (key = 107) { if (Shift.includes(ssCtrl)) { if (loupe1.Enabled) { loupe1Click(self) } } }
-//  if (key = 109) { if (Shift.includes(ssCtrl)) { if (loupe2.Enabled) { Loupe2Click(self) } } }
-///}
-
-//Сохранить MsPaint  кнопка
-/*function TForm1.MsPaintBmp1Click(Sender: TObject) {  //
-var s1,s3,result:string;
-    DossierTemp: array[0..255] of Char;
-begin
-	result ='C:\';
-	if (GetTempPath(255, @DossierTemp)<>0) then Result  = StrPas(DossierTemp);
-  s1 ='Mspaint';s3 ='';
-  Nomdefichier =result+'Temporaire.bmp';
-  try
-    Form1.image1.picture.SaveToFile(nomdefichier);
-    ShellExecute (handle,'Open', PChar(s1)  ,PChar(Nomdefichier),PChar(s3),SW_SHOWNORMAL);
-  finally
-  end;
-end;*/
-
-
-
-//Сохранить EMF  кнопка
-/*function TForm1.SauverlimageEMF1Click(Sender: TObject) {  //
-var MetaFileCanvas : TMetaFileCanvas;
-begin
-  Metafile.height =form1.Image1.height+1;
-  Metafile.width =form1.Image1.Width;
-  SavepictureDialog2.Filename =changefileext(nomdefichier,'.EMF');
-  if (SavePictureDialog2.execute) then
-  begin
-    Nomdefichier =SavepictureDialog2.Filename;
-    nomdefichier =changefileext(nomdefichier,'.EMF');
-    MetaFileCanvas  = TMetaFileCanvas.Create(MetaFile, 0);
-    Feuille = MetaFileCanvas;
-    redessprinc(true);
-    MetaFileCanvas.free;
-    try
-      MetaFile.SaveToFile(Nomdefichier);
-    finally
-    end;
-  end;
-  feuille =Form1.Image1.Canvas;
-end;*/
-
-
-
-
-
-
-
-
-
-
-
-//Сохранить отметку  кнопка
-/*function TForm1.SauverlcranSVG1Click(Sender: TObject) {  //
-var s1,s2:string;
-begin
-  SVG =false;
-  Vieux_Facteur =Facteur;
-  Facteur =1;
-  Form1.Memo1.Lines.Clear;
-  Form1.Memo1.Lines.Add('<?xml version ="1.0" encoding="ISO-8859-1" standalone="no" ?>');
-  Form1.Memo1.Lines.Add('<!-- SVG  genere par Pfff : ADMR');
-  Form1.Memo1.Lines.Add(Format(' Date       : %s',[DateToStr(Now)]));
-  Form1.Memo1.Lines.Add('-->');
-  s1 =strint(800);
-  s2 =strint(600);
-  Form1.Memo1.Lines.Add('<SVG width="'+s1+'" height="'+s2+'" viewbox="0 0 '+s1+' '+s2+'" xmlns="http://www.w3.org/2000/svg">');
-  SaveDialog2.Filename =changefileext(nomdefichier,'.svg');
-  if (SaveDialog2.execute) then
-   begin
-     Nomdefichier =SaveDialog2.Filename;
-     nomdefichier =changefileext(nomdefichier,'.svg');
-     SVG =true;     redessprinc(true);    SVG =false;
-     Form1.Memo1.Lines.Add('</svg>');
-     try
-       Form1.Memo1.Lines.SaveToFile(Nomdefichier);
-     finally
-     end;
-  end;
-  Facteur =Vieux_Facteur;
-end;*/
-
-
-
-
-
-//Cree_Texte() //Отладка
-
 
 
 console.log("Окончание программы");

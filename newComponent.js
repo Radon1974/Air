@@ -104,169 +104,7 @@ function Ajoute_Objet() {  //
         //Выбрать компонент
         Pointe_Objet(Objet, '#0000FF');
     
-        /*Immonde_rustine_double_v =false;
-        Immonde_rustine_galet_v =false;
-        if (Objet == 'Un_V') {if (Verin[Celui_La].Modele == 'Double_V') {Immonde_rustine_double_v =true}}
-        if (Objet == 'Un_Cap') {if (Capteur[Celui_La].Modele == 'A_Galet_V') {Immonde_rustine_galet_v =true}}
-        //feuille = form1.image1.canvas;
-        Nb_Verin = Vieux_Nb_Verin;
-        Nb_Distributeur = Vieux_Nb_Distributeur;
-        Nb_Capteur = Vieux_Nb_Capteur;
-        Nb_Alimentation = Vieux_Nb_Alim;
-        Nb_Alim_Pilote = Vieux_Nb_Alim_Pilote;
-        Nb_Carrefour_Pilote = Vieux_Nb_Carrefour_Pilote;
-        Nb_Carrefour = Vieux_Nb_Carrefour;
-        Nb_Commande = Vieux_Nb_Commande;
-        Nb_Memoire = Vieux_Nb_Memoire;
-        Nb_Sequenceur = Vieux_Nb_Sequenceur;
-        Nb_Texte = Vieux_Nb_Texte;
-        Raz_Vieux();
-        Facteur = Vieux_Facteur;
-        ClearDevice();
-        if (Objet == Rien) {
-          Redess(false);
-          PetitMenu('#FFFFFF','Pfff');
-          return false;
-        }
-        Lax =150;
-        LaY =150;
-        Redess(false);
-        PetitMenu('#A6CAF0','<Новый Компонент>   Положение компонента ?');
-        
-        
-        if ((Objet=='Un_Cap') && ( [4,5,6].includes(Celui_La-Nb_Capteur) ))
-        {
-          Quoi_Donc ='Une_Cellule';
-          //Ou_Que(Lax,Lay,false,Quoi_Donc);
-        } else
-        {
-          Quoi_Donc = Objet;
-          //Ou_Que(Lax,Lay,false,Quoi_Donc);
-        }
-        Immonde_rustine_double_v =false;
-        Immonde_rustine_galet_v =false;
-        if( Quoi_Donc == 'Ouste') {return false};
-      switch (Objet) {
-        case 'Un_V':
-          Cree_Verin(Lax, Lay, Verin[Celui_La].Modele);
-          break;
-        case 'Un_D':
-    
-          Celui_La = Celui_La - Nb_Distributeur;
-    
-          switch (Celui_La) {
-            case 1:
-              Cree_Distributeur(Lax, Lay, '_3_2', 'Poussoir_Gauche', 'Scie_Droite', 1);
-              break;
-            case 2:
-              Cree_Distributeur(Lax, Lay, '_3_2', 'Pilote_Gauche', 'Ressort_Droit', 1);
-              break;
-            case 3:
-              Cree_Distributeur(Lax, Lay, '_3_2', 'Pilote_Gauche', 'Pilote_Droit', 1);
-              break;
-            case 4:
-              Cree_Distributeur(Lax, Lay, '_4_2', 'Poussoir_Gauche', 'Scie_Droite', 1);
-              break;
-            case 5:
-              Cree_Distributeur(Lax, Lay, '_4_2', 'Pilote_Gauche', 'Ressort_Droit', 1);
-              break;
-            case 6:
-              Cree_Distributeur(Lax, Lay, '_4_2', 'Pilote_Gauche', 'Pilote_Droit', 1);
-              break;
-            case 7:
-              Cree_Distributeur(Lax, Lay, '_5_2', 'Poussoir_Gauche', 'Scie_Droite', 1);
-              break;
-            case 8:
-              Cree_Distributeur(Lax, Lay, '_5_2', 'Pilote_Gauche', 'Ressort_Droit', 1);
-              break;
-            case 9:
-              Cree_Distributeur(Lax, Lay, '_5_2', 'Pilote_Gauche', 'Pilote_Droit', 1);
-              break;
-            case 10:
-              Cree_Distributeur(Lax, Lay, '_2_2', 'Poussoir_Gauche', 'Scie_Droite', 1);
-              break;
-            case 11:
-              Cree_Distributeur(Lax, Lay, '_2_2_', 'Poussoir_Gauche', 'Scie_Droite', 1);
-              break;
-            case 12:
-              Cree_Distributeur(Lax, Lay, '_2_2', 'Poussoir_Gauche', 'Ressort_Droit', 1);
-              break;
-            case 13:
-              Cree_Distributeur(Lax, Lay, '_4_3', 'Pilote_Gauche', 'Pilote_Droit', 1);
-              break;
-            case 14:
-              Cree_Distributeur(Lax, Lay, '_5_3', 'Pilote_Gauche', 'Pilote_Droit', 1);
-              break;
-          }
-          break;
-        case 'Un_Cap':
-          Celui_La = Celui_La - Nb_Capteur;
-          switch (Celui_La) {
-            case 1:
-              Cree_Capteur(Lax, Lay, 'A_Poussoir', 1);
-              break;
-            case 2:
-              Cree_Capteur(Lax, Lay, 'A_Poussoir_Bistable', 1);
-              break;
-            case 3:
-              Cree_Capteur(Lax, Lay, 'A_Galet', 1);
-              Pasbon = true;
-    
-              for (let Pour3 = 1; Pour3 <= Nb_Verin; Pour3++) {if ((Lax > Verin[Pour3].X + (0) * L_Bout + VL_Tige + 2 * L_Bout - 13) &&
-                (Lax < Verin[pour3].X + (9) * L_Bout + VL_Tige + 2 * L_Bout + 13) && ((Verin[Pour3].Y - Lay) < 0) &&
-                (Math.abs(Verin[Pour3].Y - Lay) < 40)) { Pasbon = false}}
-    
-              if (Pasbon) {
-              Affiche_Capteur(Nb_Capteur, '#FF0000', true);
-              alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', '(pas) Pfff', MB_OK + MB_ICONEXCLAMATION + MB_DEFBUTTON1 + MB_APPLMODAL);
-              }
-              
-              break;
-            case 4:
-              Cree_Capteur(Lax, Lay, 'Et', 1);
-              break;
-            case 5:
-              Cree_Capteur(Lax, Lay, 'Ou', 1);
-              break;
-            case 6:
-              Cree_Capteur(Lax, Lay, 'Inhibition', 1);
-              break;
-            case 7:
-              Cree_Capteur(Lax, Lay, 'A_Galet_V', 1);
-              Pasbon = true;
-              for (let Pour3 = 1; Pour3 <= Nb_Verin; Pour3++) {if ((Math.abs((Verin[Pour3].X - (Capteur[Nb_Capteur].X - DLargeur / 3 - DLargeur / 8))) < 15)
-                && (Capteur[Nb_Capteur].Y > Verin[Pour3].Y - (Maxtige - 1) * L_Bout - VL_Tige - 1.5 * L_Bout - 15)
-                && (Capteur[Nb_Capteur].Y < Verin[Pour3].Y - (Mintige - 1) * L_Bout - VL_Tige - 1.5 * L_Bout + 10)) {Pasbon = false}}
-    
-              if (Pasbon) {
-                Affiche_Capteur(Nb_Capteur, '#FF0000', true);
-                alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', '(pas) Pfff', MB_OK + MB_ICONEXCLAMATION + MB_DEFBUTTON1 + MB_APPLMODAL);
-              }
-              break;
-          }
-          break;
-        case 'Une_Alim':
-          Cree_Alimentation(Lax, Lay);
-          break;
-        case 'Une_Alim_Pilote':
-          Cree_Alim_Pilote(Lax, Lay);
-          break;
-        case 'Un_Carrefour_Pilote':
-          Cree_Carrefour_Pilote(Lax, Lay);
-          break;
-        case 'Un_Carrefour':
-          Cree_Carrefour(Lax, Lay);
-          break;
-        case 'Une_Memoire':
-          Cree_Memoire(Lax, Lay, 1);
-          break;
-        case 'Un_Sequenceur':
-          requete = '9';
-          while ((requete.length != 1) || !(['2', '3', '4', '5', '6', '7', '8'].includes(requete))) { requete = Ed('Ведите количество шагов (от 2 до 8)', '', true);}
-          Cree_Sequenceur(Lax, Lay, parseInt(requete));
-          break;
-    
-      }*/
+
     }
     
     //Добавить объект2
@@ -276,7 +114,7 @@ function Ajoute_Objet() {  //
         Immonde_rustine_galet_v =false;
         if (Objet == 'Un_V') {if (Verin[Celui_La].Modele == 'Double_V') {Immonde_rustine_double_v =true}}
         if (Objet == 'Un_Cap') {if (Capteur[Celui_La].Modele == 'A_Galet_V') {Immonde_rustine_galet_v =true}}
-        //feuille = form1.image1.canvas;
+
         Nb_Verin = Vieux_Nb_Verin;
         Nb_Distributeur = Vieux_Nb_Distributeur;
         Nb_Capteur = Vieux_Nb_Capteur;
@@ -296,8 +134,7 @@ function Ajoute_Objet() {  //
           PetitMenu('#FFFFFF','Выход');
           return false;
         }
-        //Lax =150;
-        //Lay =150;
+
         Redess(false);
         PetitMenu('#A6CAF0','<Новый Компонент>   Положение компонента ?');
         
@@ -307,18 +144,14 @@ function Ajoute_Objet() {  //
           Quoi_Donc ='Une_Cellule';
           Objet2 = Objet;
           Quoi_Donc2 = Quoi_Donc;
-          //Lax2 = Lax;
-          //Lay2 = Lay;
-          //Ou_Que(Lax,Lay,false,Quoi_Donc);
+
 
         } else
         {
           Quoi_Donc = Objet;
           Objet2 = Objet;
           Quoi_Donc2 = Quoi_Donc;
-          //Lax2 = Lax;
-          //Lay2 = Lay;
-          //Ou_Que(Lax,Lay,false,Quoi_Donc);
+
         }
         Immonde_rustine_double_v =false;
         Immonde_rustine_galet_v =false;
@@ -470,15 +303,7 @@ function Pointe_Objet(Objet, Co) {  //
     var Prox = 0;
     var Acote = true;
   
-    /*//Создание курсора для рисования
-    function Croix(X, Y) {  //X,Y - координаты
-      //SetLinemode(pmnot);
-      if (Objet != 'Action') {  //Проверить
-        Ligne(X, Y - 50, X, Y + 50);
-        Ligne(X - 50, Y, X + 50, Y);
-      }
-      //setlinemode(pmCopy);
-    }*/
+
   
   
   
@@ -533,172 +358,7 @@ function Pointe_Objet(Objet, Co) {  //
       Droite = false;
       Objet2 = Objet; //Передать данные в другую функцию
       Prox2 = Prox; //Передать данные в другую функцию
-      //return false;
-      //while ((!Gauche) && (!Droite)) { MouseClick() }
-  
-     /* Acote = false;
-      PourPt = 1;
-      while (PourPt <= Nb_Point) {   //Точки выбора компонентов
-  
-        Di = Math.sqrt(Math.pow((1.0 * X_s - Les_points[PourPt, 1]), 2) + Math.pow((1.0 * Y_s - Les_points[PourPt, 2]), 2));
-        if ((Di < 5) && (Di > 1)) {
-          
-          Acote = true;
-          X_s = Math.round(Les_points[PourPt, 1]);
-          Y_s = Math.round(Les_points[PourPt, 2]);
-          PourPt = Nb_Point + 1;
-        }
-        PourPt++;
-      }
-      X = X_s;
-      Y = Y_s;
-  
-      if (Droite) {    //Нажата правая кнопка мыши - выход
-  
-        Objet = 'Rien';
-        Celui_La = 0;
-        funcCursor('default');   //Курсор в виде стрелки
-        return false;
-      } else {
-        if (Gauche) {
-  
-          if (Heure) {
-  
-            if (Dist(20, 30)) {
-  
-              Celui_La = 255;
-              Objet = 'Temps';
-              return false;
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Alim + 1; Pour <= Nb_Alimentation; Pour++) {
-  
-              if (Dist(AliMentation[Pour].X, AliMentation[Pour].Y)) {
-  
-                Objet = 'Une_Alim';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Carrefour + 1; Pour <= Nb_Carrefour; Pour++) {
-              if (Dist(Carrefour[Pour].X, Carrefour[Pour].Y)) {
-                Objet = 'Un_Carrefour';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Carrefour_Pilote + 1; Pour <= Nb_Carrefour_Pilote; Pour++) {
-              if (Dist(Carrefour_Pilote[Pour].X, Carrefour_Pilote[Pour].Y)) {
-                Objet = 'Un_Carrefour_Pilote';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Alim_Pilote + 1; Pour <= Nb_Alim_Pilote; Pour++) {
-              if (Dist(Alim_Pilote[Pour].X, Alim_Pilote[Pour].Y)) {
-                
-                Objet = 'Une_Alim_Pilote';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Action') || (Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Distributeur + 1; Pour <= Nb_Distributeur; Pour++) {
-              if (Dist(Distributeur[Pour].X, Distributeur[Pour].Y)) {
-                Objet = 'Un_D';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Verin + 1; Pour <= Nb_Verin; Pour++) {
-              if (Dist(Verin[Pour].X, Verin[Pour].Y)) {
-                Objet = 'Un_V';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Action') || (Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Capteur + 1; Pour <= Nb_Capteur; Pour++) {
-              if (Dist(Capteur[Pour].X, Capteur[Pour].Y)) {
-                Objet = 'Un_Cap';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Memoire + 1; Pour <= Nb_Memoire; Pour++) {
-              if (Dist(Memoire[Pour].X, Memoire[Pour].Y)) {
-                Objet = 'Une_Memoire';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = Vieux_Nb_Sequenceur + 1; Pour <= Nb_Sequenceur; Pour++) {
-              if (Dist(Sequenceur[Pour].X, Sequenceur[Pour].Y)) {
-                Objet = 'Un_Sequenceur';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if ((Objet == 'Tout') || (Objet == 'Toutsaufcanal')) {
-            for (let Pour = 1; Pour <= Nb_Texte; Pour++) {
-              if (Dist(Texte[Pour].X, Texte[Pour].Y)) {
-                Objet = 'Un_Texte';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if (Objet == 'Tout') {
-            for (let Pour = 1; Pour <= Nb_Canal; Pour++) {
-              if (Dist((Canal[Pour].ParcoursX[2] + Canal[Pour].ParcoursX[1]) / 2, (Canal[Pour].ParcoursY[2] + Canal[Pour].ParcoursY[1]) / 2)) {
-                Objet = 'Un_Canal';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-  
-          if (Objet == 'Tout') {
-            for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
-              if (Dist((Canal_Pilote[Pour].ParcoursX[2] + Canal_Pilote[Pour].ParcoursX[1]) / 2, (Canal_Pilote[Pour].ParcoursY[2] + Canal_Pilote[Pour].ParcoursY[1]) / 2)) {
-                Objet = 'Un_Canal_Pilote';
-                Celui_La = Pour;
-                return false;
-              }
-            }
-          }
-        }
-      }
-    }*/
-    //Couleur('#000000');
-    //funcCursor('default');   //Курсор в виде стрелки
+      
   }
   
   //Точки объекта2

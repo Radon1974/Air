@@ -22,15 +22,10 @@ function Effacer() {  //
   var Pour = 0;
   
   var Pour2 = 0;
-  //var Pointe_Quoi = '';
+ 
   var On_Efface = false;
 
-  //var Celui_La = 1;
-  //while (true) {
 
-    //PetitMenu(clolive, '<Очистить> Правая кнопка = Назад');  //Перенесено
-    //Pointe_Quoi = 'Tout';   //Перенесено
-    //Pointe_Objet(Pointe_Quoi, Celui_La, clolive);  //Перенесено
     Pointe_Quoi = Objet2;
     if (Pointe_Quoi == 'Rien') { return false }
     if (['Une_Alim', 'Un_Carrefour', 'Un_D', 'Un_V'].includes(Pointe_Quoi)) {
@@ -120,6 +115,6 @@ function Effacer() {  //
       }
     }
     Redess(false);
-  //}
+  
 }
 
