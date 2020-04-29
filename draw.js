@@ -1117,8 +1117,25 @@ function Redess(Blanc) {  //
   
 }
 
+//Очистка ненужных элементов
+function ClearObjet() {
+  Verin.splice(Nb_Verin + 1, Max_Verin );
+  Distributeur.splice(Nb_Distributeur + 1, Max_Distributeur );
+  Commande.splice(Nb_Commande + 1, Max_Commande );
+  Canal.splice(Nb_Canal + 1, Max_Canal );
+  Canal_Pilote.splice(Nb_Canal_Pilote + 1, Max_Canal_Pilote );
+  AliMentation.splice(Nb_Alimentation + 1, Max_Alimentation );
+  Capteur.splice(Nb_Capteur + 1, Max_Capteur );
+  Alim_Pilote.splice(Nb_Alim_Pilote + 1, Max_Alim_Pilote );
+  Carrefour.splice(Nb_Carrefour + 1, Max_Carrefour );
+  Carrefour_Pilote.splice(Nb_Carrefour_Pilote + 1, Max_Carrefour_Pilote );
+  Memoire.splice(Nb_Memoire + 1, Max_Memoire );
+  Sequenceur.splice(Nb_Sequenceur + 1, Max_Sequenceur );
+  Texte.splice(Nb_Texte + 1, Max_Texte );
+}
+
 //Создание формы
-function FormCreate() {  //Sender: TObject
+function FormCreate() {
 
   SVG = false;
   Pasapas = true;
@@ -1143,7 +1160,7 @@ function FormCreate() {  //Sender: TObject
   //Button(); //Вывести кнопки 
 }
 
-
+//Вывод текста в верхнюю строку
 function PetitMenu(couleur, s) {
   document.getElementById('placeForText').innerHTML = s;
   document.getElementById('placeForText').style.color = couleur;

@@ -51,20 +51,20 @@ FormCreate();
 
 //Обработчик событий мыши
 
-Button1.addEventListener('click', function (e) {
+Button1.addEventListener('click', function (e) {    //Создать новый файл
   Nouveau1Click();
 });
 
-Button4.addEventListener('click', function (e) {
+Button4.addEventListener('click', function (e) {    //Создать новый компонент
   Composant1Click()
 });
-Button5.addEventListener('click', function (e) {
+Button5.addEventListener('click', function (e) {    //Создать текст
   Texte1Click()
 });
-Button6.addEventListener('click', function (e) {
+Button6.addEventListener('click', function (e) {    //Удалить компонент
   Efface1Click()
 });
-Button7.addEventListener('click', function (e) {
+Button7.addEventListener('click', function (e) {    //Переместить компонент
   Dplacer1Click();
 });
 Button8.addEventListener('click', function (e) {    //Добавить силовую цепь
@@ -73,37 +73,37 @@ Button8.addEventListener('click', function (e) {    //Добавить сило�
 Button9.addEventListener('click', function (e) {    //Добавить цепь управления
   Commande1Click();
 });
-Button10.addEventListener('click', function (e) {
+Button10.addEventListener('click', function (e) {   //Пошаговое выполнение
   Anime1Click();
 });
-Button11.addEventListener('click', function (e) {
+Button11.addEventListener('click', function (e) {   //Непрерывное выполнение
   Continu1Click();
 });
-Button12.addEventListener('click', function (e) {
+Button12.addEventListener('click', function (e) {   //Изменить состояние компонента
   RAZ1Click();
 });
-Button13.addEventListener('click', function (e) {
+Button13.addEventListener('click', function (e) {   //Увеличить
   Loupe1Click();
 });
-Button14.addEventListener('click', function (e) {
+Button14.addEventListener('click', function (e) {   //Уменьшить
   Loupe2Click();
 });
-Button15.addEventListener('click', function (e) {
+Button15.addEventListener('click', function (e) {   //Влево
   Gauche1Click();
 });
-Button16.addEventListener('click', function (e) {
+Button16.addEventListener('click', function (e) {   //Вправо
   Droite1Click();
 });
-Button17.addEventListener('click', function (e) {
+Button17.addEventListener('click', function (e) {   //Вверх
   Dessus1Click();
 });
-Button18.addEventListener('click', function (e) {
+Button18.addEventListener('click', function (e) {   //Вниз
   Dessous1Click();
 });
-Button19.addEventListener('click', function (e) {
+Button19.addEventListener('click', function (e) {   //Возврат
   Sortir1Click();
 });
-Button20.addEventListener('click', function (e) {
+Button20.addEventListener('click', function (e) {   //О программе
   Apropos1Click();
 });
 
@@ -200,6 +200,7 @@ canvas.addEventListener('mousedown', function (f) {
         PetitMenu('#000000', '<Симулятор> Готов!');
         Redess(false);                                            //Перерисовка холста
         funcCursor("default");
+        ClearObjet();
         ActionMouse = '';
         Fichiermodifie = false;
         break;
@@ -417,20 +418,20 @@ function NewDistributeur(i) {
     X: 0,
     Y: 0,
     Etat_Ext: [],
-    ExtX: [],
-    ExtY: [],
+    ExtX: [],   //Координата X точки присоединения к распределителю 
+    ExtY: [],   //Координата Y точки присоединения к распределителю 
     Com: [{
       Quoi: '',
       Laquelle: 0
     }, {
-      Quoi: '',
+      Quoi: '',   //Тип концов распределителя
       Laquelle: 0
     }, {
-      Quoi: '',
+      Quoi: '',   //Тип концов распределителя
       Laquelle: 0
     }],
-    Modele: '',
-    Etat: 0
+    Modele: '',   ////Модель распределителя
+    Etat: 0   //Положение распределителя 1 или 2
   }
   //}
 }
@@ -483,7 +484,7 @@ function NewCanal(i) {
     NbPoint: 0,
     ParcoursX: [],
     ParcoursY: [],
-    Etat: false,
+    Etat: 0,
     Bout: [{
       Quoi: '',
       Lequel: 0,

@@ -18,18 +18,18 @@ function Ajoute_Objet() {  //
         PetitMenu('#A6CAF0','<Новый Компонент>   Укажите компонент');
         Vieux_Nb_Verin = Nb_Verin;
         Vieux_Nb_Distributeur = Nb_Distributeur;
-        Vieux_Nb_Capteur =Nb_Capteur;
-        Vieux_Nb_Alim =Nb_Alimentation;
-        Vieux_Nb_Alim_Pilote =Nb_Alim_Pilote;
-        Vieux_Nb_Carrefour_Pilote =Nb_Carrefour_Pilote;
-        Vieux_Nb_Carrefour =Nb_Carrefour;
-        Vieux_Nb_Commande =Nb_Commande;
-        Vieux_Nb_Canal =Nb_Canal;
-        Vieux_Nb_Canal_Pilote =Nb_Canal_Pilote;
-        Vieux_Nb_Memoire =Nb_Memoire;
-        Vieux_Nb_Sequenceur =Nb_Sequenceur;
-        Vieux_Nb_Texte =Nb_Texte;
-        Nb_Texte =0; //Лишняя
+        Vieux_Nb_Capteur = Nb_Capteur;
+        Vieux_Nb_Alim = Nb_Alimentation;
+        Vieux_Nb_Alim_Pilote = Nb_Alim_Pilote;
+        Vieux_Nb_Carrefour_Pilote = Nb_Carrefour_Pilote;
+        Vieux_Nb_Carrefour = Nb_Carrefour;
+        Vieux_Nb_Commande = Nb_Commande;
+        Vieux_Nb_Canal = Nb_Canal;
+        Vieux_Nb_Canal_Pilote = Nb_Canal_Pilote;
+        Vieux_Nb_Memoire = Nb_Memoire;
+        Vieux_Nb_Sequenceur = Nb_Sequenceur;
+        Vieux_Nb_Texte = Nb_Texte;
+        Nb_Texte = 0; //Лишняя
         if (Nb_Verin<Max_Verin-4) {
           Cree_Verin(80,30,'Simple_R');
           Cree_Verin(80,95,'Double2');
@@ -293,7 +293,7 @@ function Ajoute_Objet() {  //
         ClearDevice();
         if (Objet == 'Rien') {
           Redess(false);
-          PetitMenu('#FFFFFF','Pfff');
+          PetitMenu('#FFFFFF','Выход');
           return false;
         }
         //Lax =150;
@@ -401,7 +401,7 @@ function Ajoute_Objet() {  //
     
               if (Pasbon) {
               Affiche_Capteur(Nb_Capteur, '#FF0000', true);
-              alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', '(pas) Pfff');
+              alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', 'Симулятор');
               }
               
               break;
@@ -423,7 +423,7 @@ function Ajoute_Objet() {  //
     
               if (Pasbon) {
                 Affiche_Capteur(Nb_Capteur, '#FF0000', true);
-                alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', '(pas) Pfff');
+                alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', 'Симулятор');
               }
               break;
           }

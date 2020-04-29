@@ -398,7 +398,7 @@ function Anime2() {  // Выполнение анимации компонент
             }
 
             for (let Pour = 1; Pour <= Nb_Canal; Pour++) {
-                if (Etat == 0) {
+                if (Canal[Pour].Etat == 0) {
 
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
                         if (Canal[Pour].Bout[Pour2].Quoi == 'Un_D') {
