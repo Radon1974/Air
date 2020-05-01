@@ -192,14 +192,14 @@ function Timer2Timer(Sender) {
  function Anime1Click() {  //
   //Cacommence();
   
-  Pasapas = true;
-  Anime1();
+  //Pasapas = true;
+  //Anime1();
 
-  PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
-  L_Action = 'Action';
-  Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
+  //PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
+  //L_Action = 'Action';
+  //Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
   Fichiermodifie = true;
-  ActionMouse = 'Anime1';
+  ActionMouse = 'Anime';
   //Cestfini();
 }
 

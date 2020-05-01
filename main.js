@@ -225,6 +225,28 @@ canvas.addEventListener('mousedown', function (f) {
         Fichiermodifie = false;
         break;
 
+        //++++++++++++++++++++++++++++++++++++++  
+      case 'Anime':        //Выбор положения при нажатии
+
+      Pasapas = true;
+      Anime1();
+    
+      PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
+      L_Action = 'Action';
+      Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
+      
+      //ActionMouse = 'Anime1';
+
+      if (Objet2 != 'Rien') {   //Если нажата клавиша "Возврат" - то выход
+        ActionMouse = 'Anime1'     
+      } else {                     
+        PetitMenu('#000000', '<Симулятор> Готов!');
+        ActionMouse = '';
+        Fichiermodifie = false;
+      }
+      
+      break;
+
       //++++++++++++++++++++++++++++++++++++++  
       case 'Anime1':        //Выбор положения при нажатии
 
@@ -233,7 +255,7 @@ canvas.addEventListener('mousedown', function (f) {
         Anime2();
         Redess(false);
         if (Objet2 != 'Rien') {
-          ActionMouse = 'Anime1'   //Если нажата клавиша "Возврат" - то выход   
+          ActionMouse = 'Anime'   //Если нажата клавиша "Возврат" - то выход   
         } else {
           PetitMenu('#000000', '<Симулятор> Готов!');
           ActionMouse = '';

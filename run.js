@@ -125,12 +125,13 @@ function Anime2() {  // Выполнение анимации компонент
     var L_Action = '';
     var Tempo = 0;
 
+            L_Action = Objet2;
+            Celui_La = Celui_La2;
 
         while (['Un_D', 'Un_Cap'].includes(L_Action)) {
 
             //L_Action = 'Action';
-            L_Action = Objet2;
-            Celui_La = Celui_La2;
+            
 
             Heure = false;
             if (Celui_La == 0) {
@@ -140,7 +141,7 @@ function Anime2() {  // Выполнение анимации компонент
             }
             switch (L_Action) {
                 case 'Un_D':
-                    if ((Distributeur[Celui_La].Com[1].Quoi == 'Poussoir_gauche') && (['Ressort_Droit', 'Scie_Droite'].includes(Distributeur[Celui_La].Com[2].Quoi))) {
+                    if ((Distributeur[Celui_La].Com[1].Quoi == 'Poussoir_Gauche') && (['Ressort_Droit', 'Scie_Droite'].includes(Distributeur[Celui_La].Com[2].Quoi))) {
                         Place_Distributeur_a(Celui_La, 3 - Distributeur[Celui_La].Etat)
                     };
                     break;
