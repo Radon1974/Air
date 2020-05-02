@@ -128,7 +128,7 @@ function Anime2() {  // Выполнение анимации компонент
             L_Action = Objet2;
             Celui_La = Celui_La2;
 
-        while (['Un_D', 'Un_Cap'].includes(L_Action)) {
+        if (['Un_D', 'Un_Cap'].includes(L_Action)) {
 
             //L_Action = 'Action';
             
@@ -136,7 +136,7 @@ function Anime2() {  // Выполнение анимации компонент
             Heure = false;
             if (Celui_La == 0) {
                 Redess(false);
-                PetitMenu('#FFFFFF', 'Pfff');
+                PetitMenu('#FFFFFF', 'Симулятор');
                 return false;
             }
             switch (L_Action) {
@@ -149,12 +149,14 @@ function Anime2() {  // Выполнение анимации компонент
                     Change_Etat_Capteur(Celui_La);
                     break;
             }
+
+            return;
         }
         Raz();
         for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) { for (Pour2 = 1; Pour2 <= 2; Pour2++) { if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Une_Alim_Pilote') { Canal_Pilote[Pour].Etat = Un } } }
         for (let Pour = 1; Pour <= Nb_Canal; Pour++) { Canal[Pour].Etat = Zero }
         for (let Fois = 1; Fois <= 16; Fois++) {
-
+//Присвоение пересечениям значения работающего канала
             for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
                 if (Canal_Pilote[Pour].Etat != Bof) {
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
@@ -164,7 +166,7 @@ function Anime2() {  // Выполнение анимации компонент
                     }
                 }
             }
-
+//Присвоение датчикам значения работающего канала
             for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
                 if (Canal_Pilote[Pour].Etat != Bof) {
                     for (Pour2 = 1; Pour2 <= 2; Pour2++) {
@@ -230,9 +232,9 @@ function Anime2() {  // Выполнение анимации компонент
                     }
                 }
             }
-
+//Присвоение памяти значений работающих каналов (1-работа, 0-стоп)
             for (Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
-                if (Etat == 1) {
+                if (Canal_Pilote[Pour].Etat == 1) {
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
                         if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Une_Memoire') {
                             if (Canal_Pilote[Pour].Bout[Pour2].Branchement != 3) {
@@ -240,7 +242,7 @@ function Anime2() {  // Выполнение анимации компонент
                             }
                         }
                     }
-
+//Присвоение секвенсеру значений работающих каналов (1-работа, 0-стоп)
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
                         if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Un_Sequenceur') {
                             Sequenceur[Canal_Pilote[Pour].Bout[Pour2].Lequel].Etat_Ext[Canal_Pilote[Pour].Bout[Pour2].Branchement] = 1
@@ -248,13 +250,13 @@ function Anime2() {  // Выполнение анимации компонент
                     }
                 }
             }
-
+//Присвоение состояния памяти работа или стоп и вывод на экран (2-работа, 1-стоп)
             for (let Pour = 1; Pour <= Nb_Memoire; Pour++) {
                 if ((Memoire[Pour].Etat_Ext[1] == 1) && (Memoire[Pour].Etat_Ext[2] != 1)) { Memoire[Pour].Etat = 2 }
                 if ((Memoire[Pour].Etat_Ext[1] != 1) && (Memoire[Pour].Etat_Ext[2] == 1)) { Memoire[Pour].Etat = 1 }
                 Affiche_Memoire(Pour, 15, false);
             }
-
+//Присвоение каналу вывода памяти (3) состояния (1-работа, 0-стоп)
             for (let Pour = 1; Pour <= Nb_Memoire; Pour++) {
                 if (Memoire[Pour].Etat == 1) { Memoire[Pour].Etat_Ext[3] = 0 }
                 else {
@@ -265,12 +267,13 @@ function Anime2() {  // Выполнение анимации компонент
 
             for (let Pour = 1; Pour <= Nb_Canal_Pilote; Pour++) {
                 if (Canal_Pilote[Pour].Etat != 1) {
+                    //Присвоение каналу управления состояния работа, после выхода его из памяти (если у него нет работы)                   
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
                         if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Une_Memoire') {
                             if (Canal_Pilote[Pour].Bout[Pour2].Branchement == 3) { Canal_Pilote[Pour].Etat = Memoire[Canal_Pilote[Pour].Bout[Pour2].Lequel].Etat_Ext[3] }
                         }
                     }
-
+                    //Присвоение каналу управления состояния работа, после выхода его из секвенсора (если у него нет работы) иначе стоп
                     for (let Pour2 = 1; Pour2 <= 2; Pour2++) {
                         if (Canal_Pilote[Pour].Bout[Pour2].Quoi == 'Un_Sequenceur') {
                             if (Sequenceur[Canal_Pilote[Pour].Bout[Pour2].Lequel].Etat_Ext[Canal_Pilote[Pour].Bout[Pour2].Branchement] == 1) { Canal_Pilote[Pour].Etat = 1 }
@@ -283,24 +286,24 @@ function Anime2() {  // Выполнение анимации компонент
                     }
                 }
             }
-
+//Работа секвенсора
             for (let Pour = 1; Pour <= Nb_Sequenceur; Pour++) {
-                if (Sequenceur[Pour].Etat_Ext[18] == 1) { Sequenceur[Pour].Etat = 0 }
-                if ((Sequenceur[Pour].Etat != 0) && (Sequenceur[Pour].Etat_Ext[19] == 1)) { Sequenceur[Pour].Etat_Ext[Etat + 8] = 1 }
-                if ((Sequenceur[Pour].Etat == Combien) && (Sequenceur[Pour].Etat_Ext[Etat] == 1)) { Sequenceur[Pour].Etat_Ext[22] = 1 } else { Sequenceur[Pour].Etat_Ext[22] = 0 }
-                if (Sequenceur[Pour].Etat == 1) { Sequenceur[Pour].Etat_Ext[17] = 1 }
-                if (Sequenceur[Pour].Etat != 0) {
-                    if (Sequenceur[Pour].Etat != Combien) {
-                        if ((Sequenceur[Pour].Etat_Ext[19] == 1) && (Sequenceur[Pour].Etat_Ext[Etat] == 1)) { Sequenceur[Pour].Etat = Sequenceur[Pour].Etat % Combien + 1 }
+                if (Sequenceur[Pour].Etat_Ext[18] == 1) { Sequenceur[Pour].Etat = 0 };
+                if ((Sequenceur[Pour].Etat != 0) && (Sequenceur[Pour].Etat_Ext[19] == 1)) { Sequenceur[Pour].Etat_Ext[Sequenceur[Pour].Etat + 8] = 1 };
+                if ((Sequenceur[Pour].Etat == Sequenceur[Pour].Combien) && (Sequenceur[Pour].Etat_Ext[Sequenceur[Pour].Etat] == 1)) { Sequenceur[Pour].Etat_Ext[22] = 1 } else { Sequenceur[Pour].Etat_Ext[22] = 0 }; //Если точка на конце секвенсера
+                if (Sequenceur[Pour].Etat == 1) { Sequenceur[Pour].Etat_Ext[17] = 1 };
+                if (Sequenceur[Pour].Etat != 0) {   //Если включен секвенсер то...
+                    if (Sequenceur[Pour].Etat != Sequenceur[Pour].Combien) {        //Если не конечная позиция то...
+                        if ((Sequenceur[Pour].Etat_Ext[19] == 1) && (Sequenceur[Pour].Etat_Ext[Sequenceur[Pour].Etat] == 1)) { Sequenceur[Pour].Etat = Sequenceur[Pour].Etat % Sequenceur[Pour].Combien + 1 } //Если питание включено и на 20 подано то...
                     }
                     else {
-                        if ((Sequenceur[Pour].Etat_Ext[20] == 1) && (Sequenceur[Pour].Etat_Ext[Etat] == 1)) { Sequenceur[Pour].Etat = 1 }
+                        if ((Sequenceur[Pour].Etat_Ext[20] == 1) && (Sequenceur[Pour].Etat_Ext[Sequenceur[Pour].Etat] == 1)) { Sequenceur[Pour].Etat = 1 }
                     }
                 }
                 else {
                     if (Sequenceur[Pour].Etat_Ext[20] == 1) { Sequenceur[Pour].Etat = 1 }
                 }
-                Affiche_Etat_Sequenceur(Pour);
+                Affiche_Etat_Sequenceur(Pour);  //Отображение точки на секвенсере
             }
         }
 

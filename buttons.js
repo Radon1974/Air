@@ -163,7 +163,7 @@ function Loupe2Click() {
 //Выход  кнопка
 function Sortir1Click() {
   Droite = true;
-  
+  ActionMouse = 'Exit';
 }
 
 //Движение  кнопка
@@ -189,7 +189,7 @@ function Timer2Timer(Sender) {
 
 
 //Пошаговый запуск кнопка
- function Anime1Click() {  //
+ function Anime1Click() {
   //Cacommence();
   
   //Pasapas = true;
@@ -200,6 +200,7 @@ function Timer2Timer(Sender) {
   //Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
   Fichiermodifie = true;
   ActionMouse = 'Anime';
+  Mouse1Click()
   //Cestfini();
 }
 

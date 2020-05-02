@@ -265,7 +265,7 @@ function EntrepointView() {  // Вывод на экран каналов
             if (Distributeur[Pour].Com[2].Quoi == 'Pilote_Droit') { Entre_Pave(Distributeur[Pour].ExtX[0], Distributeur[Pour].ExtY[0]) }
         }
         for (let Pour = 1; Pour <= Nb_Capteur; Pour++) { for (let Pour2 = 1; Pour2 <= 3; Pour2++) { Entre_Pave(Capteur[Pour].ExtX[Pour2], Capteur[Pour].ExtY[Pour2]) } }
-        for (let Pour = 1; Pour <= Nb_Memoire; Pour++) { for (let Pour2 = 1; Pour2 <= 4; Pour2++) { Entre_Pave(Capteur[Pour].ExtX[Pour2], Capteur[Pour].ExtY[Pour2]) } }
+        for (let Pour = 1; Pour <= Nb_Memoire; Pour++) { for (let Pour2 = 1; Pour2 <= 4; Pour2++) { Entre_Pave(Memoire[Pour].ExtX[Pour2], Memoire[Pour].ExtY[Pour2]) } }
         for (let Pour = 1; Pour <= Nb_Sequenceur; Pour++) {
             for (let Pour2 = 1; Pour2 <= Sequenceur[Pour].Combien; Pour2++) {
                 Entre_Pave(Sequenceur[Pour].ExtX[Pour2], Sequenceur[Pour].ExtY[Pour2]);

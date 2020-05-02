@@ -3,6 +3,12 @@ var canvas = document.getElementById("myCanvas"),
   w = canvas.width,
   h = canvas.height;
 
+  document.oncontextmenu = function (){return false};  //Запретить выпадающее меню в браузере
+
+
+
+
+
 const Button1 = document.getElementById('Button1'),
 
   Button4 = document.getElementById('Button4'),
@@ -12,7 +18,7 @@ const Button1 = document.getElementById('Button1'),
   Button8 = document.getElementById('Button8'),
   Button9 = document.getElementById('Button9'),
   Button10 = document.getElementById('Button10'),
-  Button11 = document.getElementById('Button11'),
+  //Button11 = document.getElementById('Button11'),
   Button12 = document.getElementById('Button12'),
   Button13 = document.getElementById('Button13'),
   Button14 = document.getElementById('Button14'),
@@ -76,9 +82,9 @@ Button9.addEventListener('click', function (e) {    //Добавить цепь 
 Button10.addEventListener('click', function (e) {   //Пошаговое выполнение
   Anime1Click();
 });
-Button11.addEventListener('click', function (e) {   //Непрерывное выполнение
-  Continu1Click();
-});
+//Button11.addEventListener('click', function (e) {   //Непрерывное выполнение
+//  Continu1Click();
+//});
 Button12.addEventListener('click', function (e) {   //Изменить состояние компонента
   RAZ1Click();
 });
@@ -110,187 +116,206 @@ Button20.addEventListener('click', function (e) {   //О программе
 
 
 canvas.addEventListener('mousedown', function (f) {
-  mouse.x = f.pageX - this.offsetLeft;
-  mouse.y = f.pageY - this.offsetTop;
+  X_s = f.pageX - this.offsetLeft;
+  Y_s = f.pageY - this.offsetTop;
   //X_s = mouse.x * Facteur;
   //Y_s = mouse.y * Facteur;
-  X_s = mouse.x;
-  Y_s = mouse.y;
-
-  //console.log("Mouse X", mouse.x, X_s, "Mouse Y", mouse.y, Y_s );
+  //X_s = mouse.x;
+  //Y_s = mouse.y;
 
   //++++++++++++++++++++++++++++++++++++++
   if ((event.which == 1) && Fichiermodifie) {
     Gauche = true;
     Droite = false;
-    switch (ActionMouse) {
-      case 'File':
-        alert('Файл');
+    Mouse1Click()
+  }
+  if (event.which == 3) {
+    Droite = true;
+    Gauche = false;
+
+  }
+}
+);
+
+//Обработка событий мыши
+function Mouse1Click() {
+
+
+  switch (ActionMouse) {
+    case 'File':
+      alert('Файл');
+      funcCursor("default");
+      break;
+
+    //++++++++++++++++++++++++++++++++++++++
+    case 'Pointe_Objet2':
+
+      Pointe_Objet2(Objet2, Prox2);                             //Выбор компонента
+      Ajoute_Objet2(Objet2, Celui_La2);                         //
+      Ou_Que();                    //Выбор места установки компонента
+      ActionMouse = 'Ajoute_Objet3';
+      break;
+    case 'Ajoute_Objet3':
+
+      Ajoute_Objet3(Objet2, X_s / Facteur, Y_s / Facteur, Quoi_Donc2, Celui_La2);//Вставка компонента
+      PetitMenu('#000000', '<Симулятор> Готов!');
+      Redess(false);                                            //Перерисовка холста
+      funcCursor("default");
+      ClearObjet();
+      ActionMouse = '';
+      Fichiermodifie = false;
+      break;
+
+    //++++++++++++++++++++++++++++++++++++++
+    case 'Texte':
+
+      Cree_Texte2()
+      funcCursor("default");
+      PetitMenu('#000000', '<Симулятор> Готов!');
+      ActionMouse = '';
+      Fichiermodifie = false;
+      break;
+
+    //++++++++++++++++++++++++++++++++++++++
+    case 'Remove':
+
+      Celui_La2 = 1;
+      Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+      Effacer()  //
+
+      //Ajoute_Objet2(Objet2, Celui_La2); //
+      //Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
+      PetitMenu('#000000', '<Симулятор> Готов!');
+      ActionMouse = '';
+      break;
+
+    //++++++++++++++++++++++++++++++++++++++  
+    case 'Move':
+
+      Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+      Ou_Que(); //Выбор места установки компонента
+      PetitMenu('#A6CAF0', '<Переместить>  Укажите новую позицию ?');
+      ActionMouse = 'Move2';
+      break;
+
+    case 'Move2':
+      Deplace_Objet()
+      funcCursor("default");
+      PetitMenu('#000000', '<Симулятор> Готов!');
+      ActionMouse = '';
+      Fichiermodifie = false;
+      break;
+    //++++++++++++++++++++++++++++++++++++++
+    case 'DRA':
+
+      DRA(X_s, Y_s);              //Ввод точки канала
+      Entre_Canal();                      //Ввод канала
+      if (Ext) {
+        Cree_Canal();                       //Запись канала после введения данных
+        Redess(false);                      //Перерисовка холста                      
         funcCursor("default");
-        break;
-
-      //++++++++++++++++++++++++++++++++++++++
-      case 'Pointe_Objet2':
-
-        Pointe_Objet2(Objet2, Prox2);                             //Выбор компонента
-        Ajoute_Objet2(Objet2, Celui_La2);                         //
-        Ou_Que();                    //Выбор места установки компонента
-        ActionMouse = 'Ajoute_Objet3';
-        break;
-      case 'Ajoute_Objet3':
-
-        Ajoute_Objet3(Objet2, X_s / Facteur, Y_s / Facteur, Quoi_Donc2, Celui_La2);//Вставка компонента
-        PetitMenu('#000000', '<Симулятор> Готов!');
-        Redess(false);                                            //Перерисовка холста
-        funcCursor("default");
-        ClearObjet();
-        ActionMouse = '';
-        Fichiermodifie = false;
-        break;
-
-      //++++++++++++++++++++++++++++++++++++++
-      case 'Texte':
-
-        Cree_Texte2()
-        funcCursor("default");
-        PetitMenu('#000000', '<Симулятор> Готов!');
-        ActionMouse = '';
-        Fichiermodifie = false;
-        break;
-
-      //++++++++++++++++++++++++++++++++++++++
-      case 'Remove':
-
-        Celui_La2 = 1;
-        Pointe_Objet2(Objet2, Prox2); //Выбор компонента
-        Effacer()  //
-
-        //Ajoute_Objet2(Objet2, Celui_La2); //
-        //Ou_Que(Lax2, Lay2, false, Quoi_Donc2); //Выбор места установки компонента
-        PetitMenu('#000000', '<Симулятор> Готов!');
-        ActionMouse = '';
-        break;
-
-      //++++++++++++++++++++++++++++++++++++++  
-      case 'Move':
-
-        Pointe_Objet2(Objet2, Prox2); //Выбор компонента
-        Ou_Que(); //Выбор места установки компонента
-        PetitMenu('#A6CAF0', '<Переместить>  Укажите новую позицию ?');
-        ActionMouse = 'Move2';
-        break;
-
-      case 'Move2':
-        Deplace_Objet()
-        funcCursor("default");
-        PetitMenu('#000000', '<Симулятор> Готов!');
-        ActionMouse = '';
-        Fichiermodifie = false;
-        break;
-      //++++++++++++++++++++++++++++++++++++++
-      case 'DRA':
-
-        DRA(X_s, Y_s);              //Ввод точки канала
-        Entre_Canal();                      //Ввод канала
-        if (Ext) {
-          Cree_Canal();                       //Запись канала после введения данных
-          Redess(false);                      //Перерисовка холста                      
-          funcCursor("default");
-          PetitMenu('#000000', '<Симулятор> Готов!');
-          ActionMouse = '';
-          Fichiermodifie = false;
-        }
-        break;
-
-      //++++++++++++++++++++++++++++++++++++++        
-      case 'DRA2':
-
-        DRA(X_s, Y_s);              //Ввод точки канала
-        Entre_Canal_Pilote();                      //Ввод канала
-        if (Ext) {
-          Cree_Canal_Pilote();                       //Запись канала после введения данных
-          Redess(false);                      //Перерисовка холста                      
-          funcCursor("default");
-          PetitMenu('#000000', '<Симулятор> Готов!');
-          ActionMouse = '';
-          Fichiermodifie = false;
-        }
-        break;
-      case 'RAZ1':        //Выбор положения при нажатии
-
-        RAZ1Click2();
-        funcCursor("default");
-        PetitMenu('#000000', '<Симулятор> Готов!');
-        ActionMouse = '';
-        Fichiermodifie = false;
-        break;
-
-        //++++++++++++++++++++++++++++++++++++++  
-      case 'Anime':        //Выбор положения при нажатии
-
-      Pasapas = true;
-      Anime1();
-    
-      PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
-      L_Action = 'Action';
-      Pointe_Objet( L_Action, '#0000FF'); //Выбор компонента
-      
-      //ActionMouse = 'Anime1';
-
-      if (Objet2 != 'Rien') {   //Если нажата клавиша "Возврат" - то выход
-        ActionMouse = 'Anime1'     
-      } else {                     
         PetitMenu('#000000', '<Симулятор> Готов!');
         ActionMouse = '';
         Fichiermodifie = false;
       }
-      
       break;
 
-      //++++++++++++++++++++++++++++++++++++++  
-      case 'Anime1':        //Выбор положения при нажатии
+    //++++++++++++++++++++++++++++++++++++++        
+    case 'DRA2':
 
+      DRA(X_s, Y_s);              //Ввод точки канала
+      Entre_Canal_Pilote();                      //Ввод канала
+      if (Ext) {
+        Cree_Canal_Pilote();                       //Запись канала после введения данных
+        Redess(false);                      //Перерисовка холста                      
+        funcCursor("default");
+        PetitMenu('#000000', '<Симулятор> Готов!');
+        ActionMouse = '';
+        Fichiermodifie = false;
+      }
+      break;
+    case 'RAZ1':        //Выбор положения при нажатии
+
+      RAZ1Click2();
+      funcCursor("default");
+      PetitMenu('#000000', '<Симулятор> Готов!');
+      ActionMouse = '';
+      Fichiermodifie = false;
+      break;
+
+    //++++++++++++++++++++++++++++++++++++++  
+    case 'Anime':        //Выбор положения при нажатии
+      Pasapas = true;
+      Anime1();
+
+      PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
+      L_Action = 'Action';
+      Pointe_Objet(L_Action, '#0000FF'); //Выбор компонента
+
+      //ActionMouse = 'Anime1';
+
+      if (Objet2 != 'Rien' || ActionMouse != 'Exit') {   //Если нажата клавиша "Возврат" - то выход
+        ActionMouse = 'Anime1'
+      } else {
+        PetitMenu('#000000', '<Симулятор> Готов!');
+        ActionMouse = '';
+        Fichiermodifie = false;
+      }
+
+      break;
+
+    //++++++++++++++++++++++++++++++++++++++  
+    case 'Anime1':        //Выбор положения при нажатии
+      
+        Heure = true;
+        Pointe_Objet2(Objet2, Prox2); //Выбор компонента
+        Anime2();
+        
+      
+      Redess(false);
+      
+      ActionMouse = 'Anime'; 
+      
+      if (['Un_D', 'Un_Cap'].includes(Objet2)) {
+
+        Pasapas = true;
+        //Anime1();
+  
+        PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
+        L_Action = 'Action';
+        Pointe_Objet(L_Action, '#0000FF'); //Выбор компонента
+
+
+        ActionMouse = 'Anime1'
+      }
+      funcCursor("default");
+      break;
+
+    //++++++++++++++++++++++++++++++++++++++  
+    case 'Anime2':        //Выбор положения при нажатии
+
+      var intervalID = setInterval(function () {  //Непрерывный цикл
         Heure = true;
         Pointe_Objet2(Objet2, Prox2); //Выбор компонента
         Anime2();
         Redess(false);
-        if (Objet2 != 'Rien') {
-          ActionMouse = 'Anime'   //Если нажата клавиша "Возврат" - то выход   
-        } else {
+        timerId++
+        if (Objet2 == 'Rien') {
+          clearInterval(intervalID)
+          funcCursor("default");
           PetitMenu('#000000', '<Симулятор> Готов!');
           ActionMouse = '';
           Fichiermodifie = false;
-        }
-        funcCursor("default");
-        break;
+        } //Если нажата клавиша "Возврат" - то выход из цикла
+      }, 1000);
 
-      //++++++++++++++++++++++++++++++++++++++  
-      case 'Anime2':        //Выбор положения при нажатии
+      break;
 
-        var intervalID = setInterval(function () {  //Непрерывный цикл
-          Heure = true;
-          Pointe_Objet2(Objet2, Prox2); //Выбор компонента
-          Anime2();
-          Redess(false);
-          timerId++
-          if (Objet2 == 'Rien') {
-            clearInterval(intervalID)
-            funcCursor("default");
-            PetitMenu('#000000', '<Симулятор> Готов!');
-            ActionMouse = '';
-            Fichiermodifie = false;  
-    } //Если нажата клавиша "Возврат" - то выход из цикла
-  }, 1000);
-
-break;
-    }
   }
-if (event.which == 3) {
-  Droite = true;
-  Gauche = false;
-  Fichiermodifie = false;
+
 }
-});
+
+
 
 
 
