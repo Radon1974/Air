@@ -231,10 +231,9 @@ function Ajoute_Objet() {  //
               for (let Pour3 = 1; Pour3 <= Nb_Verin; Pour3++) {if ((Lax > Verin[Pour3].X + (0) * L_Bout + VL_Tige + 2 * L_Bout - 13) &&
                 (Lax < Verin[Pour3].X + (9) * L_Bout + VL_Tige + 2 * L_Bout + 13) && ((Verin[Pour3].Y - Lay) < 0) &&
                 (Math.abs(Verin[Pour3].Y - Lay) < 40)) { Pasbon = false}}
-    
-              if (Pasbon) {
+               if (Pasbon) {
               Affiche_Capteur(Nb_Capteur, '#FF0000', true);
-              alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', 'Симулятор');
+              PetitMenu('#000000','Этот концевой выключатель, похоже, не может эксплуатироваться с существующим гидроцилиндром!');
               }
               
               break;
@@ -256,7 +255,7 @@ function Ajoute_Objet() {  //
     
               if (Pasbon) {
                 Affiche_Capteur(Nb_Capteur, '#FF0000', true);
-                alert('Этот концевой выключатель, похоже, не может эксплуатироваться существующим водителем  !', 'Симулятор');
+                PetitMenu('#000000','Этот концевой выключатель, похоже, не может эксплуатироваться с существующим гидроцилиндром!');
               }
               break;
           }

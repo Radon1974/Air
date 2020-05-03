@@ -132,7 +132,7 @@ canvas.addEventListener('mousedown', function (f) {
   if (event.which == 3) {
     Droite = true;
     Gauche = false;
-
+    PetitMenu('#000000', '<Симулятор> Готов!');
   }
 }
 );
@@ -247,7 +247,7 @@ function Mouse1Click() {
     case 'Anime':        //Выбор положения при нажатии
       Pasapas = true;
       Anime1();
-
+      Redess(false);
       PetitMenu('#00FF00', '<Выполнить>   Нажмите или удерживайте часы, чтобы пошло время' + ' Левая кнопка: Действие    Правая кнопка: Назад ');
       L_Action = 'Action';
       Pointe_Objet(L_Action, '#0000FF'); //Выбор компонента
@@ -285,7 +285,7 @@ function Mouse1Click() {
         L_Action = 'Action';
         Pointe_Objet(L_Action, '#0000FF'); //Выбор компонента
 
-
+        
         ActionMouse = 'Anime1'
       }
       funcCursor("default");

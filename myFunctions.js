@@ -225,16 +225,28 @@ document.getElementById("selFile").onchange = function () {
 };
 
 //+++Запись файла+++
-document.getElementById("downFile").onclick = function () {
+/*document.getElementById("downFile").onclick = function () {
   var SaveF = Save1Click()
   var json = JSON.stringify(SaveF); // test -> localStorage
+
+
+
   var file = new File([json], "myFilename.txt", {
     type: "application/octet-stream"
   });
   var blobUrl = (URL || webkitURL).createObjectURL(file);
   window.location = blobUrl;
-}
+}*/
 
+//+++Запись файла+++
+document.getElementById("dlbtn").onclick = function () {
+  var SaveF = Save1Click()
+  var json = JSON.stringify(SaveF); // test -> localStorage
+  var dlbtn = document.getElementById("dlbtn");
+  var file = new Blob([json], {type: 'text/plain'});
+  dlbtn.href = URL.createObjectURL(file);
+  dlbtn.download = document.getElementById("selName").value + '.json';  //dlbtn.download = 'simulator.json'; 
+}
 
 //Сохранение  файла
 function Save1Click() {

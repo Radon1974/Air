@@ -164,6 +164,7 @@ function Loupe2Click() {
 function Sortir1Click() {
   Droite = true;
   ActionMouse = 'Exit';
+  PetitMenu('#000000', '<Симулятор> Готов!');
 }
 
 //Движение  кнопка

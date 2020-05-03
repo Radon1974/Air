@@ -115,6 +115,6 @@ function Effacer() {  //
       }
     }
     Redess(false);
-  
+    ClearObjet();
 }
 
